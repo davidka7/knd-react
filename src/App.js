@@ -5,6 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootswatch/dist/sketchy/bootstrap.min.css";
 import Main from './container/Main';
 import Account from './container/Account';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -25,15 +28,6 @@ const App = () => {
         } />
         <Route path="/" exact strict render={() => (user ? (<Redirect to="/homepage" />) :
           (<Account />))} />
-
-        {/* <Route
-          path="/" 
-          render={(routeProps) => 
-              false ? <Main {...routeProps} />
-               : <Redirect to={{pathname: '/account', state: { from: routeProps.location }}} />
-            }
-          />
-       <Route exact path='/account' render={(routeProps) => <Account {...routeProps} />} /> */}
 
       </Router>
 
