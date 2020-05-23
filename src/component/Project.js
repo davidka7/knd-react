@@ -5,7 +5,7 @@ const Project = () => {
     
     return (
         <div>
-            Projects
+            Projectsa
         </div>
     )
 }
