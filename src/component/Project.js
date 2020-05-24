@@ -1,11 +1,15 @@
 import React from 'react';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import ProjectList from './ProjectList';
 
 const Project = () => {
     
     return (
-        <div>
-            Projectsa
-        </div>
+        <Container>
+            <Col>Your projects</Col>
+            <Col><ProjectList/></Col>
+        </Container>
     )
 }
 export default Project
