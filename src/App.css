@@ -34,3 +34,5 @@
     transform: rotate(360deg);
   }
 }
+
+.mainBar input { min-width: 500px !important }
