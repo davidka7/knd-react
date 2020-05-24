@@ -4,8 +4,7 @@ const SideBar = () => {
     
     return (
         <div>
-            This is SideBar
-            <button className="btn btn-outline-primary">Signout </button>
+            SideBar
         </div>
     )
 }
