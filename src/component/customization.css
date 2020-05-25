@@ -1,0 +1,24 @@
+.text-right {
+float: right;
+width: 70%;
+background-color: rgb(233, 203, 165);
+/* overflow:auto; */
+
+color: blue;
+
+}
+.text-left {
+    float: left;
+    width: 30%;
+    height: 650px;
+    background-color: rgb(233, 203, 165);
+    position: fixed;
+    
+    }
+
+    #colors {
+
+        background-color: black;
+    }
+    /* The sticky class is added to the header with JS when it reaches its scroll position */
+   

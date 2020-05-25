@@ -34,7 +34,7 @@ const Main = () => {
                 <Link to="/profile" className="nav-link">Profile</Link>
               </li>
               <li className="nav-item">
-                <Link to="/customization" className="nav-link">Customization</Link>
+                <Link to="/customization" className="nav-link">Settings</Link>
               </li>
             </ul>
             <form className="form-inline my-2 my-lg-0">
