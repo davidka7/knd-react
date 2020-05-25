@@ -1,11 +1,9 @@
 import React from 'react';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import BoardList from './BoardList'
-import {
-    BrowserRouter as Router,
-    Route, Link
-  } from "react-router-dom";
+// import BoardList from './BoardList'
+
+import {Link} from "react-router-dom";
 const ProjectList = () => {
 
     const p = [ {id: 1, topic: 'Have fun', background_image: 'nil'},
@@ -17,12 +15,9 @@ const ProjectList = () => {
     return (
         <Row>
             {p.map(project => (<Col>
- <Router>
- <Link className="btn btn-outline-primary" to='/boards'> {project.topic} </Link>
-<Route path='/boards'>
-<BoardList />
-</Route>
-</Router>
+          
+            <Link to="/boards" className="btn btn-outline-primary">{project.topic}</Link>
+               
  </Col>))}
         </Row>
     )

@@ -7,6 +7,7 @@ const BoardList = () => {
 return (
 
 <div>
+    hi
 <CardDeck>
 <Board/>
 <Board/>

@@ -5,6 +5,7 @@ import Icon from '../component/Icon';
 import Customization from '../component/Customization';
 import Profile from '../container/Profile';
 import Home from '../component/Home';
+import BoardList from '../component/BoardList'
 
 
 const Main = () => {
@@ -44,7 +45,9 @@ const Main = () => {
           </div>
         </nav>
 
-        
+        <Route path="/boards">
+            <BoardList projectId={"id"} />
+          </Route>
           <Route path="/home">
             <Home />
           </Route>

@@ -23,7 +23,7 @@ const Account = () => {
                 <div>
                     <Login/>
                     <SignUp/>
-                    <Link className="btn btn-outline-primary" to="/homepage"> Homepage </Link>
+                    
                 </div>
             )
         }
