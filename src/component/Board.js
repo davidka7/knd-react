@@ -18,10 +18,6 @@ return (
       <Card.Title className="texter">Card title</Card.Title>
       <Card.Text className="texter">
    
-
-
-
-
        <Button onClick={handleShow}>Card #####</Button>
             
             <Modal show={show} onHide={handleClose}>
