@@ -13,11 +13,11 @@ const Content = ({card}) => {
         //     {content}
         // </div>
         <div>
-        <Button onClick={handleShow}>{'card.card_title'}</Button>
+        <Button onClick={handleShow}>{card.card_title}</Button>
 
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title>{'card.card_title'}</Modal.Title>
+                <Modal.Title>{card.card_title}</Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 {card.content}
