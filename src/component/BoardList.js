@@ -1,22 +1,20 @@
 import React from 'react'
 import Board from './Board'
 import CardDeck from 'react-bootstrap/CardDeck'
-const BoardList = () => {
 
+const BoardList = ({projectId}) => {
 
+    console.log("boardlist ", projectId)
 return (
-
-<div>
-    hi
-<CardDeck>
-<Board/>
-<Board/>
-<Board/>
-<Board/>
-</CardDeck>
-    </div>
     
-)
+    <div>
+        <CardDeck>
+            {projectId.map( board => <Board board={board}/>)}
+        
+        </CardDeck>
+    </div>
+        
+    )
 }
 
 
