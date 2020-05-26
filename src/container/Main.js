@@ -5,10 +5,11 @@ import Icon from '../component/Icon';
 import Customization from '../component/Customization';
 import Profile from '../container/Profile';
 import Home from '../component/Home';
-import BoardList from '../component/BoardList'
+import BoardList from '../component/BoardList';
+import { connect } from 'react-redux';
 
 
-const Main = () => {
+const Main = ({projectId}) => {
 
   return (
     <div className="mainBar">
@@ -45,8 +46,10 @@ const Main = () => {
           </div>
         </nav>
 
+        {/* we either have to create a redux, set state, or we have to do a call back function */}
+        
         <Route path="/boards">
-            <BoardList projectId={"id"} />
+            <BoardList projectId={projectId} />
           </Route>
           <Route path="/home">
             <Home />
@@ -70,4 +73,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default connect(store=>({projectId: store.projectId}))(Main)

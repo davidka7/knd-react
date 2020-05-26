@@ -11,13 +11,15 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-scroll": "^1.7.16",
     "react-sticky": "^6.0.3",
     "react-sticky-el": "^2.0.5",
-    "react-sticky-header": "^0.2.0"
+    "react-sticky-header": "^0.2.0",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
