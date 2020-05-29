@@ -1,22 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const SideBar = () => {
+const SideBar = ({userInfo}) => {
 
-    const u = {
-        username: 'kim',
-        full_name: 'Ngan Kim Khong',
-        favorite_color: 'blue',
-        email: 'nk@gmail.com',
-    }
     
     return (
         <div>
             <h3>Your Profile</h3>
-            <p>Username: {u.username}</p>
-            <p>Full name: {u.full_name}</p>
-            <p>Favorite Color: {u.favorite_color}</p>
-            <p>Email: {u.email}</p>
+            <p>Username: {userInfo.username}</p>
+            <p>Full name: {userInfo.full_name}</p>
+            <p>Favorite Color: {userInfo.favorite_color}</p>
+            <p>Email: {userInfo.email}</p>
         </div>
     )
 }
-export default SideBar
+
+
+const mapStateToProp = (store) => {
+    return { userInfo : store.userContext.user }
+}
+
+export default connect(mapStateToProp)(SideBar)

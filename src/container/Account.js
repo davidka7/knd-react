@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import Login from '../component/Login';
 import SignUp from '../component/SignUp';
 import { Link } from 'react-router-dom';
@@ -6,11 +7,10 @@ import Profile from './Profile';
 import Container from 'react-bootstrap/Container';
 
 
-const Account = () => {
+const Account = ({userInfo}) => {
     
-    let user = "undefined"
     const list = () => {
-        if (user) {
+        if (userInfo) {
             return (
                 <div>
                     <Profile/>  
@@ -22,8 +22,7 @@ const Account = () => {
             return (
                 <div>
                     <Login/>
-                    <SignUp/>
-                    
+                    <SignUp/> 
                 </div>
             )
         }
@@ -35,4 +34,9 @@ const Account = () => {
         </Container>
     )
 }
-export default Account
+
+const mapStateToProp = (store) => {
+    return { userInfo : store.userContext.user }
+}
+
+export default connect(mapStateToProp)(Account)

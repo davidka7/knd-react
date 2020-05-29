@@ -10,7 +10,6 @@ return (
     <div>
         <CardDeck>
             {projectId.map( board => <Board board={board}/>)}
-        
         </CardDeck>
     </div>
         

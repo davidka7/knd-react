@@ -5,8 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootswatch/dist/sketchy/bootstrap.min.css";
 import Main from './container/Main';
 import Account from './container/Account';
-
-
 import {
   BrowserRouter as Router,
   Route,
