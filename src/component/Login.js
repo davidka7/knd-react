@@ -1,14 +1,32 @@
 import React, { useState }  from 'react';
+import { connect } from 'react-redux';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { login } from '../actions/userAction';
 
-const Login = () => {
+const Login = ({ signin }) => {
     const [show, setShow] = useState(false);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleUsernameChange = e => {
+      setUsername(e.target.value);
+    }
+    
+    const handlePasswordChange = e => {
+      setPassword(e.target.value);
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        signin(username, password);
+    }
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleLogin = () => setShow(false)
+    const handleLogin = () => setShow(false);
 
     return (
         <div>
@@ -19,10 +37,15 @@ const Login = () => {
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <Form>
+                <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formLoginUsername">
                         <Form.Label>Username</Form.Label>
-                        <Form.Control type="username" placeholder="Enter username" />
+                        <Form.Control 
+                            type="username" 
+                            placeholder="Enter username" 
+                            onChange={handleUsernameChange}
+                            value={username}
+                            />
                         <Form.Text className="text-muted">
                         Username shouls be unique
                         </Form.Text>
@@ -30,16 +53,29 @@ const Login = () => {
 
                     <Form.Group controlId="formLogincPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control 
+                            type="password" 
+                            placeholder="Password"
+                            onChange={handlePasswordChange}
+                            value={password}
+                             />
                     </Form.Group>
+                    <Button type="submit" variant="primary" onClick={handleLogin}>Log in</Button>
                 </Form>
-
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="primary" onClick={handleLogin}>Submit</Button>
-                </Modal.Footer>
             </Modal>
         </div>
         )
     }
-export default Login
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signin: (username, password) => login(username, password).then(dispatch)
+    }
+}
+
+const mapStateToProps = (store) => {
+    return {loginError: store.userContext.error}
+}
+    
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

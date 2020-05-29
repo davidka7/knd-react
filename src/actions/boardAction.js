@@ -26,4 +26,4 @@ export const getBoards = (project_id, dispatch) => {
         ) 
     });
 }
-
+// em dang lam so le need to fix this

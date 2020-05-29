@@ -9,11 +9,8 @@ const Content = ({card}) => {
     const handleShow = () => setShow(true);
 
     return (
-        // <div>
-        //     {content}
-        // </div>
         <div>
-        <Button onClick={handleShow}>{'card.card_title'}</Button>
+            <Button onClick={handleShow}>{'card.card_title'}</Button>
 
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>

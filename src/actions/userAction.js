@@ -33,7 +33,7 @@ export const login = (username, password) => {
     return loginSignup(`${BACKEND_DOMAIN}/login`, username, password);
 }
 
-export const signup = (email, username, full_name, password) => {
+export const signup = (email, username, full_name, favorite_color, password) => {
 
     const user = {
         user: {
