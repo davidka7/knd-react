@@ -1,14 +1,16 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import ProjectList from './ProjectList';
+import ProjectBar from './ProjectBar'
 
 const Project = () => {
     
     return (
         <Container>
-            <Col>Your projects</Col>
-            <Col><ProjectList/></Col>
+            <ProjectBar/>
+            <br/>
+            <ProjectList/>
         </Container>
     )
 }

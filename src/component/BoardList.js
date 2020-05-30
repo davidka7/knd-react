@@ -4,15 +4,11 @@ import CardDeck from 'react-bootstrap/CardDeck'
 
 const BoardList = ({projectId}) => {
 
-    console.log("boardlist ", projectId)
-return (
-    
-    <div>
-        <CardDeck>
+
+    return (
+        <CardDeck className='project-list'>
             {projectId.map( board => <Board board={board}/>)}
-        </CardDeck>
-    </div>
-        
+        </CardDeck>  
     )
 }
 

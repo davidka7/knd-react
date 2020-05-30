@@ -63,10 +63,6 @@ const Customization = () => {
         </header>
       </Sticky>
 
-
-
-
-
       <Card className="text-right" border="white">
         <Card.Body>
           <Card border="black">

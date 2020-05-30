@@ -21,7 +21,7 @@ const Main = ({projectId}) => {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarColor02">
-            <ul className="navbar-nav mr-auto">
+            <ul className="navbar-nav mr-auto" >
               <li className="nav-item active">
                 <Link to="/home" className="nav-link">Home</Link>
               </li>
