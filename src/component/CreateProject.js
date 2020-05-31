@@ -5,8 +5,8 @@ import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
 import {createProject} from '../actions/projectAction'
 
-const CreateProject = () => {
-    
+const CreateProject = ({projects}) => {
+
     const [show, setShow] = useState(false);
     const [topic, setTopic] = useState('');
     const [imageLink, setImageLink] = useState('');
@@ -21,6 +21,8 @@ const CreateProject = () => {
         e.preventDefault();
         e.stopPropagation();
         createProject(topic, imageLink);
+        setTopic('');
+        setImageLink('');
     }
 
     return (
@@ -51,12 +53,19 @@ const CreateProject = () => {
                             value={imageLink}
                              />
                     </Form.Group>
-                    <Button type="submit" variant="primary" onClick={'handleLogin'}>Create </Button>
+                    <Button type="submit" variant="primary" onClick={handleClose}>Create </Button>
                 </Form>
             </Modal.Body>
         </Modal>
         </>
     );
-    
 }
-export default connect()(CreateProject)
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createProject: (topic, imageLink) => {createProject(topic, imageLink).then(dispatch) }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreateProject)

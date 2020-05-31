@@ -9,8 +9,8 @@ const headers = () => {
     }
 }
 
-export const getBoards = (project_id, dispatch) => {
 
+export const getBoards = (project_id) => {
     return fetch(`${BACKEND_DOMAIN}/projects/${project_id}`, {
         method: "GET",
         headers: headers(),
@@ -22,12 +22,9 @@ export const getBoards = (project_id, dispatch) => {
                 error: res.message
             };
         }
-        dispatch(
-            {
+        return {
                 type: "GET_ALL_BOARDS",
-                payload: res.boards
-            }
-        ) 
+                payload: res.boards }
     });
 }
 // em dang lam so le need to fix this
