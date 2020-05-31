@@ -7,9 +7,10 @@ const headers = () => {
       Accept: "application/json",
       Authorization: token()
     };
-  };
+};
 
-export const getMyProjects = (dispatch) => {
+
+export const getMyProjects = () => {
     return fetch(`${BACKEND_DOMAIN}/projects`, {
         method: "GET",
         headers: headers()
@@ -21,17 +22,48 @@ export const getMyProjects = (dispatch) => {
                 error: res.message
             };
         }
-        dispatch(
-            {
+        return {
                 type: "GET_MY_PROJECTS",
                 payload: res
             }
-        ) 
+        
     });
 }
 
-export const createProject = (user_id, topic ) => {
-    const project = { user_id, topic }
+
+export const signup = (email, username, full_name, favorite_color, password) => {
+
+    const user = {
+        user: {
+            username,
+            full_name,
+            favorite_color,
+            email,
+            password
+        }
+    }
+    return fetch(`${BACKEND_DOMAIN}/users`, {
+        method: "POST",
+        headers: headers(),
+        body: JSON.stringify(user)
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            return {
+                type: "SIGNUP_ERROR",
+                error: res.error
+            };
+        }
+        return {
+            type: "SIGNUP",
+            payload: res
+        }
+    }); 
+
+}
+
+export const createProject = ( topic ) => {
+    const project = { topic }
     return fetch(`${BACKEND_DOMAIN}/projects`, {
         method: "POST",
         headers: headers(),
@@ -40,7 +72,7 @@ export const createProject = (user_id, topic ) => {
     .then(res => {
         if (res.error) {
             return {
-                type: "CREATE_PROJEC_ERROR",
+                type: "CREATE_PROJECT_ERROR",
                 error: res.error
             };
         }

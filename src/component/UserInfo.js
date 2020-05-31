@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 const SideBar = ({userInfo}) => {
 
-    
     return (
+        
         <div>
             <h3>Your Profile</h3>
             <p>Username: {userInfo.username}</p>

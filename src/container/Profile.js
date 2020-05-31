@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import SideBar from '../component/SideBar';
 import UserInfo from '../component/UserInfo';
 import Row from 'react-bootstrap/Row';
@@ -7,8 +7,6 @@ import {connect} from 'react-redux';
 import { logout } from '../actions/userAction';
 
 const Profile = ({signout}) => {
-
-    
 
     return (
         <Row>
@@ -19,11 +17,14 @@ const Profile = ({signout}) => {
     )
 }
 
+const mapStateToProps = (store) => {
+    return {user: store.userContext.user}
+}
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signout: () => dispatch(logout())
+    }
+}
 
-export default connect(store => ({user: store.userContext.user}),
-    (dispatch) => {
-        return {
-            signout: () => dispatch(logout())
-        };
-    })(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

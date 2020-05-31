@@ -32,8 +32,8 @@ const ProjectList = ({getMyProjects, projects, projectId}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getMyProjects: () => getMyProjects(dispatch),
-        projectId: (project_id) => getBoards(project_id, dispatch)
+        getMyProjects: () => getMyProjects().then(dispatch),
+        projectId: (project_id) => getBoards(project_id).then(dispatch)
     }
 }
 
