@@ -11,13 +11,8 @@ const Login = ({ signin }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleUsernameChange = e => {
-      setUsername(e.target.value);
-    }
-    
-    const handlePasswordChange = e => {
-      setPassword(e.target.value);
-    }
+    const handleUsernameChange = e => { setUsername(e.target.value) }
+    const handlePasswordChange = e => { setPassword(e.target.value) }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -27,7 +22,6 @@ const Login = ({ signin }) => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleLogin = () => setShow(false);
 
     return (
         <div>
@@ -38,31 +32,31 @@ const Login = ({ signin }) => {
                     <Modal.Title>Login</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group controlId="formLoginUsername">
-                        <Form.Label>Username</Form.Label>
-                        <Form.Control 
-                            type="username" 
-                            placeholder="Enter username" 
-                            onChange={handleUsernameChange}
-                            value={username}
-                            />
-                        <Form.Text className="text-muted">
-                        Username shouls be unique
-                        </Form.Text>
-                    </Form.Group>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group controlId="formLoginUsername">
+                            <Form.Label>Username</Form.Label>
+                            <Form.Control 
+                                type="username" 
+                                placeholder="Enter username" 
+                                onChange={handleUsernameChange}
+                                value={username}
+                                />
+                            <Form.Text className="text-muted">
+                            Username shouls be unique
+                            </Form.Text>
+                        </Form.Group>
 
-                    <Form.Group controlId="formLogincPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control 
-                            type="password" 
-                            placeholder="Password"
-                            onChange={handlePasswordChange}
-                            value={password}
-                             />
-                    </Form.Group>
-                    <Button type="submit" variant="primary" onClick={handleLogin}>Log in</Button>
-                </Form>
+                        <Form.Group controlId="formLogincPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control 
+                                type="password" 
+                                placeholder="Password"
+                                onChange={handlePasswordChange}
+                                value={password}
+                                />
+                        </Form.Group>
+                        <Button type="submit" variant="primary" onClick={handleClose}>Log in</Button>
+                    </Form>
                 </Modal.Body>
             </Modal>
         </div>
