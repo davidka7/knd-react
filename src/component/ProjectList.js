@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getMyProjects } from '../actions/projectAction';
 import { Link } from "react-router-dom";
 import { getBoards } from '../actions/boardAction';
-import Button from 'react-bootstrap/Button'
+import CreateProject from './CreateProject'
 
 const ProjectList = ({getMyProjects, projects, projectId}) => {
 
@@ -19,10 +19,13 @@ const ProjectList = ({getMyProjects, projects, projectId}) => {
 
     return (
         <Row className="boards jumbotron">
-            {projects.map(project => (<Col>
-                <Link to="/boards" className="btn btn-outline-primary btn-block" onClick={() => handleId(project.id)} >{project.topic}</Link>
-            </Col>))}
-            <Col><Button variant="outline-primary" className="btn btn-block">Add</Button></Col>
+            {projects.map(project => (
+                <Col><Link 
+                    to="/boards" 
+                    className="btn btn-outline-primary btn-block" 
+                    onClick={() => handleId(project.id)} >{project.topic}
+                </Link></Col>))}
+            <Col><CreateProject/></Col>
         </Row>
     )
 }
