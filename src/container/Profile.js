@@ -5,16 +5,21 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {connect} from 'react-redux';
 import { logout } from '../actions/userAction';
+import { Link } from 'react-router-dom'
+const Profile = ({signout, user}) => {
 
-const Profile = ({signout}) => {
-
-    
+ 
 
     return (
         <Row>
             <Col><SideBar /></Col>
-            <Col><UserInfo /></Col>
-            <Col><button className="btn btn-outline-primary" onClick={signout}>Signout </button></Col>
+        
+            <Col><UserInfo user={user.user}/></Col> 
+       
+            <Col>  
+           
+            <button className="btn btn-outline-primary" onClick={signout}><Link to="/"> signout </Link> </button>
+            </Col>
         </Row>
     )
 }

@@ -62,6 +62,7 @@ const Main = ({projectId}) => {
           </Route>
           <Route path="/profile">
             <Profile />
+            
           </Route>
           <Route path="/customization">
             <Customization />

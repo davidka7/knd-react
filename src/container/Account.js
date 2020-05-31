@@ -5,15 +5,16 @@ import SignUp from '../component/SignUp';
 import { Link } from 'react-router-dom';
 import Profile from './Profile';
 import Container from 'react-bootstrap/Container';
-
-
+import SignoutButton from '../component/SignoutButton';
 const Account = ({userInfo}) => {
     
     const list = () => {
         if (userInfo) {
             return (
                 <div>
-                    <Profile/>  
+   
+                    <Profile />  
+                 
                     <Link className="btn btn-outline-primary" to="/homepage"> Homepage </Link>
                 </div >
             )
