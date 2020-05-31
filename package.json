@@ -19,7 +19,8 @@
     "react-sticky": "^6.0.3",
     "react-sticky-el": "^2.0.5",
     "react-sticky-header": "^0.2.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

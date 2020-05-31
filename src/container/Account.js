@@ -9,8 +9,10 @@ import SignoutButton from '../component/SignoutButton';
 const Account = ({userInfo}) => {
     
     const list = () => {
-        if (userInfo) {
+        if (userInfo.userContext.user) {
+            console.log(userInfo)
             return (
+               
                 <div>
    
                     <Profile />  
@@ -37,7 +39,7 @@ const Account = ({userInfo}) => {
 }
 
 const mapStateToProp = (store) => {
-    return { userInfo : store.userContext.user }
+    return { userInfo : store }
 }
 
 export default connect(mapStateToProp)(Account)

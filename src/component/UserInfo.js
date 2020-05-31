@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 
-const UserInfo = ({user}) => {
+const UserInfo = ({userInfo, user}) => {
 
-const [username] = useState(user ? user.username : 's');
-const [full_name] = useState(user ? user.full_name : '');
-const [favorite_color] = useState(user ? user.favorite_color : '');
-const [email] = useState(user ? user.email : '');
+const [username, setUsername] = useState(user ? user.username : 's');
+const [full_name, setFullname] = useState(user ? user.full_name : '');
+const [favorite_color, setFavoritecolor] = useState(user ? user.favorite_color : '');
+const [email, setEmail] = useState(user ? user.email : '');
+console.log(userInfo.userContext.user)
+console.log(userInfo)
 console.log(user)
 
     return (
@@ -27,4 +29,4 @@ console.log(user)
 //     return { userInfo : store.userContext.user }
 // }
 
-export default connect(store => ({userInfo: store.userContext.user}))(UserInfo)
+export default connect(store => ({userInfo: store}))(UserInfo)
