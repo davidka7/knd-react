@@ -10,6 +10,7 @@ const [email] = useState(user ? user.email : '');
 console.log(user)
 
     return (
+        
         <div>
         <div ><h3>Your Profile</h3>
             <p>Username: {username}</p>
