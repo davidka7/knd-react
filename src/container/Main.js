@@ -49,7 +49,7 @@ const Main = ({projectId}) => {
         {/* we either have to create a redux, set state, or we have to do a call back function */}
         
         <Route path="/boards">
-            <BoardList projectId={projectId} />
+            <BoardList/>
           </Route>
           <Route path="/home">
             <Home />
