@@ -8,7 +8,7 @@ import { cardReducer } from './cardReducer';
 export default combineReducers({
     userContext: userReducer,
     projects: projectReducer,
-    projectId: boardReducer,
+    boards: boardReducer,
     icons: iconReducer,
     cards: cardReducer
 });
