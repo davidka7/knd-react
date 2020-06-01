@@ -10,9 +10,7 @@ const Content = ({card}) => {
 
     return (
         <div>
-
             <Button variant="outline-primary" className='btn-block' onClick={handleShow}>{card.card_title}</Button>
-
 
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>

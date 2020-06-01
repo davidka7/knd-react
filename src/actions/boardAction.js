@@ -23,8 +23,7 @@ export const getBoards = (project_id) => {
             };
         }
         return {
-                type: "GET_ALL_BOARDS",
-                payload: res.boards }
-    });
+            type: "GET_ALL_BOARDS",
+            payload: res.boards }
+        });
 }
-// em dang lam so le need to fix this

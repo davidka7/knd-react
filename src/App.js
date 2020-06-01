@@ -18,13 +18,8 @@ const App = () => {
 
       <Router>
 
-        <Route path="/homepage" exact strict render={
-          () => {
-            return <Main />
-          }
-        } />
-        <Route path="/" exact strict render={() => (user ? (<Redirect to="/homepage" />) :
-          (<Account />))} />
+        <Route path="/homepage" exact strict render={() => { return <Main />}} />
+        <Route path="/" exact strict render={() => (user ? (<Redirect to="/homepage" />) : (<Account />))} />
 
       </Router>
 

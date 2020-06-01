@@ -20,12 +20,12 @@ const ProjectList = ({getMyProjects, projects, projectId}) => {
     return (
         <Row className="boards jumbotron">
             {projects.map(project => (
-                <Col><Link 
+                <Col xs={6} md={2}><Link 
                     to="/boards" 
                     className="btn btn-outline-primary btn-block" 
                     onClick={() => handleId(project.id)} >{project.topic}
                 </Link></Col>))}
-            <Col><CreateProject/></Col>
+            <Col xs={6} md={2}><CreateProject/></Col>
         </Row>
     )
 }
