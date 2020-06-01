@@ -19,6 +19,7 @@ const ProjectList = ({getMyProjects, projects, projectId}) => {
 
     return (
         <Row className="boards jumbotron">
+         {   console.log(projects)}
             {projects.map(project => (
                 <Col xs={6} md={2}><Link 
                     to="/boards" 

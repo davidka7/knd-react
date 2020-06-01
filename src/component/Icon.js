@@ -30,7 +30,11 @@ console.log(icons)
       <div className="overflow-auto">
         <Card.Body>
         <Card.Title>Favorite Box</Card.Title>
-          <Card.Text>Icons</Card.Text>
+          <Card.Text>
+
+
+            
+          </Card.Text>
         </Card.Body>
         </div>
       </Card>

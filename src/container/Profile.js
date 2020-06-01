@@ -7,13 +7,13 @@ import {connect} from 'react-redux';
 import { logout } from '../actions/userAction';
 import { Link } from 'react-router-dom';
 
-const Profile = ({signout}) => {
+const Profile = ({signout, user}) => {
 
     return (
         <Row>
             <Col><SideBar /></Col>
-        
-            <Col><UserInfo user={user.user}/></Col> 
+   { console.log(user)}
+            <Col><UserInfo /></Col> 
        
             <Col>  
            
