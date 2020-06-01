@@ -19,28 +19,19 @@ export const getMyProjects = () => {
         if (res.message) {
             return {
                 type: "GET_MY_PROJECTS_ERROR",
-                error: res.message
-            };
-        }
+                error: res.message };
+            }
         return {
                 type: "GET_MY_PROJECTS",
-                payload: res
-            }
-        
-    });
+                payload: res }
+        });
 }
 
 
 export const signup = (email, username, full_name, favorite_color, password) => {
 
     const user = {
-        user: {
-            username,
-            full_name,
-            favorite_color,
-            email,
-            password
-        }
+        user: { username, full_name, favorite_color, email, password }
     }
     return fetch(`${BACKEND_DOMAIN}/users`, {
         method: "POST",
@@ -48,6 +39,7 @@ export const signup = (email, username, full_name, favorite_color, password) => 
         body: JSON.stringify(user)
     }).then(res => res.json())
     .then(res => {
+        console.log(res)
         if (res.error) {
             return {
                 type: "SIGNUP_ERROR",
@@ -56,10 +48,9 @@ export const signup = (email, username, full_name, favorite_color, password) => 
         }
         return {
             type: "SIGNUP",
-            payload: res
+            payload: res.project
         }
     }); 
-
 }
 
 export const createProject = ( topic ) => {

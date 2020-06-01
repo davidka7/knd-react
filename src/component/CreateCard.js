@@ -3,9 +3,8 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
-import {createProject} from '../actions/projectAction'
 
-const CreateProject = ({projects, createProject}) => {
+const CreateProject = ({projects}) => {
 
     const [show, setShow] = useState(false);
     const [topic, setTopic] = useState('');
