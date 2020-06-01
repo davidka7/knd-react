@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { connect } from 'react-redux';
@@ -19,7 +19,6 @@ const ProjectList = ({getMyProjects, projects, projectId}) => {
 
     return (
         <Row className="boards jumbotron">
-         {   console.log(projects)}
             {projects.map(project => (
                 <Col xs={6} md={2}><Link 
                     to="/boards" 
@@ -31,6 +30,10 @@ const ProjectList = ({getMyProjects, projects, projectId}) => {
     )
 }
 
+const mapStateToProps = (store) => {
+    return {projects: store.projects}
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         getMyProjects: () => getMyProjects().then(dispatch),
@@ -38,5 +41,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(store=>({projects: store.projects}), mapDispatchToProps)(ProjectList)
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectList)
 

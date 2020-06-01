@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import "./board.css";
-import Content from './Content';
+import CardContent from './CardContent';
 import Button from 'react-bootstrap/Button';
 // import CreateCard from './CreateCard'
 
@@ -14,7 +14,7 @@ const Board = ({ board }) => {
         <Card.Body>
           <Card.Title className="texter">{board.title}</Card.Title>
           <Card.Text className="texter">
-            {board.cards.map( card => <Content key={card.id} card={card}/>)}
+            {board.cards.map( card => <CardContent key={card.id} card={card}/>)}
           </Card.Text>
           {/* <CreateCard/> */}
           <Button variant="outline-primary" className='btn-block text-muted'>+ Add another card</Button>
