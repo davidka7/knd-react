@@ -1,16 +1,21 @@
-import React from 'react'
-import Board from './Board'
-import CardDeck from 'react-bootstrap/CardDeck'
+import React from 'react';
+import Board from './Board';
+import CardDeck from 'react-bootstrap/CardDeck';
+import {connect} from 'react-redux'
 
-const BoardList = ({projectId}) => {
+const BoardList = ({boards}) => {
 
 
     return (
         <CardDeck className='project-list'>
-            {projectId.map( board => <Board board={board}/>)}
+            {boards.map( board => <Board board={board}/>)}
         </CardDeck>  
     )
 }
 
+const mapStateToProps = (store) => {
+    return {boards: store.boards}
+}
 
-export default BoardList
+
+export default connect(mapStateToProps)(BoardList)

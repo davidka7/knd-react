@@ -10,7 +10,7 @@ const headers = () => {
     };
   };
 
-  export const getMyIcons = (dispatch) => {
+export const getMyIcons = (dispatch) => {
     return fetch(`${BACKEND_DOMAIN}/icons`, {
         method: "GET",
         headers: headers()
