@@ -9,8 +9,8 @@ const headers = () => {
     }
 }
 
-export const getCards = (card_id) => {
-    return fetch(`${BACKEND_DOMAIN}/projects/${card_id}`, {
+export const getCards = (board_id) => {
+    return fetch(`${BACKEND_DOMAIN}/boards/${board_id}`, {
         method: "GET",
         headers: headers(),
     }).then(res => res.json())
