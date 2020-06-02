@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import ProjectList from './ProjectList';
 import ProjectBar from './ProjectBar'
 
+
 const Project = () => {
     
     return (
@@ -14,4 +15,7 @@ const Project = () => {
         </Container>
     )
 }
+
+
+
 export default Project

@@ -73,3 +73,30 @@ export const createProject = ( topic ) => {
         }
     });
 }
+export const deleteProject = (id, dispatch) => {
+    fetch(`${BACKEND_DOMAIN}/projects/${id}`, {
+        method: "DELETE",
+        headers: headers(),
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            dispatch( {
+                type: "DELETE_PROJECT_ERROR",
+                error: res.error
+            });
+        }
+        else {
+            dispatch(
+                {
+                    type: "DELETE_PROJECT",
+                    id: id
+                }
+            );
+        }
+    }).catch(err => {
+        dispatch( {
+            type: "DELETE_PROJECT_ERROR",
+            error: err
+        })
+    });
+}

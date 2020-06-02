@@ -20,6 +20,7 @@ console.log(icons)
 
           <Card.Text>
          {/* {icons.map(icon=>  console.log(icon) )} */}
+        
             {icons.map(icon=> <row><column> <img src={require(`../images/${icon}`)} alt={icon} height="130px" width="130px" /> </column> </row>)}
           </Card.Text>
         </Card.Body>
@@ -33,7 +34,7 @@ console.log(icons)
           <Card.Text>
 
 
-            
+
           </Card.Text>
         </Card.Body>
         </div>
