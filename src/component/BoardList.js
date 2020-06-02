@@ -5,10 +5,9 @@ import {connect} from 'react-redux'
 
 const BoardList = ({boards}) => {
 
-
     return (
         <CardDeck className='project-list'>
-            {boards.map( board => <Board board={board}/>)}
+            {boards.map( board => <Board key={board.id} boardInfo={board}/>)}
         </CardDeck>  
     )
 }

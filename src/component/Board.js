@@ -3,18 +3,19 @@ import Card from 'react-bootstrap/Card'
 import "./board.css";
 import CardContent from './CardContent';
 import Button from 'react-bootstrap/Button';
+
 // import CreateCard from './CreateCard'
 
 
-const Board = ({ board }) => {
+const Board = ({ boardInfo }) => {
 
   return (
     <div className='board-col'>
       <Card className='inside-board overflow-auto'>
         <Card.Body>
-          <Card.Title className="texter">{board.title}</Card.Title>
+          <Card.Title className="texter">{boardInfo.title}</Card.Title>
           <Card.Text className="texter">
-            {board.cards.map( card => <CardContent key={card.id} card={card}/>)}
+            {boardInfo.cards.map( card => <CardContent key={card.id} card={card}/>)}
           </Card.Text>
           {/* <CreateCard/> */}
           <Button variant="outline-primary" className='btn-block text-muted'>+ Add another card</Button>
@@ -24,5 +25,6 @@ const Board = ({ board }) => {
     </div>
   )
 }
+
 
 export default Board
