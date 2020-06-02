@@ -41,6 +41,8 @@ console.log(icons)
     </div>
   );
 };
+
+
 const mapDispatchToProps = (dispatch) => {
   return {
       getMyIcons: () => getMyIcons(dispatch)
@@ -48,5 +50,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(store=>({icons: store.icons}), mapDispatchToProps)(Icon)
+const mapStatetoProps = (store) => {
+  return {icons: store.icons}
+}
+
+export default connect(mapStatetoProps, mapDispatchToProps)(Icon)
 
