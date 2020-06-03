@@ -15,13 +15,13 @@ export const onCardDragStart = (card_obj) => {
     return card
 }
 
-export const onCardDrop = (board, dispatch) => {
+export const onCardDrop = (board) => {
     console.log("onCardDrop: ", card, board)
     
-     dispatch ({
+     return{
         type: "DROP_CARD",
         payload: card
-    })
+    }
 }
 
 export const onIconDragStart = (icon_obj) => {

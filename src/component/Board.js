@@ -35,7 +35,7 @@ const Board = ({ boardInfo }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onCardDrop: (board) => onCardDrop(board, dispatch )
+    onCardDrop: (board) => onCardDrop(board).then(dispatch)
   }
 }
 

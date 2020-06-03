@@ -14,7 +14,7 @@ const Customization = () => {
   
   return (
     <div>
-      These are the settings
+      
       <Sticky>
         <header>
           <Card className="text-left" border="white">
