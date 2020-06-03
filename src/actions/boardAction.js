@@ -45,12 +45,12 @@ export const getBoards = (project_id) => {
     .then(res => {
         if (res.message) {
             return {
-                type: "GET_ALL_BOARDS_ERROR",
+                type: "GET_BOARDS_FROM_PROJECT_ERROR",
                 error: res.message
             };
         }
         return {
-            type: "GET_ALL_BOARDS",
+            type: "GET_BOARDS_FROM_PROJECT",
             payload: res.boards }
         });
 }

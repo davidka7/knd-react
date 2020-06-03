@@ -2,7 +2,7 @@
     color: black;
   }
   
-.board-col {width: 300px}
+.board-col {max-width: 300px}
 .board-col p div { padding: 0.25rem}
 .board-col p div button { background-color: #ffffff; text-align: left}
 .board-col .card-body { padding: 0.5rem}

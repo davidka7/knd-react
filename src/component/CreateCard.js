@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
 
-const CreateProject = ({projects}) => {
+const CreateCard = ({projects}) => {
 
     const [show, setShow] = useState(false);
     const [topic, setTopic] = useState('');
@@ -26,7 +26,8 @@ const CreateProject = ({projects}) => {
 
     return (
         <>
-        <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}>Add</Button>
+        <Button variant="outline-primary" className='btn-block text-muted' onClick={handleShow}>+ Add another card</Button>
+
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
             <Modal.Title>Create a new project</Modal.Title>
@@ -67,4 +68,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(CreateProject)
+export default connect(null, mapDispatchToProps)(CreateCard)

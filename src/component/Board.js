@@ -1,17 +1,24 @@
-import React from 'react'
-import Card from 'react-bootstrap/Card'
+import React from 'react';
+import {connect} from 'react-redux';
+import Card from 'react-bootstrap/Card';
 import "./board.css";
 import CardContent from './CardContent';
 import Button from 'react-bootstrap/Button';
+import {onCardDrop} from '../actions/dropAction'
 
 // import CreateCard from './CreateCard'
 
 
 const Board = ({ boardInfo }) => {
 
+  const handleCardDrop = () => {
+    onCardDrop(boardInfo)
+  }
+
   return (
-    <div className='board-col'>
-      <Card className='inside-board overflow-auto'>
+      <Card className='board-col overflow-auto' 
+            onDrop={handleCardDrop} 
+            onDragOver={e => e.preventDefault()}>
         <Card.Body>
           <Card.Title className="texter">{boardInfo.title}</Card.Title>
           <Card.Text className="texter">
@@ -20,11 +27,16 @@ const Board = ({ boardInfo }) => {
           {/* <CreateCard/> */}
           <Button variant="outline-primary" className='btn-block text-muted'>+ Add another card</Button>
         </Card.Body>
-        
       </Card>
-    </div>
+
   )
 }
 
 
-export default Board
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onCardDrop: (board) => onCardDrop(board).then(dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Board)

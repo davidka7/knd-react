@@ -5,49 +5,54 @@ import { getMyIcons } from '../actions/iconAction';
 import "./icon.css";
 
 const Icon = ({getMyIcons, icons}) => {
-  useEffect(() => {
-    getMyIcons();
-}, [])
-console.log(icons)
-  return (
+    useEffect(() => {
+      getMyIcons();
+    }, [])
 
-    <div>
-      
-      <Card style={{ width: "25rem" }} id="wrapper">
-      <div className="overflow-auto">
-        <Card.Body>
-      
+    const handleIconDrag = e => {
+      e.persist();
+      // setTimeout(() => {
+      //   e.target.style.display = 'block';
+      // }, 0);
+      // onIconDragStart(icon);
+    }
 
-          <Card.Text>
-         {/* {icons.map(icon=>  console.log(icon) )} */}
+    console.log(icons)
+    return (
+
+      <div>
         
-            {icons.map(icon=> <row><column> <img src={require(`../images/${icon}`)} alt={icon} height="130px" width="130px" /> </column> </row>)}
-          </Card.Text>
-        </Card.Body>
-       </div>
-      </Card>
+        <Card style={{ width: "25rem" }} id="wrapper">
+          <Card.Body>
+            <Card.Text>
+              {icons.map(icon=> <row><column> <img 
+                src={require(`../images/${icon}`)} 
+                alt={icon} 
+                height="130px" width="130px" 
+                // onDragStart={handleIconDrag}
+                /> </column> </row>)}
+            </Card.Text>
+          </Card.Body>
+        </Card>
 
-      <Card style={{ width: "20rem" }} id="wrapper1">
-      <div className="overflow-auto">
-        <Card.Body>
-        <Card.Title>Favorite Box</Card.Title>
-          <Card.Text>
+        <Card style={{ width: "20rem" }} id="wrapper1">
+          <Card.Body>
+          <Card.Title>Favorite Box</Card.Title>
+            <Card.Text>
 
 
 
-          </Card.Text>
-        </Card.Body>
-        </div>
-      </Card>
-    </div>
-  );
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
+    );
 };
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
       getMyIcons: () => getMyIcons(dispatch)
-   
   }
 }
 

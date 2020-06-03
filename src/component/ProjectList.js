@@ -16,9 +16,9 @@ const ProjectList = ({ProjectId_save, getMyProjects, projects, projectId, delete
         projectId(project_id);
         ProjectId_save(project_id)
     }
+
     const handleDelete = (id) => {
         deleteProject(id);
-    
     }
     
     useEffect(() => {
@@ -31,6 +31,7 @@ const ProjectList = ({ProjectId_save, getMyProjects, projects, projectId, delete
                 <Col xs={6} md={2} id="lol"> <div ><Link className="cont"
                     to="/boards" 
                     className="btn btn-outline-primary btn-block" 
+                    
                     onClick={() => handleId(project.id)} >{project.topic}
                 </Link>  
               
@@ -39,11 +40,12 @@ const ProjectList = ({ProjectId_save, getMyProjects, projects, projectId, delete
   <div ></div>
   </Dropdown.Toggle>
 
-  <Dropdown.Menu>
-    <Dropdown.Item ><Button onClick={() => handleDelete(project.id)} type="submit">Delete</Button></Dropdown.Item>
-   
-  </Dropdown.Menu>
-</Dropdown>     
+                    <Dropdown.Menu>
+                        <Dropdown.Item >
+                            <Button onClick={() => handleDelete(project.id)} type="submit">Delete</Button>
+                        </Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>     
                 
                   </div> </Col>))}
             <Col xs={6} md={2}><CreateProject/></Col>

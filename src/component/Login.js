@@ -18,6 +18,8 @@ const Login = ({ signin }) => {
         e.preventDefault();
         e.stopPropagation();
         signin(username, password);
+        setUsername('');
+        setPassword('');
     }
 
     const handleClose = () => setShow(false);

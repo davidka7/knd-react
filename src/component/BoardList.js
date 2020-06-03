@@ -19,5 +19,4 @@ const mapStateToProps = (store) => {
     return {boards: store}
 }
 
-
 export default connect(mapStateToProps)(BoardList)
