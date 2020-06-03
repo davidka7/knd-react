@@ -8,7 +8,8 @@ export const boardReducer = (state = PROJECT_INITIAL_STATE, action) => {
             case 'CREATE_BOARD':
                 console.log(action.payload)
                 return [...state, action.payload.board];
-               
+                case "DROP_CARD":
+            console.log("hi")
         default:
             return state;
     }   

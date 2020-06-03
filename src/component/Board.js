@@ -9,7 +9,7 @@ import {onCardDrop} from '../actions/dropAction'
 // import CreateCard from './CreateCard'
 
 
-const Board = ({ boardInfo }) => {
+const Board = ({ boardInfo, onCardDrop }) => {
 
   const handleCardDrop = () => {
     onCardDrop(boardInfo)
@@ -33,10 +33,12 @@ const Board = ({ boardInfo }) => {
 }
 
 
+
 const mapDispatchToProps = (dispatch) => {
   return {
-    onCardDrop: (board) => onCardDrop(board).then(dispatch)
+    onCardDrop: (board => onCardDrop(board, dispatch))
   }
 }
+
 
 export default connect(null, mapDispatchToProps)(Board)

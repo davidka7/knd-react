@@ -46,7 +46,8 @@ const Content = ({card}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onCardDragStart: (card) => {dispatch(onCardDragStart(card))}
+    
+    onCardDragStart: (card => onCardDragStart(card, dispatch))
   }
 }
 export default connect(null, mapDispatchToProps)(Content)
