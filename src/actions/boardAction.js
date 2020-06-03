@@ -8,7 +8,34 @@ const headers = () => {
         Authorization: token()
     }
 }
+export const createBoard = ( topic, imageLink, projectId ) => {
+    
+    const entry = {
+      
+            title: topic,
+            image: imageLink,
+            project_id: projectId
 
+    }
+    console.log(topic, imageLink, projectId)
+    return fetch(`${BACKEND_DOMAIN}/boards`, {
+        method: "POST",
+        headers: headers(),
+        body: JSON.stringify(entry)
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            return {
+                type: "CREATE_BOARD_ERROR",
+                error: res.error
+            };
+        }
+        return {
+            type: "CREATE_BOARD",
+            payload: res
+        }
+    });
+}
 
 export const getBoards = (project_id) => {
     return fetch(`${BACKEND_DOMAIN}/projects/${project_id}`, {
