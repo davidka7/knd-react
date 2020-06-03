@@ -27,32 +27,6 @@ export const getMyProjects = () => {
         });
 }
 
-
-export const signup = (email, username, full_name, favorite_color, password) => {
-
-    const user = {
-        user: { username, full_name, favorite_color, email, password }
-    }
-    return fetch(`${BACKEND_DOMAIN}/users`, {
-        method: "POST",
-        headers: headers(),
-        body: JSON.stringify(user)
-    }).then(res => res.json())
-    .then(res => {
-        console.log(res)
-        if (res.error) {
-            return {
-                type: "SIGNUP_ERROR",
-                error: res.error
-            };
-        }
-        return {
-            type: "SIGNUP",
-            payload: res.project
-        }
-    }); 
-}
-
 export const createProject = ( topic ) => {
     const project = { topic }
     return fetch(`${BACKEND_DOMAIN}/projects`, {

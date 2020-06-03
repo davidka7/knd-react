@@ -15,10 +15,11 @@ const ProjectList = ({getMyProjects, projects, projectId, deleteProject}) => {
     const handleId = (project_id) => {
         projectId(project_id);
     }
+
     const handleDelete = (id) => {
         deleteProject(id);
-    
     }
+    
     useEffect(() => {
         getMyProjects();
     }, [])
@@ -26,22 +27,24 @@ const ProjectList = ({getMyProjects, projects, projectId, deleteProject}) => {
     return (
         <Row className="boards jumbotron">
             {projects.map(project => (
-                <Col xs={6} md={2}><Link 
+                <Col xs={6} md={2} key={project.id}><Link 
                     to="/boards" 
                     className="btn btn-outline-primary btn-block" 
+                    
                     onClick={() => handleId(project.id)} >{project.topic}
                 </Link>  
                 
                 <Dropdown>
-  <Dropdown.Toggle variant="white" id="dropdown-basic">
-  <div className="s3dots"></div>
-  </Dropdown.Toggle>
+                    <Dropdown.Toggle variant="white" id="dropdown-basic">
+                        <div className="s3dots"></div>
+                    </Dropdown.Toggle>
 
-  <Dropdown.Menu>
-    <Dropdown.Item ><Button onClick={() => handleDelete(project.id)} type="submit">Delete</Button></Dropdown.Item>
-   
-  </Dropdown.Menu>
-</Dropdown>     
+                    <Dropdown.Menu>
+                        <Dropdown.Item >
+                            <Button onClick={() => handleDelete(project.id)} type="submit">Delete</Button>
+                        </Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>     
                 
                    </Col>))}
             <Col xs={6} md={2}><CreateProject/></Col>
