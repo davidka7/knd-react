@@ -39,7 +39,7 @@ export const onCardDrop = (droppedBoard) => {
         body: JSON.stringify(cardz)
     }).then(res => res.json())
     
-     return {
+    return {
             type: "DROP_CARD",
             payload: {card, droppedBoard, formerBoardId}
         }
