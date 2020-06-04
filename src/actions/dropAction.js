@@ -1,7 +1,6 @@
-let token = () => localStorage.getItem("token")
-
 let card = null
 let icon = null
+let formerBoardId = null
 //DRAG
 //set state thay bang action
 //action vo reducer, vo store
@@ -9,21 +8,18 @@ let icon = null
 //drop vao trong thang board khac
 
 
-export const onCardDragStart = (card_obj) => {
+export const onCardDragStart = (card_obj, board_id) => {
     card = card_obj;
-    console.log("onCardDragStart: ", card)
-    return card
+    formerBoardId = board_id
+    console.log("onCardDragStart: ", card, board_id)
 }
 
-export const onCardDrop = (board, dispatch) => {
-    console.log("onCardDrop: ", card, board, "hi")
+export const onCardDrop = (droppedBoard) => {
     
-     dispatch(
-         {
-        type: "DROP_CARD",
-        payload: card
-    }
-    );
+     return {
+            type: "DROP_CARD",
+            payload: {card, droppedBoard, formerBoardId}
+        }
 }
 
 export const onIconDragStart = (icon_obj) => {

@@ -33,7 +33,7 @@ const Board = ({ boardInfo, onCardDrop, deleteBoard }) => {
            
            </Card.Title>
           <Card.Text className="texter">
-            {boardInfo.cards.map( card => <CardContent key={card.id} card={card}/>)}
+            {boardInfo.cards.map( card => <CardContent key={card.id} card={card} board_id={boardInfo.id}/>)}
           </Card.Text>
           {/* <CreateCard/> */}
           <Button variant="outline-primary" className='btn-block text-muted'>+ Add another card</Button>
@@ -47,8 +47,8 @@ const Board = ({ boardInfo, onCardDrop, deleteBoard }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onCardDrop: (board => onCardDrop(board, dispatch)),
     deleteBoard: (id) => deleteBoard(id, dispatch),
+    onCardDrop: (boardInfo) => {dispatch(onCardDrop(boardInfo))}
   }
 }
 
