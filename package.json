@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "angular-bootstrap-confirm": "^2.5.1",
     "bootstrap": "^4.5.0",
     "bootswatch": "^4.5.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
+    "react-delete-confirm": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
@@ -38,6 +41,7 @@
       "not op_mini all"
     ],
     "development": [
+      
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"

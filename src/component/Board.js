@@ -5,22 +5,33 @@ import "./board.css";
 import CardContent from './CardContent';
 import Button from 'react-bootstrap/Button';
 import {onCardDrop} from '../actions/dropAction'
+import {deleteBoard} from '../actions/boardAction'
 
 // import CreateCard from './CreateCard'
 
 
-const Board = ({ boardInfo, onCardDrop }) => {
+const Board = ({ boardInfo, onCardDrop, deleteBoard }) => {
 
   const handleCardDrop = () => {
     onCardDrop(boardInfo)
   }
 
+  const handleDelete = (id) => {
+    deleteBoard(id);
+}
+  
   return (
       <Card className='board-col overflow-auto' 
             onDrop={handleCardDrop} 
             onDragOver={e => e.preventDefault()}>
         <Card.Body>
-          <Card.Title className="texter">{boardInfo.title}</Card.Title>
+          <Card.Title className="texter">{boardInfo.title}
+ 
+
+
+           <Button onClick={() => handleDelete(boardInfo.id)} type="submit">Delete</Button>
+           
+           </Card.Title>
           <Card.Text className="texter">
             {boardInfo.cards.map( card => <CardContent key={card.id} card={card}/>)}
           </Card.Text>
@@ -36,7 +47,8 @@ const Board = ({ boardInfo, onCardDrop }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onCardDrop: (board => onCardDrop(board, dispatch))
+    onCardDrop: (board => onCardDrop(board, dispatch)),
+    deleteBoard: (id) => deleteBoard(id, dispatch),
   }
 }
 

@@ -54,3 +54,31 @@ export const getBoards = (project_id) => {
             payload: res.boards }
         });
 }
+
+export const deleteBoard = (id, dispatch) => {
+    fetch(`${BACKEND_DOMAIN}/boards/${id}`, {
+        method: "DELETE",
+        headers: headers(),
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            dispatch( {
+                type: "DELETE_BOARD_ERROR",
+                error: res.error
+            });
+        }
+        else {
+            dispatch(
+                {
+                    type: "DELETE_BOARD",
+                    id: id
+                }
+            );
+        }
+    }).catch(err => {
+        dispatch( {
+            type: "DELETE_BOARD_ERROR",
+            error: err
+        })
+    });
+}
