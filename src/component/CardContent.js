@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
 import {onCardDragStart} from '../actions/dropAction'
 
-const Content = ({card}) => {
+const Content = ({card, board_id}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -15,7 +15,7 @@ const Content = ({card}) => {
       //   e.target.style.display = 'block';
       // }, 0);
       console.log("onCardDragStart: ", card)
-      onCardDragStart(card);
+      onCardDragStart(card, board_id);
     }
 
     return (

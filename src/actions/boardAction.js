@@ -8,6 +8,7 @@ const headers = () => {
         Authorization: token()
     }
 }
+
 export const createBoard = ( topic, imageLink, projectId ) => {
     
     const entry = {

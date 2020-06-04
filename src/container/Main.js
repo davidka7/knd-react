@@ -47,7 +47,7 @@ const Main = ({projectId}) => {
         </nav>
 
         {/* we either have to create a redux, set state, or we have to do a call back function */}
-        
+
         <Route path="/boards">
             <BoardList/>
           </Route>
@@ -67,6 +67,7 @@ const Main = ({projectId}) => {
           <Route path="/customization">
             <Customization />
           </Route>
+  
         
 
       </Router>
