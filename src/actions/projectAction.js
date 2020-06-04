@@ -48,7 +48,7 @@ export const createProject = ( topic ) => {
     });
 }
 export const deleteProject = (id, dispatch) => {
-    fetch(`${BACKEND_DOMAIN}/projects/${id}`, {
+    fetch(`${BACKEND_DOMAIN}/cards/${id}`, {
         method: "DELETE",
         headers: headers(),
     }).then(res => res.json())
