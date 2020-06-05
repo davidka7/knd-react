@@ -8,6 +8,8 @@ export const boardReducer = (state = PROJECT_INITIAL_STATE, action) => {
             console.log(action.payload)
             return [...state, action.payload.board];
             
+        case 'DELETE_CARD':
+            return state.filter((p) => p.cards.map((c) => c.id !== action.id))
         case 'DELETE_BOARD':
             return state.filter((p) => p.id !== action.id)
         case 'CREATE_BOARD':
