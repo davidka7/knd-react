@@ -74,5 +74,5 @@ const Main = ({projectId}) => {
     </div>
   )
 }
-
+// console.log(store)
 export default connect(store=>({projectId: store.projectId}))(Main)
