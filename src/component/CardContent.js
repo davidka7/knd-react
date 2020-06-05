@@ -18,8 +18,8 @@ const Content = ({card, board_id, deleteCard}) => {
       onCardDragStart(card, board_id);
     }
 
-    const handleDelete = (id) => {
-      deleteCard(id);
+    const handleDelete = (card) => {
+      deleteCard(card);
   }
     
     return (
@@ -35,7 +35,7 @@ const Content = ({card, board_id, deleteCard}) => {
 
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card.id)} type="submit">Delete</Button>
+                <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card)} type="submit">Delete</Button>
            </Modal.Title>
               </Modal.Header>
               <Modal.Body>
@@ -51,7 +51,7 @@ const Content = ({card, board_id, deleteCard}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteCard: (id) => deleteCard(id, dispatch),
+    deleteCard: (card) => deleteCard(card, dispatch),
     onCardDragStart: (card => onCardDragStart(card, dispatch))
   }
 }

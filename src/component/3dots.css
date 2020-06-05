@@ -3,7 +3,7 @@
     bottom: 90px;
     max-width: 20px;
     max-height: 20px;
-    background-image: radial-gradient(circle, black 5px, transparent 5px);
+    background-image: radial-gradient(circle, black 6px, transparent 5px);
     background-size: 100% 33.33%;
     position: relative;
 }

@@ -9,8 +9,9 @@ const headers = () => {
     };
 };
 
-export const deleteCard = (id, dispatch) => {
-    fetch(`${BACKEND_DOMAIN}/cards/${id}`, {
+export const deleteCard = (card, dispatch) => {
+    console.log(card)
+    fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
         method: "DELETE",
         headers: headers(),
     }).then(res => res.json())
@@ -25,7 +26,7 @@ export const deleteCard = (id, dispatch) => {
             dispatch(
                 {
                     type: "DELETE_CARD",
-                    id: id
+                    card: card
                 }
             );
         }
@@ -34,5 +35,31 @@ export const deleteCard = (id, dispatch) => {
             type: "DELETE_CARD_ERROR",
             error: err
         })
+    });
+}
+
+export const createCard = ( card_title, content, board_id ) => {
+    console.log(card_title, content)
+ let cards = {
+     card_title: card_title,
+     content: content,
+     board_id: board_id
+ }
+    return fetch(`${BACKEND_DOMAIN}/cards`, {
+        method: "POST",
+        headers: headers(),
+        body: JSON.stringify(cards)
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            return {
+                type: "CREATE_CARD_ERROR",
+                error: res.error
+            };
+        }
+        return {
+            type: "CREATE_CARD",
+            payload: res
+        }
     });
 }
