@@ -6,7 +6,7 @@ import CardContent from './CardContent';
 import Button from 'react-bootstrap/Button';
 import {onCardDrop} from '../actions/dropAction'
 import {deleteBoard} from '../actions/boardAction'
-
+import CreateCard from './CreateCard'
 // import CreateCard from './CreateCard'
 
 
@@ -36,7 +36,7 @@ const Board = ({ boardInfo, onCardDrop, deleteBoard }) => {
             {boardInfo.cards.map( card => <CardContent key={card.id} card={card} board_id={boardInfo.id}/>)}
           </Card.Text>
           {/* <CreateCard/> */}
-          <Button variant="outline-primary" className='btn-block text-muted'>+ Add another card</Button>
+          <CreateCard board_id={boardInfo.id}/>
         </Card.Body>
       </Card>
 

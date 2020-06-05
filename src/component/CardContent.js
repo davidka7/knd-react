@@ -3,8 +3,8 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
 import {onCardDragStart} from '../actions/dropAction'
-
-const Content = ({card, board_id}) => {
+import {deleteCard} from '../actions/cardAction'
+const Content = ({card, board_id, deleteCard}) => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -18,6 +18,10 @@ const Content = ({card, board_id}) => {
       onCardDragStart(card, board_id);
     }
 
+    const handleDelete = (card) => {
+      deleteCard(card);
+  }
+    
     return (
         <div>
             <Button 
@@ -31,7 +35,8 @@ const Content = ({card, board_id}) => {
 
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title>{card.card_title}</Modal.Title>
+                <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card)} type="submit">Delete</Button>
+           </Modal.Title>
               </Modal.Header>
               <Modal.Body>
                 {card.content}
@@ -46,7 +51,7 @@ const Content = ({card, board_id}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    
+    deleteCard: (card) => deleteCard(card, dispatch),
     onCardDragStart: (card => onCardDragStart(card, dispatch))
   }
 }
