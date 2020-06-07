@@ -34,12 +34,13 @@ const ProjectList = ({ProjectId_save, getMyProjects, projects, projectId, delete
                     
                     onClick={() => handleId(project.id)} >{project.topic}
                       
-                </Link>  
+                </Link> 
+              
+                <Dropdown >
+  <Dropdown.Toggle  variant="white" id="dropdown-basic">
+  <div ></div>
+  </Dropdown.Toggle>
 
-                <Dropdown className="s3dots">
-                    <Dropdown.Toggle  variant="white" id="dropdown-basic">
-                    <div ></div>
-                    </Dropdown.Toggle>
 
                     <Dropdown.Menu>
                         <Dropdown.Item >
