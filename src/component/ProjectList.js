@@ -10,6 +10,7 @@ import {ProjectId_save} from '../actions/projectIdAction';
 import Button from 'react-bootstrap/Button'
 import Dropdown from 'react-bootstrap/Dropdown'
 import './3dots.css'
+import Other from './Other.js'
 const ProjectList = ({ProjectId_save, getMyProjects, projects, projectId, deleteProject}) => {
 
     const handleId = (project_id) => {
@@ -26,6 +27,7 @@ const ProjectList = ({ProjectId_save, getMyProjects, projects, projectId, delete
     }, [])
 
     return (
+        <div>
         <Row className="boards jumbotron">
             {projects.map(project => (
                 <Col xs={6} md={2} id="lol"> <div ><Link className="cont"
@@ -54,6 +56,11 @@ const ProjectList = ({ProjectId_save, getMyProjects, projects, projectId, delete
                   </div> </Col>))}
             <Col xs={6} md={2}><CreateProject/></Col>
         </Row>
+        <Row>
+                {< Other projects={projects} />}
+         
+        </Row>
+</div>
     )
 }
 
