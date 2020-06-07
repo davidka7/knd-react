@@ -1,64 +1,36 @@
-import React, {useEffect} from "react";
-import Card from "react-bootstrap/Card";
-import { connect } from 'react-redux';
-import { getMyIcons } from '../actions/iconAction';
-import "./icon.css";
+import React from 'react';
+import {connect} from 'react-redux';
+import {onIconDragStart} from '../actions/dropAction'
 
-const Icon = ({getMyIcons, icons}) => {
-    useEffect(() => {
-      getMyIcons();
-    }, [])
+const Icon = ({icon, onIconDragStart}) => {
 
     const handleIconDrag = e => {
-      e.persist();
-      // setTimeout(() => {
-      //   e.target.style.display = 'block';
-      // }, 0);
-      // onIconDragStart(icon);
+        e.persist();
+        // setTimeout(() => {
+        //   e.target.style.display = 'block';
+        // }, 0);
+        onIconDragStart(icon);
     }
-
-    console.log(icons)
+    
     return (
-
-      <div>
-        
-        <Card style={{ width: "25rem" }} id="wrapper">
-          <Card.Body>
-            <Card.Text>
-              {icons.map(icon=> <row><column> <img 
-                src={require(`../images/${icon}`)} 
-                alt={icon} 
-                height="130px" width="130px" 
-                // onDragStart={handleIconDrag}
-                /> </column> </row>)}
-            </Card.Text>
-          </Card.Body>
-        </Card>
-
-        <Card style={{ width: "20rem" }} id="wrapper1">
-          <Card.Body>
-          <Card.Title>Favorite Box</Card.Title>
-            <Card.Text>
-
-
-
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </div>
-    );
-};
-
+        <row>
+            <column> 
+                <img 
+                    src={require(`../images/${icon}`)} 
+                    alt={icon} 
+                    height="130px" width="130px" 
+                    onDragStart={handleIconDrag}
+                    /> 
+            </column> 
+        </row>
+    )
+}
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-      getMyIcons: () => getMyIcons(dispatch)
+    return {
+      onIconDragStart: (icon) => onIconDragStart(icon, dispatch)
+    }
   }
-}
+  
 
-const mapStatetoProps = (store) => {
-  return {icons: store.icons}
-}
-
-export default connect(mapStatetoProps, mapDispatchToProps)(Icon)
-
+export default connect(null, mapDispatchToProps)(Icon)

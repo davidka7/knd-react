@@ -1,11 +1,7 @@
 let card = null
 let icon = null
 let formerBoardId = null
-//DRAG
-//set state thay bang action
-//action vo reducer, vo store
-//DROP
-//drop vao trong thang board khac
+
 const BACKEND_DOMAIN = process.env.REACT_APP_BACKEND_DOMAIN;
 let token = () => localStorage.getItem("token")
 
@@ -47,9 +43,15 @@ export const onCardDrop = (droppedBoard) => {
 
 export const onIconDragStart = (icon_obj) => {
     icon = icon_obj;
-    return icon
+    console.log("onIconDragStart: ", icon, icon_obj)
 }
+//icon, an attribute {inFavoriteBox = true}
 
-export const onIconDrop = (location) => {
-    console.log("onIconDrop: ", icon, location)
+
+export const onIconDrop = () => {
+
+    return {
+        type: "DROP_ICON",
+        payload: icon
+    }
 }
