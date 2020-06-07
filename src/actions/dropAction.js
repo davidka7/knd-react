@@ -50,12 +50,16 @@ export const onIconDragStart = (icon_obj) => {
 export const onIconDrop = (data) => {
     if (!data.icon_img.includes(icon)) {
         data.icon_img.push(icon);
-        let user_data = {user: data}
-        console.log('USER INFO AFTER PUSH HERE', user_data)
+        const update_icon = {
+            user: {
+                icon_img: data.icon_img
+            }
+        }
+
         fetch(`${BACKEND_DOMAIN}/users/${data.id}`, {
             method: "PUT",
             headers: headers(),
-            body: JSON.stringify(user_data)
+            body: JSON.stringify(update_icon)
         }).then(resp => resp.json());
 
         return {
