@@ -18,7 +18,7 @@ export const onCardDragStart = (card_obj, board_id) => {
 
     card = card_obj;
     formerBoardId = board_id
-    // console.log("onCardDragStart: ", card, board_id)
+
 }
 
 export const onCardDrop = (droppedBoard) => {
@@ -43,15 +43,28 @@ export const onCardDrop = (droppedBoard) => {
 
 export const onIconDragStart = (icon_obj) => {
     icon = icon_obj;
-    console.log("onIconDragStart: ", icon, icon_obj)
 }
-//icon, an attribute {inFavoriteBox = true}
 
 
-export const onIconDrop = () => {
 
-    return {
-        type: "DROP_ICON",
-        payload: icon
+export const onIconDrop = (data) => {
+    if (!data.icon_img.includes(icon)) {
+        data.icon_img.push(icon);
+        const update_icon = {
+            user: {
+                icon_img: data.icon_img
+            }
+        }
+
+        fetch(`${BACKEND_DOMAIN}/users/${data.id}`, {
+            method: "PUT",
+            headers: headers(),
+            body: JSON.stringify(update_icon)
+        }).then(resp => resp.json());
+
+        return {
+            type: "DROP_ICON",
+            payload: icon
+        }
     }
 }

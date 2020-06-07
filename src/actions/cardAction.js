@@ -10,7 +10,6 @@ const headers = () => {
 };
 
 export const deleteCard = (card, dispatch) => {
-    console.log(card)
     fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
         method: "DELETE",
         headers: headers(),
@@ -40,11 +39,11 @@ export const deleteCard = (card, dispatch) => {
 
 export const createCard = ( card_title, content, board_id ) => {
     console.log(card_title, content)
- let cards = {
-     card_title: card_title,
-     content: content,
-     board_id: board_id
- }
+    let cards = {
+        card_title: card_title,
+        content: content,
+        board_id: board_id
+    }
     return fetch(`${BACKEND_DOMAIN}/cards`, {
         method: "POST",
         headers: headers(),
