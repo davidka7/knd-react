@@ -1,7 +1,7 @@
 import React from 'react';
 import Project from '../component/Project';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Icon from '../component/IconPage';
+import IconPage from '../component/IconPage';
 import Customization from '../component/Customization';
 import Profile from '../container/Profile';
 import Home from '../component/Home';
@@ -58,7 +58,7 @@ const Main = ({projectId}) => {
             <Project />
           </Route>
           <Route path="/icons">
-            <Icon />
+            <IconPage />
           </Route>
           <Route path="/profile">
             <Profile />

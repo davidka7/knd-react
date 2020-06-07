@@ -5,6 +5,7 @@ import Icon from './Icon';
 import {onIconDrop} from '../actions/dropAction';
 
 const FavoriteBox = ({user, onIconDrop}) => {
+    
 
     const handleIconDrop = () => {
         onIconDrop(user)
@@ -22,7 +23,7 @@ const FavoriteBox = ({user, onIconDrop}) => {
             <Card.Text>
                 {console.log('USER ICON HERE', user.icon_img)}
                 {console.log('WHERE IS MY USER', user)}
-                {user.icon_img.map(icon => <Icon icon={icon}/>)}
+                {user.icon_img.map(icon => <Icon key={user.icon_img.indexOf(icon)} icon={icon}/>)}
             </Card.Text>
           </Card.Body>
         </Card>
