@@ -33,19 +33,22 @@ const ProjectList = ({ProjectId_save, getMyProjects, projects, projectId, delete
                     className="btn btn-outline-primary btn-block" 
                     
                     onClick={() => handleId(project.id)} >{project.topic}
+                      
                 </Link>  
-              
+
                 <Dropdown className="s3dots">
-  <Dropdown.Toggle  variant="white" id="dropdown-basic">
-  <div ></div>
-  </Dropdown.Toggle>
+                    <Dropdown.Toggle  variant="white" id="dropdown-basic">
+                    <div ></div>
+                    </Dropdown.Toggle>
 
                     <Dropdown.Menu>
                         <Dropdown.Item >
-                            <Button onClick={() => handleDelete(project.id)} type="submit">Delete</Button>
+                            <Button onClick={() => handleDelete(project.id)} className="btn-block" type="submit">Delete Project</Button>
                         </Dropdown.Item>
                     </Dropdown.Menu>
-                </Dropdown>     
+                </Dropdown>  
+              
+                 
                 
                   </div> </Col>))}
             <Col xs={6} md={2}><CreateProject/></Col>

@@ -12,12 +12,11 @@ const headers = () => {
 export const createBoard = ( topic, imageLink, projectId ) => {
     
     const entry = {
-      
             title: topic,
             image: imageLink,
             project_id: projectId
-
     }
+    
     console.log(topic, imageLink, projectId)
     return fetch(`${BACKEND_DOMAIN}/boards`, {
         method: "POST",
