@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Project from '../component/Project';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Icon from '../component/IconPage';
@@ -7,10 +7,15 @@ import Profile from '../container/Profile';
 import Home from '../component/Home';
 import BoardList from '../component/BoardList';
 import { connect } from 'react-redux';
+// import { getUser } from '../actions/userAction';
 
-
-const Main = ({projectId}) => {
-
+const Main = ({store, getUser}) => {
+// console.log(store)
+//   useEffect(() => {
+//     console.log(store)
+//     getUser(1);
+// }, [])
+// console.log(store.userContext.user.id)
   return (
     <div className="mainBar">
       <Router>
@@ -71,5 +76,10 @@ const Main = ({projectId}) => {
     </div>
   )
 }
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//       getUser: (id) => getUser(id).then(dispatch)
+//   }
+// }
 // console.log(store)
-export default connect(store=>({projectId: store.projectId}))(Main)
+export default connect(store=>({store: store} ))(Main)

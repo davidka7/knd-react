@@ -7,7 +7,30 @@ const headers = () => {
     }
 }
 
+// export const getUser = (id) => {
+  
+    
+
+//     return fetch(`${BACKEND_DOMAIN}/users/${id}`, {
+//         method: "GET",
+//         headers: headers(),
+//     }).then(res => res.json())
+//     .then(res => {
+//         if (res.error) {
+//             return {
+//                 type: "LOGIN_ERROR",
+//                 error: res.error
+//             };
+//         }
+//         return {
+//             type: "LOGIN",
+//             payload: res
+//         }
+//     });
+// }
 const loginSignup = (apiUrl, username, password) => {
+    console.log(apiUrl, username, password)
+    
     const user = { user: { username, password} }
     return fetch(apiUrl, {
         method: "POST",
