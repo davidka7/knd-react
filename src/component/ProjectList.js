@@ -35,7 +35,7 @@ const ProjectList = ({ProjectId_save, getMyProjects, projects, projectId, delete
                     onClick={() => handleId(project.id)} >{project.topic}
                 </Link>  
               
-                <Dropdown className="s3dots">
+                <Dropdown >
   <Dropdown.Toggle  variant="white" id="dropdown-basic">
   <div ></div>
   </Dropdown.Toggle>
