@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {onCardDragStart} from '../actions/dropAction'
 import {deleteCard} from '../actions/cardAction'
 const Content = ({card, board_id, deleteCard}) => {
+  
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
