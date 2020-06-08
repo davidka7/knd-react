@@ -16,7 +16,7 @@ const Other = ({projects}) => {
     const [project1, setProjec] = useState('');
     const [person, setPerson] = useState('');
     const [project, setProject] = useState('');
-    
+    console.log(person, project, person1, project1)
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
@@ -60,22 +60,22 @@ const Other = ({projects}) => {
                         <Form.Label>Person</Form.Label>
                        
                         <Form.Control 
-                            type="Person" 
-                            placeholder="" 
+                            type="person" 
+                            placeholder="name" 
                             onChange={handlePerson}
                             value={person}
                             />
                     </Form.Group>
 
-                    <Form.Group controlId="Form.ControlSelect1">
+                    <Form.Group controlId="exampleForm.ControlSelect1">
                         <Form.Label>Project</Form.Label>
-                        <Form.Control as="select"
-                            type="Project" 
-                            placeholder=""
+                        <Form.Control as="select" multiple
+                            type="project" 
+                            placeholder={project}
                             onChange={handleProject}
                              value={project}
                              >
-                                 {console.log(projects)}
+                               
       {projects.map(project => <option> {project.topic} </option>)}
 
 
@@ -91,22 +91,22 @@ const Other = ({projects}) => {
                         <Form.Label>Person</Form.Label>
                        
                         <Form.Control 
-                            type="Person1" 
-                            placeholder="" 
+                            type="person1" 
+                            placeholder="name" 
                             onChange={handlePerso}
                             value={person1}
                             />
                     </Form.Group>
 
-                    <Form.Group controlId="Form.ControlSelect1">
+                    <Form.Group controlId="exampleForm.ControlSelect1">
                         <Form.Label>Project</Form.Label>
-                        <Form.Control as="select"
-                            type="Project1" 
+                        <Form.Control as="select" multiple
+                            type="project1" 
                             placeholder=""
                             onChange={handleProjec}
                              value={project1}
                              >
-                                 {console.log(projects)}
+                             
       {projects.map(project => <option> {project.topic} </option>)}
 
 
