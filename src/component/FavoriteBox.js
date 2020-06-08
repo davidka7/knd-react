@@ -13,7 +13,7 @@ const FavoriteBox = ({user, onIconDrop}) => {
     
     return (
         <Card 
-            style={{ width: "20rem" }} 
+            style={{ width: "20rem", height: "500px" }} 
             id="wrapper1" 
             onDrop={handleIconDrop} 
             onDragOver={e => e.preventDefault()}

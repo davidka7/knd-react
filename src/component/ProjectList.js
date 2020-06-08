@@ -11,6 +11,8 @@ import Button from 'react-bootstrap/Button'
 import Dropdown from 'react-bootstrap/Dropdown'
 import './3dots.css'
 import Other from './Other.js'
+
+
 const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, deleteProject }) => {
 
     const handleId = (project_id) => {
@@ -30,9 +32,9 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
         <div>
             <Row className="boards jumbotron">
                 {projects.map(project => (
-                    <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> <span>
+                    <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> 
+                        <span>
                         <Link 
-                            className="cont"
                             to="/boards"
                             onClick={() => handleId(project.id)} >{project.topic}
                         </Link>
@@ -42,19 +44,21 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
                                 <div ></div>
                             </Dropdown.Toggle>
                             <Dropdown.Menu>
-                                <Dropdown.Item >
-                                    <Button onClick={() => handleDelete(project.id)} className="btn-block" type="submit">Delete Project</Button>
+                                <Dropdown.Item className="btn-block">
+                                    <Button onClick={() => handleDelete(project.id)}  type="submit">
+                                        Delete Project
+                                    </Button>
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                    </span> </Col>))
+                        </span> 
+                    </Col>))
                 }
                 <Col xs={6} md={2}><CreateProject /></Col>
             </Row>
 
             <Row>
-                {< Other projects={projects} />}
-
+                < Other projects={projects} />
             </Row>
         </div>
     )

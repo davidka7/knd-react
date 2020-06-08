@@ -18,9 +18,10 @@ export const userReducer = (state = INITIAL_STATE, action) => {
             localStorage.setItem("token", action.payload.jwt);
             return { user: action.payload.user, error: null };
         case "DROP_ICON":
-            console.log("ICON IT GOT HERE", state)
             // return {...state, user: { ...state.user, icon_img: [...state.user.icon_img, action.payload]} }
-            return {...state, user: { ...state.user, icon_img: [...state.user.icon_img]} }
+            const result = {...state, user: { ...state.user, icon_img: [...state.user.icon_img, action.payload]} };
+            localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(result));
+            return result;
         default:
             return state;
     };
