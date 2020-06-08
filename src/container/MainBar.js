@@ -1,17 +1,13 @@
 import React, {useState, useEffect} from 'react';
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
-// import { getUser } from '../actions/userAction';
 
-const MainBar = ({store, getUser}) => {
-// console.log(store)
-//   useEffect(() => {
-//     console.log(store)
-//     getUser(1);
-// }, [])
-// console.log(store.userContext.user.id)
+
+const MainBar = ({user, getUser}) => {
+
   return (
-    <div className="mainBar">
+    user ? 
+    (<div className="mainBar">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <a className="navbar-brand">Plany Boat</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +34,9 @@ const MainBar = ({store, getUser}) => {
             </ul>
           </div>
         </nav>
-    </div>
+    </div>)
+    :
+    (null)
   )
 }
 // const mapDispatchToProps = (dispatch) => {
@@ -49,7 +47,7 @@ const MainBar = ({store, getUser}) => {
 // console.log(store)
 
 const mapStateToProps = (store) => {
-  return {store: store}
+  return {user: store.userContext.user}
 }
 
 export default connect(mapStateToProps)(MainBar)
