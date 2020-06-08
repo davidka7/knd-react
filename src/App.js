@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from "react-redux";
 import './App.css';
 import './container/MainBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,36 +17,38 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-const App = () => {
 
-  const one = () => {
-    let user = undefined
-    return (
+const App = ({user}) => {
 
-
+  return (
+    <div className="App-header" >
       <Router>
         <MainBar />
         <Route
             exact path='/' 
             render={(routeProps) =>
                 user ? <Redirect to={{pathname: '/projects'}} /> : <Account {...routeProps} />} />
-        <Route exact path='/boards' render={(routeProps) => <BoardList {...routeProps} />} />
-        <Route exact path='/home' render={(routeProps) => <Home {...routeProps} />} />
-        <Route exact path='/projects' render={(routeProps) => <Project {...routeProps} />} />
-        <Route exact path='/icons' render={(routeProps) => <IconPage {...routeProps} />} />
-        <Route exact path='/profile' render={(routeProps) => <Profile {...routeProps} />} />
-        <Route exact path='/customization' render={(routeProps) => <Customization {...routeProps} />} />
+        <Route exact path='/boards' render={(routeProps) => 
+                <BoardList {...routeProps} />} />
+        <Route exact path='/home' render={(routeProps) => 
+                <Home {...routeProps} />} />
+        <Route exact path='/projects' render={(routeProps) => 
+                <Project {...routeProps} />} />
+        <Route exact path='/icons' render={(routeProps) => 
+                <IconPage {...routeProps} />} />
+        <Route exact path='/profile' render={(routeProps) => 
+                <Profile {...routeProps} />} />
+        <Route exact path='/customization' render={(routeProps) => 
+                <Customization {...routeProps} />} />
 
       </Router>
-
-    )
-  }
-  return (
-    <div className="App-header" >
-      {one()}
 
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (store) => {
+  return {user: store.userContext.user}
+}
+
+export default connect(mapStateToProps)(App)
