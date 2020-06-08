@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-const Other = ({projects}) => {
+import {connect} from 'react-redux';
+import {c1, c2} from '../actions/shareAction'
+const Other = ({projects, c1, c2}) => {
     // const [show1, setShow1] = useState(false);
 
     // const handleClose1 = () => setShow1(false);
@@ -20,16 +22,16 @@ const Other = ({projects}) => {
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        // createBoard(topic, imageLink, projectId);
-        // setTopic('');
-        // setImageLink(''); 
+        c1(person, project);
+        setPerson('');
+        setProject(''); 
     }
     const handleSubmit1 = e => {
         e.preventDefault();
         e.stopPropagation();
-        // createBoard(topic, imageLink, projectId);
-        // setTopic('');
-        // setImageLink(''); 
+        c2(person1, project1);
+        setPerso('');
+        setProjec(''); 
     }
    
     // const [projecto, setProjecto] = useState('')
@@ -161,4 +163,10 @@ const Other = ({projects}) => {
      </div>
     )
 }
-export default Other
+const mapDispatchToProps = (dispatch) => {
+    return {
+        c1: () => c1().then(dispatch),
+        c2: () => c2().then(dispatch)
+    }
+}
+export default connect(null, mapDispatchToProps)(Other)
