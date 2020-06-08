@@ -1,15 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import Project from '../component/Project';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Icon from '../component/IconPage';
-import Customization from '../component/Customization';
-import Profile from '../container/Profile';
-import Home from '../component/Home';
-import BoardList from '../component/BoardList';
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 // import { getUser } from '../actions/userAction';
 
-const Main = ({store, getUser}) => {
+const MainBar = ({store, getUser}) => {
 // console.log(store)
 //   useEffect(() => {
 //     console.log(store)
@@ -18,7 +12,6 @@ const Main = ({store, getUser}) => {
 // console.log(store.userContext.user.id)
   return (
     <div className="mainBar">
-      <Router>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <a className="navbar-brand">Plany Boat</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,36 +36,8 @@ const Main = ({store, getUser}) => {
                 <Link to="/customization" className="nav-link">Settings</Link>
               </li>
             </ul>
-          
-
           </div>
         </nav>
-
-        {/* we either have to create a redux, set state, or we have to do a call back function */}
-
-        <Route path="/boards">
-            <BoardList/>
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/projects">
-            <Project />
-          </Route>
-          <Route path="/icons">
-            <Icon />
-          </Route>
-          <Route path="/profile">
-            <Profile />
-            
-          </Route>
-          <Route path="/customization">
-            <Customization />
-          </Route>
-  
-        
-
-      </Router>
     </div>
   )
 }
@@ -82,4 +47,9 @@ const Main = ({store, getUser}) => {
 //   }
 // }
 // console.log(store)
-export default connect(store=>({store: store} ))(Main)
+
+const mapStateToProps = (store) => {
+  return {store: store}
+}
+
+export default connect(mapStateToProps)(MainBar)
