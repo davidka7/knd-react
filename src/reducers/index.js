@@ -10,5 +10,6 @@ export default combineReducers({
     projects: projectReducer,
     boards: boardReducer,
     icons: iconReducer,
-    project_id: projectIDReducer
+    project_id: projectIDReducer,
+    // selectedIcon: dragDropSelectedReducer,
 });

@@ -15,10 +15,8 @@ const headers = () => {
 
 
 export const onCardDragStart = (card_obj, board_id) => {
-
     card = card_obj;
     formerBoardId = board_id
-
 }
 
 export const onCardDrop = (droppedBoard) => {
@@ -47,16 +45,15 @@ export const onIconDragStart = (icon_obj) => {
 
 
 
-export const onIconDrop = (data) => {
-    if (!data.icon_img.includes(icon)) {
-        data.icon_img.push(icon);
+export const onIconDrop = (userInfo, selectedIcon) => {
+    if (!userInfo.icon_img.includes(icon)) {
         const update_icon = {
             user: {
-                icon_img: data.icon_img
+                icon_img: userInfo.icon_img
             }
         }
 
-        fetch(`${BACKEND_DOMAIN}/users/${data.id}`, {
+        fetch(`${BACKEND_DOMAIN}/users/${userInfo.id}`, {
             method: "PUT",
             headers: headers(),
             body: JSON.stringify(update_icon)
