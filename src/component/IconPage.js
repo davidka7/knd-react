@@ -11,7 +11,7 @@ const IconPage = ({getMyIcons, icons}) => {
     useEffect(() => {
       getMyIcons();
     }, [])
-    console.log(icons)
+    
     return (
 
       <div>
