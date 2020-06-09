@@ -29,24 +29,3 @@ export const c1 = (  ) => {
         }
     });
 }
-
-export const c2 = (  ) => {
-   
-    return fetch(`${BACKEND_DOMAIN}/projects`, {
-        method: "POST",
-        headers: headers(),
-        // body: JSON.stringify()
-    }).then(res => res.json())
-    .then(res => {
-        if (res.error) {
-            return {
-                type: "CREATE_PROJECT_ERROR",
-                error: res.error
-            };
-        }
-        return {
-            type: "CREATE_PROJECT",
-            payload: res
-        }
-    });
-}

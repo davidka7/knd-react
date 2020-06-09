@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
 import {c1, c2} from '../actions/shareAction'
-const Other = ({projects, c1, c2}) => {
+import {user_project} from '../actions/userprojectAction'
+const Other = ({projects, c1, user_project}) => {
     // const [show1, setShow1] = useState(false);
 
     // const handleClose1 = () => setShow1(false);
@@ -29,11 +30,14 @@ const Other = ({projects, c1, c2}) => {
     const handleSubmit1 = e => {
         e.preventDefault();
         e.stopPropagation();
-        c2(person1, project1);
+        user_project(person1, project1);
         setPerso('');
         setProjec(''); 
     }
-   
+    // const handleId = () => {
+    //     user_project()
+        
+    // }
     // const [projecto, setProjecto] = useState('')
     const handlePerson = e => { setPerson(e.target.value) };
     const handleProject = e => {  setProject(projects.filter(project => project.topic == e.target.value))  };
@@ -165,8 +169,9 @@ const Other = ({projects, c1, c2}) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        c1: () => c1().then(dispatch),
-        c2: () => c2().then(dispatch)
+     
+        c1: (person, project) => c1(person, project).then(dispatch),
+        user_project: (person1, project1) => user_project(person1, project1).then(dispatch),
     }
 }
 export default connect(null, mapDispatchToProps)(Other)
