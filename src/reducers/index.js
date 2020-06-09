@@ -5,6 +5,7 @@ import { boardReducer } from './boardReducer';
 import { iconReducer } from './iconReducer';
 import { projectIDReducer } from './projectIdReducer';
 import { dragDropSelectedReducer } from './dragDropSelectedReducer';
+import {iconSaveReducer} from './iconSaveReducer';
 
 export default combineReducers({
     userContext: userReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
     icons: iconReducer,
     project_id: projectIDReducer,
     selectedItem: dragDropSelectedReducer,
+    savedIcon: iconSaveReducer,
 });

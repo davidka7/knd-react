@@ -1,12 +1,12 @@
 const BACKEND_DOMAIN = process.env.REACT_APP_BACKEND_DOMAIN;
 let token = () => localStorage.getItem("token")
 
-export const ProjectId_save= (id, dispatch) => {
+export const iconSaveAction = (icon, dispatch) => {
     
             dispatch(
                 {
-                    type: "PROJECTID",
-                    id: id
+                    type: "ICON_ID",
+                    icon: icon
                 }
             );
       

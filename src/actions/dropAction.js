@@ -1,5 +1,4 @@
 let card = null
-let icon = null
 let formerBoardId = null
 
 const BACKEND_DOMAIN = process.env.REACT_APP_BACKEND_DOMAIN;
@@ -51,7 +50,8 @@ export const onIconDragStart = (selectedIcon) => {
 
 export const onIconDrop = (userInfo, selectedIcon) => {
     console.log("SELECTED ICON", selectedIcon)
-    if (!userInfo.icon_img.includes(icon)) {
+    if (!userInfo.icon_img.includes(selectedIcon)) {
+        userInfo.icon_img.push(selectedIcon)
         const update_icon = {
             user: {
                 icon_img: userInfo.icon_img
