@@ -1,5 +1,4 @@
 let card = null
-let icon = null
 let formerBoardId = null
 
 const BACKEND_DOMAIN = process.env.REACT_APP_BACKEND_DOMAIN;
@@ -39,14 +38,20 @@ export const onCardDrop = (droppedBoard) => {
         }
 }
 
-export const onIconDragStart = (icon_obj) => {
-    icon = icon_obj;
+export const onIconDragStart = (selectedIcon) => {
+
+    return {
+        type: "SELECT_ICON",
+        payload: selectedIcon
+    }
 }
 
 
 
 export const onIconDrop = (userInfo, selectedIcon) => {
-    if (!userInfo.icon_img.includes(icon)) {
+    console.log("SELECTED ICON", selectedIcon)
+    if (!userInfo.icon_img.includes(selectedIcon)) {
+        userInfo.icon_img.push(selectedIcon)
         const update_icon = {
             user: {
                 icon_img: userInfo.icon_img
@@ -61,7 +66,7 @@ export const onIconDrop = (userInfo, selectedIcon) => {
 
         return {
             type: "DROP_ICON",
-            payload: icon
+            payload: selectedIcon
         }
     }
 }

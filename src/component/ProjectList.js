@@ -73,7 +73,7 @@ const mapDispatchToProps = (dispatch) => {
         getMyProjects: () => getMyProjects().then(dispatch),
         projectId: (project_id) => getBoards(project_id).then(dispatch),
         deleteProject: (id) => deleteProject(id, dispatch),
-        ProjectId_save: (id => ProjectId_save(id, dispatch))
+        ProjectId_save: (id => ProjectId_save(id, dispatch)),
     }
 }
 

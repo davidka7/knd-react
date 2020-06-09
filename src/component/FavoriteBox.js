@@ -1,14 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from "react-bootstrap/Card";
 import {connect} from 'react-redux';
 import Icon from './Icon';
 import {onIconDrop} from '../actions/dropAction';
 
-const FavoriteBox = ({user, onIconDrop}) => {
-    
+
+const FavoriteBox = ({user, onIconDrop, savedIcon}) => {
 
     const handleIconDrop = () => {
-        onIconDrop(user)
+        console.log("ICON TYPE HERERERERER", savedIcon)
+
+        onIconDrop(user, savedIcon)
     }
     
     return (
@@ -31,12 +33,17 @@ const FavoriteBox = ({user, onIconDrop}) => {
 }
 
 const mapStateToProps = (store) => {
-    return {user: store.userContext.user}
+
+    return {
+      user: store.userContext.user,
+      // selectedIcon: store.selectedItem.icon,
+      savedIcon: store.savedIcon
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      onIconDrop: (user) => {dispatch(onIconDrop(user))}
+      onIconDrop: (user, savedIcon) => dispatch(onIconDrop(user, savedIcon))
     }
   }
 
