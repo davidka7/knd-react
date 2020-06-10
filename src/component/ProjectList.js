@@ -58,7 +58,11 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
                         </span> 
                     </Col>))
                 }
-                <Col xs={6} md={2}><CreateProject /></Col>
+                  <Col xs={6} md={2}><CreateProject /></Col>
+                </Row>
+
+                <Row className="boards jumbotron">
+              
                 {projects.user_project.map(project => (
                     <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> 
                         <span>
@@ -69,7 +73,7 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
                         </span> 
                     </Col>))
                 }
-              
+              < Other projects={projects.projects} />
 
 
 
@@ -77,9 +81,7 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
                 
             </Row>
 
-            <Row>
-                < Other projects={projects.projects} />
-            </Row>
+          
         </div>
     )
 }

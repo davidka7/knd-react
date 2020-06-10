@@ -22,6 +22,16 @@ const IconPage = ({getMyIcons, icons}) => {
             </Card.Text>
           </Card.Body>
         </Card>
+        
+   
+               <img className="lol"
+                    src={require(`../images/funny.png`)} 
+                    alt={"funny"} 
+                    height="350px" width="320px" 
+                    // onDragStart={handleIconDrag}
+                    /> 
+        
+       
         <FavoriteBox />
       </div>
     );
