@@ -58,40 +58,9 @@ const Other = ({projects, user_project}) => {
         <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}> Add+ </Button>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-            {/* <Modal.Title>Share Project View</Modal.Title>
+            <Modal.Title> Add Admin To Project</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group controlId="formPerson">
-                        <Form.Label>Person</Form.Label>
-                       
-                        <Form.Control 
-                            type="person" 
-                            placeholder="name" 
-                            onChange={handlePerson}
-                            value={person}
-                            />
-                    </Form.Group>
-
-                    <Form.Group controlId="exampleForm.ControlSelect1">
-                        <Form.Label>Project</Form.Label>
-                        <Form.Control as="select" multiple
-                            type="project" 
-                            placeholder={project}
-                            onChange={handleProject}
-                             value={project}
-                             >
-                               
-      {projects.map(project => <option> {project.topic} </option>)}
-
-
-                             </Form.Control>
-                    </Form.Group>
-                    <Button type="submit" variant="primary" onClick={handleClose}>Share </Button>
-                </Form> */}
-           
-            <Modal.Title> Add Admin To Project</Modal.Title>
-          
                 <Form onSubmit={handleSubmit1}>
                     <Form.Group controlId="formPerson1">
                         <Form.Label>Person</Form.Label>
@@ -122,48 +91,6 @@ const Other = ({projects, user_project}) => {
                 </Form>
             </Modal.Body>
         </Modal>
-        {/* <Button variant="outline-primary" className="btn btn-block" onClick={handleShow1}> Add+ </Button>
-        <Modal show={show1} onHide={handleClose1}>
-            <Modal.Header closeButton>
-            <Modal.Title>Share Project View</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-           
-           
-            <Modal.Title> Add Admin To Project</Modal.Title>
-          
-                <Form onSubmit={handleSubmit1}>
-                    <Form.Group controlId="formPerson1">
-                        <Form.Label>Person</Form.Label>
-                       
-                        <Form.Control 
-                            type="Person1" 
-                            placeholder="" 
-                            onChange={handlePerso}
-                            value={person1}
-                            />
-                    </Form.Group>
-
-                    <Form.Group controlId="Form.ControlSelect2">
-                        <Form.Label>Project</Form.Label>
-                        <Form.Control as="select1"
-                            type="Project1" 
-                            placeholder=""
-                            onChange={handleProjec}
-                             value={project1}
-                             >
-                                 {console.log(projects)}
-      {projects.map(project => <option> {project.topic} </option>)}
-
-
-                             </Form.Control>
-                    </Form.Group>
-                    <Button type="submit" variant="primary" onClick={handleClose1}>Share </Button>
-                </Form>
-            </Modal.Body>
-        </Modal>
-     */}
-     
      </div>
     )
 }
