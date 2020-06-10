@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 
-const MainBar = ({user, getUser}) => {
+const MainBar = ({user}) => {
 
   return (
     user ? 
@@ -36,12 +36,6 @@ const MainBar = ({user, getUser}) => {
     (null)
   )
 }
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//       getUser: (id) => getUser(id).then(dispatch)
-//   }
-// }
-// console.log(store)
 
 const mapStateToProps = (store) => {
   return {user: store.userContext.user}
