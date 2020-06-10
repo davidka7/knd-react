@@ -9,7 +9,7 @@ import Account from './container/Account';
 import IconPage from './component/IconPage';
 import Customization from './component/Customization';
 import Profile from './container/Profile';
-import Home from './component/Home';
+import Home from './container/Home';
 import BoardList from './component/BoardList';
 import Project from './component/Project';
 import {
@@ -25,9 +25,7 @@ const App = ({user}) => {
     <div className="App-header" >
       <Router>
         <MainBar />
-        <Route
-            exact path='/' 
-            render={(routeProps) =>
+        <Route exact path='/' render={(routeProps) =>
                 user ? <Redirect to={{pathname: '/projects'}} /> : <Account {...routeProps} />} />
         <Route exact path='/boards' render={(routeProps) => 
                 <BoardList {...routeProps} />} />
@@ -38,7 +36,8 @@ const App = ({user}) => {
         <Route exact path='/icons' render={(routeProps) => 
                 <IconPage {...routeProps} />} />
         <Route exact path='/profile' render={(routeProps) => 
-                <Profile {...routeProps} />} />
+                !user ? <Redirect to={{pathname: '/'}} /> : <Profile {...routeProps} />} />
+                
         <Route exact path='/customization' render={(routeProps) => 
                 <Customization {...routeProps} />} />
 
