@@ -3,9 +3,9 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
-import {c1, c2} from '../actions/shareAction'
+// import {c1, c2} from '../actions/shareAction'
 import {user_project} from '../actions/userprojectAction'
-const Other = ({projects, c1, user_project}) => {
+const Other = ({projects, user_project}) => {
     // const [show1, setShow1] = useState(false);
 
     // const handleClose1 = () => setShow1(false);
@@ -17,16 +17,16 @@ const Other = ({projects, c1, user_project}) => {
     const handleShow = () => setShow(true);
     const [person1, setPerso] = useState('');
     const [project1, setProjec] = useState('');
-    const [person, setPerson] = useState('');
-    const [project, setProject] = useState('');
+    // const [person, setPerson] = useState('');
+    // const [project, setProject] = useState('');
     console.log(person, project, person1, project1)
-    const handleSubmit = e => {
-        e.preventDefault();
-        e.stopPropagation();
-        c1(person, project);
-        setPerson('');
-        setProject(''); 
-    }
+    // const handleSubmit = e => {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     c1(person, project);
+    //     setPerson('');
+    //     setProject(''); 
+    // }
     const handleSubmit1 = e => {
         e.preventDefault();
         e.stopPropagation();
@@ -39,8 +39,8 @@ const Other = ({projects, c1, user_project}) => {
         
     // }
     // const [projecto, setProjecto] = useState('')
-    const handlePerson = e => { setPerson(e.target.value) };
-    const handleProject = e => {  setProject(projects.filter(project => project.topic == e.target.value))  };
+    // const handlePerson = e => { setPerson(e.target.value) };
+    // const handleProject = e => {  setProject(projects.filter(project => project.topic == e.target.value))  };
      
    
         // setProject(e.target.value)
@@ -58,7 +58,7 @@ const Other = ({projects, c1, user_project}) => {
         <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}> Add+ </Button>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-            <Modal.Title>Share Project View</Modal.Title>
+            {/* <Modal.Title>Share Project View</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
@@ -88,7 +88,7 @@ const Other = ({projects, c1, user_project}) => {
                              </Form.Control>
                     </Form.Group>
                     <Button type="submit" variant="primary" onClick={handleClose}>Share </Button>
-                </Form>
+                </Form> */}
            
             <Modal.Title> Add Admin To Project</Modal.Title>
           
@@ -170,7 +170,7 @@ const Other = ({projects, c1, user_project}) => {
 const mapDispatchToProps = (dispatch) => {
     return {
      
-        c1: (person, project) => c1(person, project).then(dispatch),
+        // c1: (person, project) => c1(person, project).then(dispatch),
         user_project: (person1, project1) => user_project(person1, project1).then(dispatch),
     }
 }
