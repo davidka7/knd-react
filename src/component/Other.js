@@ -19,7 +19,7 @@ const Other = ({projects, user_project}) => {
     const [project1, setProjec] = useState('');
     // const [person, setPerson] = useState('');
     // const [project, setProject] = useState('');
-    console.log(person, project, person1, project1)
+   
     // const handleSubmit = e => {
     //     e.preventDefault();
     //     e.stopPropagation();
@@ -49,7 +49,7 @@ const Other = ({projects, user_project}) => {
  const handlePerso = e => { setPerso(e.target.value) };
  const handleProjec = e => {  setProjec(projects.filter(project => project.topic == e.target.value))};
      
-    console.log(project)
+  
 
     return (
      <div> 

@@ -16,7 +16,9 @@ const Home = () => {
                 <h1 class="display-3">Welcome to Plany Boat!</h1>
                 <p class="lead">This is a simple app, created by two programing sailors.</p>
                 <hr class="my-4"></hr>
-                <p>You can create a project, boards and notes to keep track of your work.</p>
+                <p>You can create a project, Its boards with notes to keep track of your group or personal work.
+                    You also have the option to customize the app, and share your projects with your friends!
+                </p>
             </div>
 
         </div>

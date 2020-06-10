@@ -32,3 +32,21 @@ export const user_project = (user_id, project_id ) => {
         }
     });
 }
+
+export const getuserprojetcs = (project_id) => {
+    return fetch(`${BACKEND_DOMAIN}/projects/${project_id}`, {
+        method: "GET",
+        headers: headers(),
+    }).then(res => res.json())
+    .then(res => {
+        if (res.message) {
+            return {
+                type: "GET_USER_PROJECTS_ERROR",
+                error: res.message
+            };
+        }
+        return {
+            type: "GET_USER_PROJECTS",
+            payload: res.boards }
+        });
+}
