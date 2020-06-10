@@ -1,1 +1,27 @@
-.home { padding: 50px}
+.home { 
+    padding: 60px;
+    background-image: url('../images/homewater.jpeg');
+    background-size: cover;
+    max-height: 800px;
+}
+
+.home .a { text-align: right;}
+
+.home .jumbotron {
+    margin-top: 120px;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.8)
+}
+
+.home .jumbotron h1{
+    color: black;
+}
+
+.home .jumbotron .lead {
+    color: black;
+}
+
+.home .jumbotron .size22 {
+    color: grey;
+    font-size: 22px;
+}
