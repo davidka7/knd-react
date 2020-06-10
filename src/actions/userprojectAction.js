@@ -33,8 +33,9 @@ export const user_project = (user_id, project_id ) => {
     });
 }
 
-export const getuserprojetcs = (project_id) => {
-    return fetch(`${BACKEND_DOMAIN}/projects/${project_id}`, {
+export const getuserprojetcs = (id, dispatch) => {
+console.log(id)
+    return fetch(`${BACKEND_DOMAIN}/user_projects`, {
         method: "GET",
         headers: headers(),
     }).then(res => res.json())
@@ -47,6 +48,6 @@ export const getuserprojetcs = (project_id) => {
         }
         return {
             type: "GET_USER_PROJECTS",
-            payload: res.boards }
+            payload: res }
         });
 }

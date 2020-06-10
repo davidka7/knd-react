@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 import { getBoards } from '../actions/boardAction';
 import CreateProject from './CreateProject'
 import { ProjectId_save } from '../actions/projectIdAction';
+import {getuserprojetcs} from '../actions/userprojectAction'
 import Button from 'react-bootstrap/Button'
 import Dropdown from 'react-bootstrap/Dropdown'
 import './3dots.css'
 import Other from './Other.js'
 
 
-const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, deleteProject }) => {
+const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, deleteProject, getuserprojetcs }) => {
 
     const handleId = (project_id) => {
         projectId(project_id);
@@ -27,11 +28,14 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
     useEffect(() => {
         getMyProjects();
     }, [])
-
+  
+    useEffect(() => {
+        getuserprojetcs(projects.userContext.user.id);
+    }, [])
     return (
         <div>
             <Row className="boards jumbotron">
-                {projects.map(project => (
+                {projects.projects.map(project => (
                     <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> 
                         <span>
                         <Link 
@@ -55,22 +59,39 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
                     </Col>))
                 }
                 <Col xs={6} md={2}><CreateProject /></Col>
+                {projects.user_project.map(project => (
+                    <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> 
+                        <span>
+                        <Link 
+                            to="/boards"
+                            onClick={() => handleId(project.id)} >{project.topic}
+                        </Link>
+                        </span> 
+                    </Col>))
+                }
+              
+
+
+
+
+                
             </Row>
 
             <Row>
-                < Other projects={projects} />
+                < Other projects={projects.projects} />
             </Row>
         </div>
     )
 }
 
 const mapStateToProps = (store) => {
-    return { projects: store.projects }
+    return { projects: store }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getMyProjects: () => getMyProjects().then(dispatch),
+        getuserprojetcs: (id) => getuserprojetcs(id).then(dispatch),
         projectId: (project_id) => getBoards(project_id).then(dispatch),
         deleteProject: (id) => deleteProject(id, dispatch),
         ProjectId_save: (id => ProjectId_save(id, dispatch)),
