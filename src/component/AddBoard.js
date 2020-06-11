@@ -5,12 +5,11 @@ import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
 import {createBoard} from '../actions/boardAction'
 
-const BoardProject = ({boards, createBoard}) => {
-console.log(boards)
+const AddBoard = ({createBoard, projectId}) => {
+
     const [show, setShow] = useState(false);
     const [topic, setTopic] = useState('');
     const [imageLink, setImageLink] = useState('');
-    const [projectId] = useState(boards);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -29,7 +28,7 @@ console.log(boards)
 
     return (
         <>
-        <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}>Add</Button>
+        <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}>Add board</Button>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
             <Modal.Title>Create a new Board</Modal.Title>
@@ -70,4 +69,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(BoardProject)
+export default connect(null, mapDispatchToProps)(AddBoard)
