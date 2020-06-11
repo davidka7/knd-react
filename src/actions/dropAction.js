@@ -19,26 +19,6 @@ export const onCardDragStart = (card_obj, board_id) => {
     formerBoardId = board_id
 }
 
-// export const onCardDrop = (droppedBoard) => {
-//     console.log("DROP HERE", droppedBoard, card)
-    
-//     let cardz={card_title: card.card_title, content: card.content, board_id: droppedBoard.id}
-//     fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
-//         method: "DELETE",
-//         headers: headers(),
-//     }).then(res => res.json())
-   
-//     fetch(`${BACKEND_DOMAIN}/cards`, {
-//         method: "POST",
-//         headers: headers(),
-//         body: JSON.stringify(cardz)
-//     }).then(res => res.json())
-    
-//     return {
-//             type: "DROP_CARD",
-//             payload: {card, droppedBoard, formerBoardId}
-//         }
-// }
 
 export const onCardDrop = (droppedBoard) => {
     console.log("DROP HERE", droppedBoard, card)
@@ -70,7 +50,7 @@ export const onIconDragStart = (selectedIcon) => {
 
 
 export const onIconDrop = (userInfo, selectedIcon) => {
-    console.log("SELECTED ICON", selectedIcon)
+
     if (!userInfo.icon_img.includes(selectedIcon)) {
         userInfo.icon_img.push(selectedIcon)
         const update_icon = {

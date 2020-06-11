@@ -15,24 +15,22 @@ const IconPage = ({getMyIcons, icons}) => {
     return (
 
       <div>
-        <Card style={{ width: "25rem" }} id="wrapper">
-          <Card.Body>
-            <Card.Text>
-              {icons.map(icon => <Icon icon={icon}/>)}
-            </Card.Text>
-          </Card.Body>
-        </Card>
+          <Card style={{ width: "25rem" }} id="wrapper">
+            <Card.Body>
+              <Card.Text>
+                {icons.map(icon => <Icon icon={icon}/>)}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+
+          <img 
+              className="lol"
+              src={require(`../images/funny.png`)} 
+              alt={"funny"} 
+              height="350px" width="320px" 
+          /> 
         
-   
-               <img className="lol"
-                    src={require(`../images/funny.png`)} 
-                    alt={"funny"} 
-                    height="350px" width="320px" 
-                    // onDragStart={handleIconDrag}
-                    /> 
-        
-       
-        <FavoriteBox />
+          <FavoriteBox />
       </div>
     );
 };

@@ -6,14 +6,11 @@ export const boardReducer = (state = PROJECT_INITIAL_STATE, action) => {
         case 'GET_BOARDS_FROM_PROJECT':
             return action.payload.map(item => item);
         case 'CREATE_BOARD':
-            console.log(action.payload)
             return [...state, action.payload];
-            
         case 'DELETE_CARD':
-            console.log(action)
-             state = state.map(b => b.id === action.card.board_id
+            state = state.map(b => b.id === action.card.board_id
                 ? { ...b, cards: b.cards.filter(c => c.id !== action.card.id) } : b);
-                return state
+            return state
         case 'DELETE_BOARD':
             return state.filter((p) => p.id !== action.id)
         case 'CREATE_CARD':

@@ -19,7 +19,7 @@ import {
 } from "react-router-dom";
 
 const App = ({user}) => {
-//   useEffect()
+
 
   return (
     <div className="App-header" >
