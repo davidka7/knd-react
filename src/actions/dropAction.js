@@ -19,15 +19,6 @@ export const onCardDragStart = (card_obj, board_id) => {
     formerBoardId = board_id
 }
 
-<<<<<<< HEAD
-export const onCardDrop = (droppedBoard, card) => {
-    console.log("DROP HERE", droppedBoard, card)
-    
-    let cardz={card_title: card.card_title, content: card.content, board_id: droppedBoard.id}
-
-    fetch(`${BACKEND_DOMAIN}/cards`, {
-        method: "POST",
-=======
 // export const onCardDrop = (droppedBoard) => {
 //     console.log("DROP HERE", droppedBoard, card)
     
@@ -58,7 +49,6 @@ export const onCardDrop = (droppedBoard) => {
 
     fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
         method: "PUT",
->>>>>>> 053311bdf72e6dfaddef289363c66f8434ce25c8
         headers: headers(),
         body: JSON.stringify(selectedCard)
     }).then(res => res.json())
