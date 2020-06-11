@@ -61,7 +61,7 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
                 }
                   <Col xs={6} md={2}><CreateProject /></Col>
                 </Row>
-
+               <h1> Shared projects </h1>
                 <Row className="boards jumbotron">
               
                 {projects.user_project.map(project => (
