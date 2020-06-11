@@ -22,11 +22,9 @@ export const getMyIcons = (dispatch) => {
                 error: res.message
             };
         }
-        dispatch(
-            {
+        dispatch({
                 type: "GET_MY_ICONS",
                 payload: res
-            }
-        ) 
+            }) 
     });
 }

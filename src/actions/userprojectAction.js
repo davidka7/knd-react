@@ -33,8 +33,8 @@ export const user_project = (user_id, project_id ) => {
     });
 }
 
-export const getuserprojetcs = (id, dispatch) => {
-console.log(id)
+export const getuserprojetcs = (id) => {
+
     return fetch(`${BACKEND_DOMAIN}/user_projects`, {
         method: "GET",
         headers: headers(),
