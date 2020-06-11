@@ -12,9 +12,9 @@ const headers = () => {
 export const createBoard = ( topic, imageLink, projectId ) => {
     
     const entry = {
-            title: topic,
-            image: imageLink,
-            project_id: projectId
+        title: topic,
+        image: imageLink,
+        project_id: projectId
     }
     
     console.log(topic, imageLink, projectId)
