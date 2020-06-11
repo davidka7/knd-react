@@ -5,18 +5,13 @@ import SignUp from '../component/SignUp';
 import { Link } from 'react-router-dom';
 import Profile from './Profile';
 import Container from 'react-bootstrap/Container';
-import SignoutButton from '../component/SignoutButton';
 const Account = ({userInfo}) => {
     
     const list = () => {
-        if (userInfo.userContext.user) {
-            console.log(userInfo)
+        if (userInfo) {
             return (
-               
                 <div>
-   
-                    <Profile />  
-                 
+                    <Profile /> 
                     <Link className="btn btn-outline-primary" to="/homepage"> Homepage </Link>
                 </div >
             )
@@ -30,6 +25,7 @@ const Account = ({userInfo}) => {
             )
         }
     }
+
     return (
         <Container>
             Home Page Data
@@ -39,7 +35,7 @@ const Account = ({userInfo}) => {
 }
 
 const mapStateToProp = (store) => {
-    return { userInfo : store }
+    return { userInfo : store.userContext.user }
 }
 
 export default connect(mapStateToProp)(Account)

@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Board from './Board';
 import CardDeck from 'react-bootstrap/CardDeck';
-import {connect} from 'react-redux'
-
+import {connect} from 'react-redux';
+import { useParams } from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
 import BoardProject from './BoardProject';
-const BoardList = ({boards}) => {
+import {getBoards} from '../actions/boardAction'
+
+const BoardList = ({boards, getBoards}) => {
+    const { projectId } = useParams();
+
+    useEffect(() =>{
+        getBoards(projectId)
+    }, []);
 
     return (
         <CardDeck className='project-list'>
@@ -19,4 +26,10 @@ const mapStateToProps = (store) => {
     return {boards: store.boards}
 }
 
-export default connect(mapStateToProps)(BoardList)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getBoards: (projectId) => getBoards(projectId).then(dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BoardList)

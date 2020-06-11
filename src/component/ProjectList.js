@@ -32,6 +32,7 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
     useEffect(() => {
         getuserprojetcs(projects.userContext.user.id);
     }, [])
+
     return (
         <div>
             <Row className="boards jumbotron">
@@ -39,7 +40,7 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
                     <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> 
                         <span>
                         <Link 
-                            to="/boards"
+                            to={`/projects/${project.id}`}
                             onClick={() => handleId(project.id)} >{project.topic}
                         </Link>
 
@@ -67,17 +68,13 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
                     <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> 
                         <span>
                         <Link 
-                            to="/boards"
+                            to={`/projects/${project.id}`}
                             onClick={() => handleId(project.id)} >{project.topic}
                         </Link>
                         </span> 
                     </Col>))
                 }
               < Other projects={projects.projects} />
-
-
-
-
                 
             </Row>
 
