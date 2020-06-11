@@ -32,7 +32,7 @@ export const createBoard = ( topic, imageLink, projectId ) => {
         }
         return {
             type: "CREATE_BOARD",
-            payload: res
+            payload: res.board
         }
     });
 }

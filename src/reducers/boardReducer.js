@@ -7,7 +7,7 @@ export const boardReducer = (state = PROJECT_INITIAL_STATE, action) => {
             return action.payload.map(item => item);
         case 'CREATE_BOARD':
             console.log(action.payload)
-            return [...state, action.payload.board];
+            return [...state, action.payload];
             
         case 'DELETE_CARD':
             console.log(action)
