@@ -17,6 +17,7 @@ const Content = ({card, board_id, deleteCard, cardSaveAction}) => {
       console.log("onCardDragStart: ", card)
       onCardDragStart(card, board_id);
       cardSaveAction(card)
+      console.log("kim ewww", card)
     }
 
     const handleDelete = (card) => {

@@ -40,7 +40,7 @@ export const onCardDragStart = (card_obj, board_id) => {
 //         }
 // }
 
-export const onCardDrop = (droppedBoard) => {
+export const onCardDrop = (droppedBoard, card) => {
     console.log("DROP HERE", droppedBoard, card)
     
     let selectedCard = {
@@ -54,10 +54,6 @@ export const onCardDrop = (droppedBoard) => {
     }).then(res => res.json())
     
 
-    fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
-        method: "DELETE",
-        headers: headers(),
-    }).then(res => res.json())
    
    
     return {
