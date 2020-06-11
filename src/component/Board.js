@@ -9,10 +9,11 @@ import {deleteBoard} from '../actions/boardAction'
 import CreateCard from './CreateCard'
 
 
-const Board = ({ boardInfo, onCardDrop, deleteBoard }) => {
+const Board = ({ boardInfo, onCardDrop, deleteBoard, card }) => {
 
   const handleCardDrop = () => {
-    onCardDrop(boardInfo)
+    console.log(boardInfo)
+    onCardDrop(boardInfo, card)
   }
 
   const handleDelete = (board_id) => {
@@ -41,14 +42,18 @@ const Board = ({ boardInfo, onCardDrop, deleteBoard }) => {
   )
 }
 
-
+const mapStateToProps = (store) => {
+  return {
+    card: store.savedIcon
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteBoard: (board_id) => deleteBoard(board_id, dispatch),
-    onCardDrop: (boardInfo) => {dispatch(onCardDrop(boardInfo))}
+    onCardDrop: (boardInfo, card) => {dispatch(onCardDrop(boardInfo, card))}
   }
 }
 
 
-export default connect(null, mapDispatchToProps)(Board)
+export default connect(mapStateToProps, mapDispatchToProps)(Board)

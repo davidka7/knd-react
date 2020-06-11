@@ -1,4 +1,4 @@
-let card = null
+// let card = null
 let formerBoardId = null
 
 const BACKEND_DOMAIN = process.env.REACT_APP_BACKEND_DOMAIN;
@@ -15,25 +15,28 @@ const headers = () => {
 
 export const onCardDragStart = (card_obj, board_id) => {
     console.log("LOOOK HERE", card_obj, board_id)
-    card = card_obj;
+    // card = card_obj;
     formerBoardId = board_id
 }
 
-export const onCardDrop = (droppedBoard) => {
+export const onCardDrop = (droppedBoard, card) => {
     console.log("DROP HERE", droppedBoard, card)
     
     let cardz={card_title: card.card_title, content: card.content, board_id: droppedBoard.id}
-    fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
-        method: "DELETE",
-        headers: headers(),
-    }).then(res => res.json())
-   
+
     fetch(`${BACKEND_DOMAIN}/cards`, {
         method: "POST",
         headers: headers(),
         body: JSON.stringify(cardz)
     }).then(res => res.json())
     
+
+    fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
+        method: "DELETE",
+        headers: headers(),
+    }).then(res => res.json())
+   
+   
     return {
             type: "DROP_CARD",
             payload: {card, droppedBoard, formerBoardId}

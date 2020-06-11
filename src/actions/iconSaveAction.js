@@ -12,3 +12,14 @@ export const iconSaveAction = (icon, dispatch) => {
       
   
 }
+export const cardSaveAction = (card, dispatch) => {
+    
+    dispatch(
+        {
+            type: "CARD_ID",
+            card: card
+        }
+    );
+      
+  
+}

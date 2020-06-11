@@ -4,8 +4,8 @@ import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
 import {onCardDragStart} from '../actions/dropAction'
 import {deleteCard} from '../actions/cardAction'
-
-const Content = ({card, board_id, deleteCard}) => {
+import {cardSaveAction} from '../actions/iconSaveAction';
+const Content = ({card, board_id, deleteCard, cardSaveAction}) => {
   
     const [show, setShow] = useState(false);
 
@@ -16,6 +16,7 @@ const Content = ({card, board_id, deleteCard}) => {
       e.persist();
       console.log("onCardDragStart: ", card)
       onCardDragStart(card, board_id);
+      cardSaveAction(card)
     }
 
     const handleDelete = (card) => {
@@ -52,7 +53,8 @@ const Content = ({card, board_id, deleteCard}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteCard: (card) => deleteCard(card, dispatch),
-    onCardDragStart: ((card,board_id) => onCardDragStart(card, board_id).then(dispatch))
+    onCardDragStart: ((card,board_id) => onCardDragStart(card, board_id).then(dispatch)),
+    cardSaveAction: (icon => cardSaveAction(icon, dispatch)),
   }
 }
 export default connect(null, mapDispatchToProps)(Content)
