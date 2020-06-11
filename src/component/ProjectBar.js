@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 const ProjectBar = () => {
     
     return (
-        <Row>Your projects</Row>
+        <Row><h1>Your projects</h1></Row>
     )
 }
 export default ProjectBar
