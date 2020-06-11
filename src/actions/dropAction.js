@@ -14,12 +14,14 @@ const headers = () => {
 
 
 export const onCardDragStart = (card_obj, board_id) => {
+    console.log("LOOOK HERE", card_obj, board_id)
     card = card_obj;
     formerBoardId = board_id
 }
 
 export const onCardDrop = (droppedBoard) => {
-    console.log(droppedBoard, card)
+    console.log("DROP HERE", droppedBoard, card)
+    
     let cardz={card_title: card.card_title, content: card.content, board_id: droppedBoard.id}
     fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
         method: "DELETE",

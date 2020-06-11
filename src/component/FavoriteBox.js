@@ -8,8 +8,6 @@ import {onIconDrop} from '../actions/dropAction';
 const FavoriteBox = ({user, onIconDrop, savedIcon}) => {
 
     const handleIconDrop = () => {
-        console.log("ICON TYPE HERERERERER", savedIcon)
-
         onIconDrop(user, savedIcon)
     }
     
@@ -18,8 +16,8 @@ const FavoriteBox = ({user, onIconDrop, savedIcon}) => {
             style={{ width: "20rem", height: "500px" }} 
             id="wrapper1" 
             onDrop={handleIconDrop} 
-            onDragOver={e => e.preventDefault()}
-        >
+            onDragOver={e => e.preventDefault()} >
+
           <Card.Body>
           <Card.Title>Favorite Box</Card.Title>
             <Card.Text>
@@ -33,10 +31,8 @@ const FavoriteBox = ({user, onIconDrop, savedIcon}) => {
 }
 
 const mapStateToProps = (store) => {
-
     return {
       user: store.userContext.user,
-      // selectedIcon: store.selectedItem.icon,
       savedIcon: store.savedIcon
     }
 }

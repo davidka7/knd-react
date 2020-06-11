@@ -4,17 +4,16 @@ import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
 import {onCardDragStart} from '../actions/dropAction'
 import {deleteCard} from '../actions/cardAction'
+
 const Content = ({card, board_id, deleteCard}) => {
   
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     const handleDrag = e => {
       e.persist();
-      // setTimeout(() => {
-      //   e.target.style.display = 'block';
-      // }, 0);
       console.log("onCardDragStart: ", card)
       onCardDragStart(card, board_id);
     }
@@ -39,9 +38,9 @@ const Content = ({card, board_id, deleteCard}) => {
                 <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card)} type="submit">Delete</Button>
            </Modal.Title>
               </Modal.Header>
-              <Modal.Body>
-                {card.content}
-              </Modal.Body>
+                <Modal.Body>
+                  {card.content}
+                </Modal.Body>
               <Modal.Footer>
                 <Button variant="primary" onClick={handleClose}>Submit</Button>
               </Modal.Footer>
@@ -53,7 +52,7 @@ const Content = ({card, board_id, deleteCard}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteCard: (card) => deleteCard(card, dispatch),
-    onCardDragStart: (card => onCardDragStart(card, dispatch))
+    onCardDragStart: ((card,board_id) => onCardDragStart(card, board_id).then(dispatch))
   }
 }
 export default connect(null, mapDispatchToProps)(Content)

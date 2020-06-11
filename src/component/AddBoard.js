@@ -28,36 +28,35 @@ const AddBoard = ({createBoard, projectId}) => {
 
     return (
         <>
-        <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}>Add board</Button>
-        <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-            <Modal.Title>Create a new Board</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Form onSubmit={handleSubmit}>
-                    <Form.Group controlId="formLoginUsername">
-                        <Form.Label>Board Add</Form.Label>
-                        <Form.Control 
-                            type="topic" 
-                            placeholder="Add Board topic..." 
-                            onChange={handleTopicChange}
-                            value={topic}
-                            />
-                    </Form.Group>
+            <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}>Add board</Button>
 
-                    <Form.Group controlId="formLogincPassword">
-                        <Form.Label>Board Background</Form.Label>
-                        <Form.Control 
-                            type="imageLink" 
-                            placeholder="Add Board image..."
-                            onChange={handleImageChange}
-                            value={imageLink}
-                             />
-                    </Form.Group>
-                    <Button type="submit" variant="primary" onClick={handleClose}>Create </Button>
-                </Form>
-            </Modal.Body>
-        </Modal>
+            <Modal show={show} onHide={handleClose}>
+
+                <Modal.Header closeButton> <Modal.Title>Create a new Board</Modal.Title> </Modal.Header>
+                <Modal.Body>
+                    <Form onSubmit={handleSubmit}>
+                        <Form.Group controlId="formLoginUsername">
+                            <Form.Label>Board Add</Form.Label>
+                            <Form.Control 
+                                type="topic" 
+                                placeholder="Add Board topic..." 
+                                onChange={handleTopicChange}
+                                value={topic} />
+                        </Form.Group>
+
+                        <Form.Group controlId="formLogincPassword">
+                            <Form.Label>Board Background</Form.Label>
+                            <Form.Control 
+                                type="imageLink" 
+                                placeholder="Add Board image..."
+                                onChange={handleImageChange}
+                                value={imageLink} />
+                        </Form.Group>
+                        <Button type="submit" variant="primary" onClick={handleClose}>Create </Button>
+                    </Form>
+                </Modal.Body>
+
+            </Modal>
         </>
     );
 }
