@@ -17,13 +17,13 @@ export const boardReducer = (state = PROJECT_INITIAL_STATE, action) => {
               return state.map(b => b.id === action.payload.card.board_id
                 ? {...b, cards: [...b.cards, action.payload.card] } : b);
         case 'DROP_CARD':
-            if (action.payload.droppedBoard.id === action.payload.formerBoardId) {
+            if (action.payload.droppedCard.board_id === action.payload.formerBoardId) {
                 return state
             }
-            state = state.map(b => b.id === action.payload.droppedBoard.id
-                ? {...b, cards: [...b.cards, action.payload.card] } : b);
+            state = state.map(b => b.id === action.payload.droppedCard.board_id
+                ? {...b, cards: [...b.cards, action.payload.droppedCard] } : b);
             state = state.map(b => b.id === action.payload.formerBoardId
-                    ? { ...b, cards: b.cards.filter(c => c.id !== action.payload.card.id) } : b);
+                ? { ...b, cards: b.cards.filter(c => c.id !== action.payload.droppedCard.id) } : b);
             return state
         default:
             return state;

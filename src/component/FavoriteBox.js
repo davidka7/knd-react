@@ -5,10 +5,10 @@ import Icon from './Icon';
 import {onIconDrop} from '../actions/dropAction';
 
 
-const FavoriteBox = ({user, onIconDrop, savedIcon}) => {
+const FavoriteBox = ({user, onIconDrop, selectedIcon}) => {
 
     const handleIconDrop = () => {
-        onIconDrop(user, savedIcon)
+        onIconDrop(user, selectedIcon)
     }
     
     return (
@@ -21,8 +21,6 @@ const FavoriteBox = ({user, onIconDrop, savedIcon}) => {
           <Card.Body>
           <Card.Title>Favorite Box</Card.Title>
             <Card.Text>
-                {console.log('USER ICON HERE', user.icon_img)}
-                {console.log('WHERE IS MY USER', user)}
                 {user.icon_img.map(icon => <Icon key={user.icon_img.indexOf(icon)} icon={icon}/>)}
             </Card.Text>
           </Card.Body>
@@ -33,13 +31,13 @@ const FavoriteBox = ({user, onIconDrop, savedIcon}) => {
 const mapStateToProps = (store) => {
     return {
       user: store.userContext.user,
-      savedIcon: store.savedIcon
+      selectedIcon: store.draggedItem
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      onIconDrop: (user, savedIcon) => dispatch(onIconDrop(user, savedIcon))
+      onIconDrop: (user, selectedIcon) => dispatch(onIconDrop(user, selectedIcon))
     }
   }
 

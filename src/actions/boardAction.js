@@ -17,7 +17,6 @@ export const createBoard = ( topic, imageLink, projectId ) => {
         project_id: projectId
     }
     
-    console.log(topic, imageLink, projectId)
     return fetch(`${BACKEND_DOMAIN}/boards`, {
         method: "POST",
         headers: headers(),
@@ -62,18 +61,16 @@ export const deleteBoard = (id, dispatch) => {
     }).then(res => res.json())
     .then(res => {
         if (res.error) {
-            dispatch( {
+            dispatch({
                 type: "DELETE_BOARD_ERROR",
                 error: res.error
             });
         }
         else {
-            dispatch(
-                {
-                    type: "DELETE_BOARD",
-                    id: id
-                }
-            );
+            dispatch({
+                type: "DELETE_BOARD",
+                id: id
+            });
         }
     }).catch(err => {
         dispatch( {

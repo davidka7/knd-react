@@ -1,5 +1,3 @@
-// let card = null
-let formerBoardId = null
 
 const BACKEND_DOMAIN = process.env.REACT_APP_BACKEND_DOMAIN;
 let token = () => localStorage.getItem("token")
@@ -13,41 +11,26 @@ const headers = () => {
 };
 
 
-export const onCardDragStart = (card_obj, board_id) => {
-    console.log("LOOOK HERE", card_obj, board_id)
-    // card = card_obj;
-    formerBoardId = board_id
-}
 
+export const onCardDrop = (droppedBoard, selectedCard) => {
 
-export const onCardDrop = (droppedBoard, card) => {
-    console.log("DROP HERE", droppedBoard, card)
-    
-    let selectedCard = {
+    let updateCard = {
         card: { board_id: droppedBoard.id }
     }
 
-    fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
+    return fetch(`${BACKEND_DOMAIN}/cards/${selectedCard.id}`, {
         method: "PUT",
         headers: headers(),
-        body: JSON.stringify(selectedCard)
+        body: JSON.stringify(updateCard)
     }).then(res => res.json())
-    
-
-   
-   
-    return {
+    .then(res => {
+        return {
             type: "DROP_CARD",
-            payload: {card, droppedBoard, formerBoardId}
+            payload: { droppedCard: res.card, formerBoardId: selectedCard.board_id}
         }
-}
-
-export const onIconDragStart = (selectedIcon) => {
-
-    return {
-        type: "SELECT_ICON",
-        payload: selectedIcon
-    }
+    });
+   
+    
 }
 
 
@@ -72,3 +55,4 @@ export const onIconDrop = (userInfo, selectedIcon) => {
         }
     }
 }
+

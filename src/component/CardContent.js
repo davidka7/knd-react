@@ -2,22 +2,18 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import {connect} from 'react-redux';
-import {onCardDragStart} from '../actions/dropAction'
 import {deleteCard} from '../actions/cardAction'
-import {cardSaveAction} from '../actions/iconSaveAction';
-const Content = ({card, board_id, deleteCard, cardSaveAction}) => {
+import {onCardDragStart} from '../actions/dragAction';
+
+const Content = ({card, deleteCard, onCardDragStart}) => {
   
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleDrag = e => {
+    const handleCardDrag = e => {
       e.persist();
-      console.log("onCardDragStart: ", card)
-      onCardDragStart(card, board_id);
-      cardSaveAction(card)
-      console.log("kim ewww", card)
+      onCardDragStart(card);
     }
 
     const handleDelete = (card) => {
@@ -31,7 +27,7 @@ const Content = ({card, board_id, deleteCard, cardSaveAction}) => {
               className='btn-block' 
               onClick={handleShow}
               draggable
-              onDragStart={handleDrag}
+              onDragStart={handleCardDrag}
               >{card.card_title} 
             </Button>
 
@@ -53,9 +49,8 @@ const Content = ({card, board_id, deleteCard, cardSaveAction}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteCard: (card) => deleteCard(card, dispatch),
-    onCardDragStart: ((card,board_id) => onCardDragStart(card, board_id).then(dispatch)),
-    cardSaveAction: (icon => cardSaveAction(icon, dispatch)),
+    deleteCard: card => deleteCard(card, dispatch),
+    onCardDragStart: (card) => onCardDragStart(card, dispatch)
   }
 }
 export default connect(null, mapDispatchToProps)(Content)

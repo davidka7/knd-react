@@ -1,17 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {onIconDragStart} from '../actions/dropAction';
-import {iconSaveAction} from '../actions/iconSaveAction';
+import {onIconDragStart} from '../actions/dragAction';
 
-const Icon = ({icon, onIconDragStart, iconSaveAction}) => {
+const Icon = ({icon, iconSaveAction}) => {
 
     const handleIconDrag = e => {
         e.persist();
-        // setTimeout(() => {
-        //   e.target.style.display = 'block';
-        // }, 0);
         onIconDragStart(icon);
-        iconSaveAction(icon);
     }
     
     return (
@@ -30,8 +25,7 @@ const Icon = ({icon, onIconDragStart, iconSaveAction}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      onIconDragStart: (icon) => onIconDragStart(icon, dispatch),
-      iconSaveAction: (icon => iconSaveAction(icon, dispatch)),
+        onIconDragStart: (icon => onIconDragStart(icon, dispatch)),
     }
 }
   
