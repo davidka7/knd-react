@@ -6,7 +6,7 @@ import { iconReducer } from './iconReducer';
 import { projectIDReducer } from './projectIdReducer';
 import { dragReducer } from './dragReducer';
 import { user_projectReducer } from './user_projectReducer'
-
+import { usersReducer } from './usersReducer'
 
 export default combineReducers({
     userContext: userReducer,
@@ -15,5 +15,6 @@ export default combineReducers({
     icons: iconReducer,
     project_id: projectIDReducer,
     draggedItem: dragReducer,
-    user_project: user_projectReducer
+    user_project: user_projectReducer,
+    user_share: usersReducer
 });

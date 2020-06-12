@@ -10,10 +10,10 @@ const headers = () => {
 }
 
 
-export const user_project = (user_id, project_id ) => {
-    console.log(user_id, project_id[0].id)
+export const user_project = (user_id, project_id, admin ) => {
+    console.log(user_id, project_id, "hehehe")
     let p_id = project_id[0].id
- let userprojects={ user_project: {project_id: p_id, user_id: user_id}}
+ let userprojects={ user_project: {project_id: p_id, user_id: user_id, admin_permission: admin}}
     return fetch(`${BACKEND_DOMAIN}/user_projects`, {
         method: "POST",
         headers: headers(),
@@ -50,4 +50,30 @@ export const getuserprojetcs = (id) => {
             type: "GET_USER_PROJECTS",
             payload: res }
         });
+}
+
+
+
+export const getuser = (name) => {
+console.log(name)
+    return fetch(`${BACKEND_DOMAIN}/users/${name}`, {
+        method: "GET",
+        headers: headers(),
+    }).then(res => res.json())
+    .then(res => {
+        console.log(res, "ehehe")
+        // if (res !== null)
+        // {
+        if (res.message) {
+            return {
+                type: "GET_USER_ERROR",
+                error: res.message
+            };
+        }
+    
+        return {
+            type: "GET_USER",
+            payload: res }
+        });
+    
 }
