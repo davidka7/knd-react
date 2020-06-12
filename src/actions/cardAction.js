@@ -16,18 +16,16 @@ export const deleteCard = (card, dispatch) => {
     }).then(res => res.json())
     .then(res => {
         if (res.error) {
-            dispatch( {
+            dispatch({
                 type: "DELETE_CARD_ERROR",
                 error: res.error
             });
         }
         else {
-            dispatch(
-                {
-                    type: "DELETE_CARD",
-                    card: card
-                }
-            );
+            dispatch({
+                type: "DELETE_CARD",
+                card: card
+            });
         }
     }).catch(err => {
         dispatch( {
@@ -38,7 +36,7 @@ export const deleteCard = (card, dispatch) => {
 }
 
 export const createCard = ( card_title, content, board_id ) => {
-    console.log(card_title, content)
+
     let cards = {
         card_title: card_title,
         content: content,

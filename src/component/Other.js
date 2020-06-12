@@ -47,7 +47,7 @@ const Other = ({projects, user_project}) => {
    
 
  const handlePerso = e => { setPerso(e.target.value) };
- const handleProjec = e => {  setProjec(projects.filter(project => project.topic == e.target.value))};
+ const handleProjec = e => {  setProjec(projects.filter(project => project.topic === e.target.value))};
      
   
 

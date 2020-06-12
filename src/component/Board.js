@@ -4,16 +4,16 @@ import Card from 'react-bootstrap/Card';
 import "./board.css";
 import CardContent from './CardContent';
 import Button from 'react-bootstrap/Button';
-import {onCardDrop} from '../actions/dropAction'
-import {deleteBoard} from '../actions/boardAction'
+import { onCardDrop } from '../actions/dropAction'
+import { deleteBoard } from '../actions/boardAction'
 import CreateCard from './CreateCard'
 
 
-const Board = ({ boardInfo, onCardDrop, deleteBoard, card }) => {
+const Board = ({ boardInfo, onCardDrop, deleteBoard, selectedCard }) => {
 
   const handleCardDrop = () => {
-    console.log(boardInfo)
-    onCardDrop(boardInfo, card)
+    console.log("LUC NAY MOI DROP CHUA LAM GI", selectedCard)
+    onCardDrop(boardInfo, selectedCard)
   }
 
   const handleDelete = (board_id) => {
@@ -26,8 +26,6 @@ const Board = ({ boardInfo, onCardDrop, deleteBoard, card }) => {
             onDragOver={e => e.preventDefault()}>
           <Card.Body>
           <Card.Title className="texter">{boardInfo.title}
- 
-
 
            <Button onClick={() => handleDelete(boardInfo.id)} type="submit">Delete</Button>
            
@@ -44,14 +42,14 @@ const Board = ({ boardInfo, onCardDrop, deleteBoard, card }) => {
 
 const mapStateToProps = (store) => {
   return {
-    card: store.savedIcon
+    selectedCard: store.draggedItem
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteBoard: (board_id) => deleteBoard(board_id, dispatch),
-    onCardDrop: (boardInfo, card) => {dispatch(onCardDrop(boardInfo, card))}
+    onCardDrop: (boardInfo, selectedCard) => (onCardDrop(boardInfo, selectedCard)).then(dispatch)
   }
 }
 
