@@ -24,13 +24,13 @@ const Trashcan = ({user, removeIcon, selectedIcon}) => {
 const mapStateToProps = (store) => {
     return {
       user: store.userContext.user,
-      selectedIcon: store.draggedItem.icon_img
+      selectedIcon: store.draggedItem
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeIcon: (user, selectedIcon) => (removeIcon(user, selectedIcon).then(dispatch))
+        removeIcon: (user, selectedIcon) => removeIcon(user, selectedIcon).then(dispatch)
     }
   }
 

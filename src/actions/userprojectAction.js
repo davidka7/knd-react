@@ -11,7 +11,6 @@ const headers = () => {
 
 
 export const user_project = (user_id, project_id, admin ) => {
-    console.log(user_id, project_id, "hehehe")
     let p_id = project_id[0].id
  let userprojects={ user_project: {project_id: p_id, user_id: user_id, admin_permission: admin}}
     return fetch(`${BACKEND_DOMAIN}/user_projects`, {
@@ -55,7 +54,6 @@ export const getuserprojetcs = (id) => {
 
 
 export const getuser = (name) => {
-console.log(name)
     return fetch(`${BACKEND_DOMAIN}/users/${name}`, {
         method: "GET",
         headers: headers(),

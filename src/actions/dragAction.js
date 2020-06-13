@@ -1,6 +1,5 @@
 
 export const onIconDragStart = (icon, dispatch) => {
-    console.log(icon)
     dispatch ({
         type: "ICON_DRAG",
         icon: icon

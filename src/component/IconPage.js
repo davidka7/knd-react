@@ -35,14 +35,12 @@ const IconPage = ({ getMyIcons, icons}) => {
 
 
 const mapDispatchToProps = (dispatch) => {
-  console.log("MAP DISPATCH TO PROP GET MY ICON WORKS")
   return {
       getMyIcons: () => getMyIcons(dispatch)
   }
 }
 
 const mapStatetoProps = (store) => {
-  console.log("MAP STATE TO PROP WORKS", store.icons)
   return {icons: store.icons}
 }
 

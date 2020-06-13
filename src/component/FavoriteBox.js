@@ -8,7 +8,9 @@ import {onIconDrop} from '../actions/dropAction';
 const FavoriteBox = ({user, onIconDrop, selectedIcon}) => {
 
     const handleIconDrop = () => {
+      if (!user.icon_img.includes(selectedIcon.icon_img)) {
         onIconDrop(user, selectedIcon.icon_img)
+      }
     }
     
     return (
@@ -21,7 +23,6 @@ const FavoriteBox = ({user, onIconDrop, selectedIcon}) => {
           <Card.Body>
           <Card.Title>Favorite Box</Card.Title>
             <Card.Text>
-              {console.log(user)}
                 {user.icon_img.map(icon => <Icon key={user.icon_img.indexOf(icon)} icon={icon}/>)}
             </Card.Text>
           </Card.Body>
@@ -31,8 +32,8 @@ const FavoriteBox = ({user, onIconDrop, selectedIcon}) => {
 
 const mapStateToProps = (store) => {
     return {
-      user: store.userContext.user,
-      selectedIcon: store.draggedItem
+        user: store.userContext.user,
+        selectedIcon: store.draggedItem
     }
 }
 
