@@ -4,9 +4,9 @@ let token = () => localStorage.getItem("token")
 
 const headers = () => {
     return {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      Authorization: token()
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: token()
     };
 };
 
@@ -28,12 +28,8 @@ export const onCardDrop = (droppedBoard, selectedCard) => {
             type: "DROP_CARD",
             payload: { droppedCard: res.card, formerBoardId: selectedCard.board_id}
         }
-    });
-   
-    
+    });  
 }
-
-
 
 export const onIconDrop = (userInfo, selectedIcon) => {
 
@@ -43,16 +39,48 @@ export const onIconDrop = (userInfo, selectedIcon) => {
             user: { icon_img: userInfo.icon_img }
         }
 
-        fetch(`${BACKEND_DOMAIN}/users/${userInfo.id}`, {
+        return fetch(`${BACKEND_DOMAIN}/users/${userInfo.id}`, {
             method: "PUT",
             headers: headers(),
             body: JSON.stringify(update_icon)
-        }).then(resp => resp.json());
+        }).then(res => res.json())
+        .then(res => {
+            console.log("DROP ICON ACTION HERE", res)
+            return {
+                type: "DROP_ICON",
+                payload: res
+            }
+        });
 
-        return {
-            type: "DROP_ICON",
-            payload: selectedIcon
-        }
+        
     }
 }
 
+export const removeIcon = (userInfo, selectedIcon) => {
+
+    if (!userInfo.icon_img.includes(selectedIcon)) {
+
+        const index = userInfo.icon_img.indexOf(selectedIcon);
+        if (index > -1) {
+            userInfo.icon_img.splice(index, 1);
+        }
+        
+        const delete_icon = {
+            user: { icon_img: userInfo.icon_img }
+        }
+
+        return fetch(`${BACKEND_DOMAIN}/users/${userInfo.id}`, {
+            method: "PUT",
+            headers: headers(),
+            body: JSON.stringify(delete_icon)
+        }).then(res => res.json())
+        .then(res => {
+            console.log("REMOVE ICON ACTION HERE", res)
+            return {
+                type: "REMOVE_ICON",
+                payload: res
+            }
+        });
+
+    }
+}

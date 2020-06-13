@@ -1,14 +1,14 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {onIconDragStart} from '../actions/dragAction';
+import { connect } from 'react-redux';
+import { onIconDragStart } from '../actions/dragAction';
 
-const Icon = ({icon, iconSaveAction}) => {
+const Icon = ({icon, onIconDragStart}) => {
 
     const handleIconDrag = e => {
         e.persist();
         onIconDragStart(icon);
     }
-    
+
     return (
         <row>
             <column> 
@@ -17,7 +17,7 @@ const Icon = ({icon, iconSaveAction}) => {
                     alt={icon} 
                     height="130px" width="130px" 
                     onDragStart={handleIconDrag}
-                    />
+                />
             </column> 
         </row>
     )
