@@ -28,7 +28,7 @@ export const deleteCard = (card, dispatch) => {
             });
         }
     }).catch(err => {
-        dispatch( {
+        dispatch({
             type: "DELETE_CARD_ERROR",
             error: err
         })

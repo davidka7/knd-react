@@ -8,6 +8,7 @@ import Container from 'react-bootstrap/Container';
 const Account = ({userInfo}) => {
     
     const list = () => {
+        
         if (userInfo) {
             return (
                 <div>

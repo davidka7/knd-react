@@ -5,12 +5,14 @@ import { getMyIcons } from '../actions/iconAction';
 import "./icon.css";
 import FavoriteBox from './FavoriteBox';
 import Icon from './Icon'
+import Trashcan from './Trashcan'
 
-const IconPage = ({getMyIcons, icons}) => {
+const IconPage = ({ getMyIcons, icons}) => {
 
     useEffect(() => {
       getMyIcons();
     }, [])
+
     
     return (
 
@@ -18,17 +20,13 @@ const IconPage = ({getMyIcons, icons}) => {
           <Card style={{ width: "25rem" }} id="wrapper">
             <Card.Body>
               <Card.Text>
+                {console.log(icons)}
                 {icons.map(icon => <Icon icon={icon}/>)}
               </Card.Text>
             </Card.Body>
           </Card>
 
-          <img 
-              className="lol"
-              src={require(`../images/funny.png`)} 
-              alt={"funny"} 
-              height="350px" width="320px" 
-          /> 
+          <Trashcan/>
         
           <FavoriteBox />
       </div>
