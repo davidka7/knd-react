@@ -22,8 +22,8 @@ export const getMyProjects = () => {
                 error: res.message };
             }
         return {
-                type: "GET_MY_PROJECTS",
-                payload: res }
+            type: "GET_MY_PROJECTS",
+            payload: res }
         });
 }
 
@@ -47,6 +47,7 @@ export const createProject = ( topic ) => {
         }
     });
 }
+
 export const deleteProject = (id, dispatch) => {
     fetch(`${BACKEND_DOMAIN}/projects/${id}`, {
         method: "DELETE",

@@ -12,7 +12,6 @@ import CreateCard from './CreateCard'
 const Board = ({ boardInfo, onCardDrop, deleteBoard, selectedCard }) => {
 
   const handleCardDrop = () => {
-    console.log("LUC NAY MOI DROP CHUA LAM GI", selectedCard)
     onCardDrop(boardInfo, selectedCard)
   }
 

@@ -16,6 +16,7 @@ export const getMyIcons = (dispatch) => {
         headers: headers()
     }).then(res => res.json())
     .then(res => {
+        console.log("WTF",res)
         if (res.message) {
             return {
                 type: "GET_MY_ICONS_ERROR",
