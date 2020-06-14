@@ -19,12 +19,14 @@ export const getMyProjects = () => {
         if (res.message) {
             return {
                 type: "GET_MY_PROJECTS_ERROR",
-                error: res.message };
-            }
+                error: res.message 
+            };
+        }
         return {
             type: "GET_MY_PROJECTS",
-            payload: res }
-        });
+            payload: res 
+        }
+    });
 }
 
 export const createProject = ( topic ) => {
@@ -55,18 +57,16 @@ export const deleteProject = (id, dispatch) => {
     }).then(res => res.json())
     .then(res => {
         if (res.error) {
-            dispatch( {
+            dispatch({
                 type: "DELETE_PROJECT_ERROR",
                 error: res.error
             });
         }
         else {
-            dispatch(
-                {
-                    type: "DELETE_PROJECT",
-                    id: id
-                }
-            );
+            dispatch({
+                type: "DELETE_PROJECT",
+                id: id
+            })
         }
     }).catch(err => {
         dispatch( {

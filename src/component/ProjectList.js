@@ -2,27 +2,23 @@ import React, { useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { connect } from 'react-redux';
-import { getMyProjects, deleteProject } from '../actions/projectAction';
-import { Link } from "react-router-dom";
+import { getMyProjects } from '../actions/projectAction';
 import { getBoards } from '../actions/boardAction';
 import CreateProject from './CreateProject'
 import { ProjectId_save } from '../actions/projectIdAction';
-import {getuserprojetcs} from '../actions/userprojectAction'
-import Button from 'react-bootstrap/Button'
-import Dropdown from 'react-bootstrap/Dropdown'
+import { getuserprojetcs } from '../actions/userprojectAction';
+import { Link } from "react-router-dom";
 import './3dots.css'
+import './ProjectList.css'
 import Other from './Other.js'
+import MyProject from './MyProject'
 
 
-const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, deleteProject, getuserprojetcs }) => {
+const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getuserprojetcs }) => {
 
     const handleId = (project_id) => {
         projectId(project_id);
         ProjectId_save(project_id)
-    }
-
-    const handleDelete = (id) => {
-        deleteProject(id);
     }
 
     useEffect(() => {
@@ -36,45 +32,29 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
     return (
         <div>
             <Row className="boards jumbotron">
-                {projects.projects.map(project => (
-                    <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> 
-                        <span>
-                        <Link 
-                            to={`/projects/${project.id}`}
-                            onClick={() => handleId(project.id)} >{project.topic}
-                        </Link>
+                {projects.projects.map(project => ( 
+                    <Col xs={6} md={2} key={project.id} className="btn btn-outline-primary btn-block projectCol"> 
+                        <MyProject project={project}/>
+                    </Col>))
+                }
+                <Col xs={6} md={2}><CreateProject /></Col>
+            </Row>
 
-                        <Dropdown >
-                            <Dropdown.Toggle variant="white" id="dropdown-basic">
-                                <div ></div>
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item className="btn-block">
-                                    <Button onClick={() => handleDelete(project.id)}  type="submit">
-                                        Delete Project
-                                    </Button>
-                                </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        </span> 
-                    </Col>))
-                }
-                  <Col xs={6} md={2}><CreateProject /></Col>
-                </Row>
-               <h1> Shared projects </h1>
-                <Row className="boards jumbotron">
-              
+            <h1> Shared projects </h1>
+
+            <Row className="boards jumbotron">
+            
                 {projects.user_project.map(project => (
-                    <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> 
-                        <span>
-                        <Link 
+                    <Col xs={6} md={2} key={project.id} className="btn btn-outline-primary btn-block"> 
+                        <span><Link 
                             to={`/projects/${project.id}`}
-                            onClick={() => handleId(project.id)} >{project.topic}
-                        </Link>
-                        </span> 
+                            onClick={() => handleId(project.id)} >
+                            {project.topic}
+                        </Link></span> 
                     </Col>))
                 }
-              < Other projects={projects.projects} />
+
+                <Other projects={projects.projects} />
                 
             </Row>
 
@@ -92,7 +72,6 @@ const mapDispatchToProps = (dispatch) => {
         getMyProjects: () => getMyProjects().then(dispatch),
         getuserprojetcs: (id) => getuserprojetcs(id).then(dispatch),
         projectId: (project_id) => getBoards(project_id).then(dispatch),
-        deleteProject: (id) => deleteProject(id, dispatch),
         ProjectId_save: (id => ProjectId_save(id, dispatch)),
     }
 }

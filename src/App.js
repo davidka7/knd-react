@@ -11,7 +11,7 @@ import Customization from './component/Customization';
 import Profile from './container/Profile';
 import Home from './container/Home';
 import BoardList from './component/BoardList';
-import Project from './component/Project';
+import ProjectPage from './component/ProjectPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -32,7 +32,7 @@ const App = ({user}) => {
         <Route exact path='/home' render={(routeProps) => 
                 <Home {...routeProps} />} />
         <Route exact path='/projects' render={(routeProps) => 
-                <Project {...routeProps} />} />
+                <ProjectPage {...routeProps} />} />
         <Route exact path='/icons' render={(routeProps) => 
                 <IconPage {...routeProps} />} />
         <Route exact path='/profile' render={(routeProps) => 
