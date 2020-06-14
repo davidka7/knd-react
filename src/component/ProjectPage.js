@@ -4,7 +4,7 @@ import ProjectList from './ProjectList';
 import ProjectBar from './ProjectBar'
 
 
-const Project = () => {
+const ProjectPage = () => {
     
     return (
         <Container>
@@ -17,4 +17,4 @@ const Project = () => {
 
 
 
-export default Project
+export default ProjectPage

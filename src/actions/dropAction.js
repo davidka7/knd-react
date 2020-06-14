@@ -15,7 +15,6 @@ export const onCardDrop = (droppedBoard, selectedCard) => {
     let updateCard = {
         card: { board_id: droppedBoard.id }
     }
-
     return fetch(`${BACKEND_DOMAIN}/cards/${selectedCard.id}`, {
         method: "PUT",
         headers: headers(),
@@ -34,7 +33,6 @@ export const onIconDrop = (userInfo, selectedIcon) => {
     const update_icon = {
         user: { icon_img: [...userInfo.icon_img, selectedIcon] }
     }
-
     return fetch(`${BACKEND_DOMAIN}/users/${userInfo.id}`, {
         method: "PUT",
         headers: headers(),

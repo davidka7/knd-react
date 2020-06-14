@@ -5,6 +5,6 @@
 .board-col {max-width: 300px}
 .board-col p div { padding: 0.25rem}
 .board-col p div button { background-color: #ffffff; text-align: left}
-.board-col .card-body { padding: 0.5rem}
+.board-col .card-body { padding: 0.5rem; background-color: #EBECF0}
 .board-col .card { background-color: #e6e6e6}
 .board-col .text-muted { border: 0px; text-align: left;}
