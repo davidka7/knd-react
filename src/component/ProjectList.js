@@ -9,7 +9,7 @@ import { ProjectId_save } from '../actions/projectIdAction';
 import { getuserprojetcs } from '../actions/userprojectAction';
 import { Link } from "react-router-dom";
 import './3dots.css'
-import './ProjectList.css'
+import './Project.css'
 import Other from './Other.js'
 import MyProject from './MyProject'
 
@@ -31,7 +31,8 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
 
     return (
         <div>
-            <Row className="boards jumbotron">
+            <Row className="project-list-box jumbotron">
+                <h1> Your projects </h1>
                 {projects.projects.map(project => ( 
                     <Col xs={6} md={2} key={project.id} className="btn btn-outline-primary btn-block projectCol"> 
                         <MyProject project={project}/>
@@ -40,12 +41,10 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
                 <Col xs={6} md={2}><CreateProject /></Col>
             </Row>
 
-            <h1> Shared projects </h1>
-
-            <Row className="boards jumbotron">
             
+            <Row className="project-list-box jumbotron"><h1> Shared projects </h1>
                 {projects.user_project.map(project => (
-                    <Col xs={6} md={2} key={project.id} className="btn btn-outline-primary btn-block"> 
+                    <Col xs={6} md={2} key={project.id} className="btn btn-outline-primary btn-block projectCol"> 
                         <span><Link 
                             to={`/projects/${project.id}`}
                             onClick={() => handleId(project.id)} >

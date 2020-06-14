@@ -71,9 +71,7 @@ const Other = ({projects, user_project, getuser, user}) => {
 
     return (
      <div> 
-     Share Projects
-  
-        <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}> Add+ </Button>
+        <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}> Share </Button>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
             <Modal.Title> Add Admin To Project</Modal.Title>
