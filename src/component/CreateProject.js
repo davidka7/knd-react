@@ -26,7 +26,7 @@ const CreateProject = ({projects, createProject}) => {
 
     return (
         <>
-        <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}>Add</Button>
+        <Button variant="outline-primary" className="btn-block" onClick={handleShow}>Add +</Button>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
             <Modal.Title>Create a new project</Modal.Title>

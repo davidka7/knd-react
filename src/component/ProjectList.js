@@ -12,6 +12,7 @@ import './3dots.css'
 import './Project.css'
 import Other from './Other.js'
 import MyProject from './MyProject'
+import ShareProject from './ShareProject'
 
 
 const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getuserprojetcs }) => {
@@ -34,27 +35,22 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
             <Row className="project-list-box jumbotron">
                 <Col xs={12} md={12}><h3 className="text-muted"> Your projects </h3> </Col>
                 {projects.projects.map(project => ( 
-                    <Col xs={6} md={2} key={project.id} className="btn btn-outline-primary btn-block projectCol"> 
+                    <Col xs={6} md={3} key={project.id}> 
                         <MyProject project={project}/>
                     </Col>))
                 }
-                <Col xs={6} md={2}><CreateProject /></Col>
+                <Col xs={6} md={3}><CreateProject /></Col>
             </Row>
 
             
             <Row className="project-list-box jumbotron">
-            <Col xs={12} md={12}><h3 className="text-muted"> Share projects </h3> </Col>
-                {projects.user_project.map(project => (
-                    <Col xs={6} md={2} key={project.id} className="btn btn-outline-primary btn-block projectCol"> 
-                        <span><Link 
-                            to={`/projects/${project.id}`}
-                            onClick={() => handleId(project.id)} >
-                            {project.topic}
-                        </Link></span> 
-                    </Col>))
-                }
-
-                <Other projects={projects.projects} />
+                <Col xs={12} md={12}><h3 className="text-muted"> Share projects </h3> </Col>
+                    {projects.user_project.map(project => (
+                        <Col xs={6} md={3} key={project.id}> 
+                            <ShareProject project={project}/>
+                        </Col>))
+                    }
+                <Col xs={6} md={3}><Other projects={projects.projects} /></Col>
                 
             </Row>
 

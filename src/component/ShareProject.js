@@ -9,12 +9,14 @@ import EditProject from './EditProject';
 import Card from 'react-bootstrap/Card'
 import './Project.css'
 
-const MyProject = ({project, projectId, ProjectId_save}) => {
+const ShareProject = ({project, projectId, ProjectId_save}) => {
 
     const handleId = (project_id) => {
         projectId(project_id);
         ProjectId_save(project_id)
     }
+
+    let is_admin = false
 
     return (
         <Card>
@@ -25,14 +27,20 @@ const MyProject = ({project, projectId, ProjectId_save}) => {
                 <Dropdown.Menu>
                     <Dropdown.Header>Options</Dropdown.Header>
                     <hr></hr>
-                    <Dropdown.Item><EditProject project={project}/></Dropdown.Item>
-                    <Dropdown.Item><DeleteProject project={project}/></Dropdown.Item>
+                    {(is_admin) ? 
+                    (<> <Dropdown.Item><EditProject project={project}/></Dropdown.Item>
+                    <Dropdown.Item><DeleteProject project={project}/></Dropdown.Item> </>)
+                    :
+                    <Dropdown.Item>*For admins only</Dropdown.Item>
+                    }
                 </Dropdown.Menu>
             </Dropdown>
+                
+            
             <Link 
                 className="project-box"
                 to={`/projects/${project.id}`}
-                onClick={() => handleId(project.id)}> 
+                onClick={() => handleId(project.id)} >
             </Link>
         </Card>
     )
@@ -46,4 +54,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(MyProject)
+export default connect(null, mapDispatchToProps)(ShareProject)
