@@ -24,11 +24,7 @@ const MyProject = ({project, projectId, ProjectId_save}) => {
 
             <Dropdown >
                 <Dropdown.Toggle variant="white" id="dropdown-basic">
-<<<<<<< HEAD
-                    OSome
-=======
                     Options
->>>>>>> nk2303/6-14-7PM-project-css-in-progress
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Item className="btn-block"><DeleteProject project={project}/></Dropdown.Item>
