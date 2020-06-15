@@ -4,7 +4,7 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import {connect} from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
-import AddBoard from './AddBoard';
+import BoardCreate from './BoardCreate';
 import {getBoards} from '../actions/boardAction'
 import './board.css'
 
@@ -19,7 +19,7 @@ const BoardList = ({boards, getBoards}) => {
         <div className='boardPage'>
             <CardDeck>
                 {boards.map( board => <Board key={board.id} boardInfo={board}/>)}
-                <AddBoard projectId={projectId}/>
+                <BoardCreate projectId={projectId}/>
             </CardDeck>  
         </div>
     )

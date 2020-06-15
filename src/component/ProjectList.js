@@ -4,15 +4,13 @@ import Row from 'react-bootstrap/Row';
 import { connect } from 'react-redux';
 import { getMyProjects } from '../actions/projectAction';
 import { getBoards } from '../actions/boardAction';
-import CreateProject from './CreateProject'
+import ProjectCreate from './ProjectCreate'
 import { ProjectId_save } from '../actions/projectIdAction';
 import { getuserprojetcs } from '../actions/userprojectAction';
-import { Link } from "react-router-dom";
-import './3dots.css'
 import './Project.css'
 import Other from './Other.js'
-import MyProject from './MyProject'
-import ShareProject from './ShareProject'
+import ProjectFromMe from './ProjectsFromMe'
+import ProjectShare from './ProjectShare'
 
 
 const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getuserprojetcs }) => {
@@ -36,10 +34,10 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
                 <Col xs={12} md={12}><h3 className="text-muted"> Your projects </h3> </Col>
                 {projects.projects.map(project => ( 
                     <Col xs={6} md={3} key={project.id}> 
-                        <MyProject project={project}/>
+                        <ProjectFromMe project={project}/>
                     </Col>))
                 }
-                <Col xs={6} md={3}><CreateProject /></Col>
+                <Col xs={6} md={3}><ProjectCreate /></Col>
             </Row>
 
             
@@ -47,7 +45,7 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
                 <Col xs={12} md={12}><h3 className="text-muted"> Share projects </h3> </Col>
                     {projects.user_project.map(project => (
                         <Col xs={6} md={3} key={project.id}> 
-                            <ShareProject project={project}/>
+                            <ProjectShare project={project}/>
                         </Col>))
                     }
                 <Col xs={6} md={3}><Other projects={projects.projects} /></Col>

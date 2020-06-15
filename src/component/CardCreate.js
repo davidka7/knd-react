@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
 import {createCard} from '../actions/cardAction'
-const CreateCard = ({createCard, board_id}) => {
+
+const CardCreate = ({createCard, board_id}) => {
 
     const [show, setShow] = useState(false);
     const [card_title, setTopic] = useState('');
@@ -69,4 +70,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(CreateCard)
+export default connect(null, mapDispatchToProps)(CardCreate)
