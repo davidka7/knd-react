@@ -14,7 +14,7 @@ const Home = () => {
                 <Row>
                     <Col xs={12} md={9}>
                         <h1 className="display-3">Welcome to Plany Boat!</h1>
-                        <p className="lead">This is a simple app, created by two programing sailors: Kim and David.</p>
+                        <p className="lead">This is a complex app, created by two programing sailors: Kim and David.</p>
                     </Col>
                     <Col xs={12} md={3} className ="a" >
                         <img src={require(`../images/giphy.gif`)} alt={"giffy"} height="200px" />

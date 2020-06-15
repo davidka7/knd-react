@@ -1,14 +1,17 @@
-.projectCol {
-    background-color: white !important;
-}
-
 .projectPage {
     background-image: url('../background/room-sketch.jpg');
     background-size: cover;
     min-height: 800px;
 }
 
+.project-box { display: block; min-height: 80px;}
+hr { margin: 0px 0px 10px}
+.dropdown-header {text-align: center; font-size: 18px;}
+.dropdown-item p {margin: 0px}
 .jumbotron h1 { color: black }
+.custom-select {border: 0px;}
 
 .project-list-box { background-color: #e6e6e6 !important; padding: 10px !important}
-.project-list-box div { padding: 0.25rem }
+.project-list-box div { padding: 0.5rem }
+
+.dropdown-toggle::after { display: none;}

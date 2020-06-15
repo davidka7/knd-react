@@ -28,7 +28,7 @@ const EditProject = ({project, editProject}) => {
 
     return (
         <>
-        <p className="text-primary" onClick={handleShow}>Edit Project</p>
+        <p onClick={handleShow}>Edit Project</p>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title>Edit project {project.topic}</Modal.Title>
