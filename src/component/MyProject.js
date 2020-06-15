@@ -1,21 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from "react-router-dom";
-import { deleteProject } from '../actions/projectAction';
 import { getBoards } from '../actions/boardAction';
 import { ProjectId_save } from '../actions/projectIdAction';
+import DeleteProject from './DeleteProject';
+import EditProject from './EditProject'
+import './Project.css'
 
-const MyProject = ({project, deleteProject, projectId, ProjectId_save}) => {
+const MyProject = ({project, projectId, ProjectId_save}) => {
 
     const handleId = (project_id) => {
         projectId(project_id);
         ProjectId_save(project_id)
-    }
-
-    const handleDelete = (id) => {
-        deleteProject(id);
     }
 
     return (
@@ -27,14 +24,11 @@ const MyProject = ({project, deleteProject, projectId, ProjectId_save}) => {
 
             <Dropdown >
                 <Dropdown.Toggle variant="white" id="dropdown-basic">
-                    <div></div>
+                    OSome
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                    <Dropdown.Item className="btn-block">
-                        <Button onClick={() => handleDelete(project.id)} type="submit">
-                            Delete Project
-                        </Button>
-                    </Dropdown.Item>
+                    <Dropdown.Item className="btn-block"><DeleteProject project={project}/></Dropdown.Item>
+                    <Dropdown.Item className="btn-block"><EditProject project={project}/></Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
         </span> 
@@ -44,7 +38,6 @@ const MyProject = ({project, deleteProject, projectId, ProjectId_save}) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         projectId: (project_id) => getBoards(project_id).then(dispatch),
-        deleteProject: (id) => deleteProject(id, dispatch),
         ProjectId_save: (id => ProjectId_save(id, dispatch)),
     }
 }

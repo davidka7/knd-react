@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
 import AddBoard from './AddBoard';
 import {getBoards} from '../actions/boardAction'
+import './board.css'
 
 const BoardList = ({boards, getBoards}) => {
     const { projectId } = useParams();
@@ -15,10 +16,12 @@ const BoardList = ({boards, getBoards}) => {
     }, []);
 
     return (
-        <CardDeck className='project-list'>
+        <div className='boardPage' >
+        <CardDeck>
             {boards.map( board => <Board key={board.id} boardInfo={board}/>)}
             <Col xs={6} md={2}><AddBoard projectId={projectId}/></Col>
         </CardDeck>  
+        </div>
     )
 }
 

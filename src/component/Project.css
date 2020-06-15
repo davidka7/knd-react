@@ -1,0 +1,14 @@
+.projectCol {
+    background-color: white !important;
+}
+
+.projectPage {
+    background-image: url('../background/room-sketch.jpg');
+    background-size: cover;
+    min-height: 800px;
+}
+
+.jumbotron h1 { color: black }
+
+.project-list-box { background-color: #e6e6e6 !important; padding: 10px !important}
+.project-list-box div { padding: 0.25rem }
