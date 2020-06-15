@@ -24,7 +24,7 @@ const MyProject = ({project, projectId, ProjectId_save}) => {
 
             <Dropdown >
                 <Dropdown.Toggle variant="white" id="dropdown-basic">
-                    OSome
+                    Options
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Item className="btn-block"><DeleteProject project={project}/></Dropdown.Item>
