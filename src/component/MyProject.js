@@ -18,8 +18,8 @@ const MyProject = ({project, projectId, ProjectId_save}) => {
 
     return (
         <Card>
-            <Dropdown>
-                <Dropdown.Toggle className="custom-select" id="dropdown-basic" block>
+            <Dropdown alignRight>
+                <Dropdown.Toggle className="custom-select navbar-toggler" id="dropdown-basic" block>
                     <h3>{project.topic}</h3>
                 </Dropdown.Toggle>
                 <Dropdown.Menu>

@@ -4,11 +4,18 @@
   
 
 .boardPage {
-    background-image: url('../background/room-sketch.jpg');
+    margin: 0px;
+    background-image: url('../background/random-sketch.jpg');
     background-size: cover;
     min-height: 800px;
 }
+.boardPage .card-deck {
+  padding: 30px
+}
 
+.boardPage .card-deck .card {
+  margin: 0px 5px 0px 5px
+}
 
 .board-col {max-width: 300px}
 .board-col p div { padding: 0.25rem}
@@ -16,3 +23,5 @@
 .board-col .card-body { padding: 0.5rem; background-color: #EBECF0}
 .board-col .card { background-color: #e6e6e6}
 .board-col .text-muted { border: 0px; text-align: left;}
+
+.custom-select {background-color: transparent;}

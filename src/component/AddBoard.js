@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
 import {createBoard} from '../actions/boardAction'
+import './board.css'
 
 const AddBoard = ({createBoard, projectId}) => {
 
@@ -27,8 +28,8 @@ const AddBoard = ({createBoard, projectId}) => {
     }
 
     return (
-        <>
-            <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}>Add board</Button>
+        <div className="board-col">
+            <Button variant="outline-primary" onClick={handleShow} block>Add board</Button>
 
             <Modal show={show} onHide={handleClose}>
 
@@ -57,7 +58,7 @@ const AddBoard = ({createBoard, projectId}) => {
                 </Modal.Body>
 
             </Modal>
-        </>
+        </div>
     );
 }
 

@@ -9,13 +9,9 @@ const headers = () => {
     }
 }
 
-export const createBoard = ( topic, imageLink, projectId ) => {
+export const createBoard = ( title, image, project_id ) => {
     
-    const entry = {
-        title: topic,
-        image: imageLink,
-        project_id: projectId
-    }
+    const entry = { title, image, project_id }
     
     return fetch(`${BACKEND_DOMAIN}/boards`, {
         method: "POST",
