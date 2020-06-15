@@ -17,9 +17,9 @@ const MyProject = ({project, projectId, ProjectId_save}) => {
 
     return (
         <span>
-            <Link 
+            <Link className="display-3"
                 to={`/projects/${project.id}`}
-                onClick={() => handleId(project.id)} >{project.topic}
+                onClick={() => handleId(project.id)} > <h3>{project.topic}</h3>
             </Link>
 
             <Dropdown >

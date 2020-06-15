@@ -17,7 +17,7 @@ const DeleteProject = ({project, deleteProject}) => {
 
     return (
         <>
-            <Button onClick={handleShow}>Delete Project</Button>
+            <p onClick={handleShow}>Delete Project</p>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                 <Modal.Title>Delete {project.topic} project</Modal.Title>
