@@ -9,12 +9,16 @@ import {editProject} from '../actions/projectAction';
 const EditProject = ({project, editProject}) => {
 
     const [show, setShow] = useState(false);
-    const [topic, setTopic] = useState('');
-    const [imageLink, setImageLink] = useState('');
+    const [topic, setTopic] = useState(project.topic);
+    const [imageLink, setImageLink] = useState(project.background_image);
 
-    const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    const handleClose = () => {
+        setTopic(project.topic);
+        setImageLink(project.background_image);
+        setShow(false)
+    }
+    
     const handleTopicChange = e => { setTopic(e.target.value) };
     const handleImageChange = e => { setImageLink(e.target.value) };
 
@@ -22,8 +26,9 @@ const EditProject = ({project, editProject}) => {
         e.preventDefault();
         e.stopPropagation();
         editProject(topic, imageLink);
-        setTopic('');
-        setImageLink('');
+        console.log("HERE", topic, imageLink);
+        setTopic(project.topic);
+        setImageLink(project.background_image);
     }
 
     return (
@@ -35,26 +40,30 @@ const EditProject = ({project, editProject}) => {
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
+
                     <Form.Group controlId="formLoginUsername">
-                        <Form.Label>Edit Project Topic</Form.Label>
+                        <Form.Label>Edit Project Topic : {project.topic}</Form.Label>
                         <Form.Control 
                             type="topic" 
-                            placeholder="Edit project topic..." 
+                            placeholder="New project topic..." 
                             onChange={handleTopicChange}
                             value={topic}
                             />
                     </Form.Group>
 
                     <Form.Group controlId="formLogincPassword">
-                        <Form.Label>Edit Project image</Form.Label>
+                        <Form.Label>Edit Project image :</Form.Label>
                         <Form.Control 
                             type="imageLink" 
-                            placeholder="Edit project image..."
+                            placeholder="New project image..."
                             onChange={handleImageChange}
                             value={imageLink}
                              />
                     </Form.Group>
+                    
+                    <Button variant="secondary" onClick={handleClose}> Cancel </Button>
                     <Button type="submit" variant="primary" onClick={handleClose}>Submit Changes</Button>
+           
                 </Form>
             </Modal.Body>
         </Modal>

@@ -16,11 +16,11 @@ const BoardList = ({boards, getBoards}) => {
     }, []);
 
     return (
-        <div className='boardPage' >
-        <CardDeck>
-            {boards.map( board => <Board key={board.id} boardInfo={board}/>)}
-            <Col xs={6} md={2}><AddBoard projectId={projectId}/></Col>
-        </CardDeck>  
+        <div className='boardPage'>
+            <CardDeck>
+                {boards.map( board => <Board key={board.id} boardInfo={board}/>)}
+                <AddBoard projectId={projectId}/>
+            </CardDeck>  
         </div>
     )
 }

@@ -27,7 +27,7 @@ const CreateCard = ({createCard, board_id}) => {
     return (
         <>
     
-        <Button variant="outline-primary" className='btn btn-block' onClick={handleShow}>+ Add another card</Button>
+        <Button variant="outline-primary" className='btn btn-block' onClick={handleShow}>+ Add card</Button>
 
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>

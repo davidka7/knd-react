@@ -6,11 +6,15 @@
 
 .project-box { display: block; min-height: 80px;}
 hr { margin: 0px 0px 10px}
+.dropdown .custom-select {text-align: left}
 .dropdown-header {text-align: center; font-size: 18px;}
 .dropdown-item p {margin: 0px}
+
 .jumbotron h1 { color: black }
+
 .custom-select {border: 0px;}
 
+.project-list-box .card {padding: 0px}
 .project-list-box { background-color: #e6e6e6 !important; padding: 10px !important}
 .project-list-box div { padding: 0.5rem }
 

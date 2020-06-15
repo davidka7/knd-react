@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 import { onCardDrop } from '../actions/dropAction'
 import { deleteBoard } from '../actions/boardAction'
 import CreateCard from './CreateCard'
+import Dropdown from 'react-bootstrap/Dropdown';
 
 
 const Board = ({ boardInfo, onCardDrop, deleteBoard, selectedCard }) => {
@@ -23,17 +24,27 @@ const Board = ({ boardInfo, onCardDrop, deleteBoard, selectedCard }) => {
       <Card className='board-col overflow-auto' 
             onDrop={handleCardDrop} 
             onDragOver={e => e.preventDefault()}>
-          <Card.Body>
-          <Card.Title className="texter">{boardInfo.title}
+        <Card.Body>
 
-           <Button onClick={() => handleDelete(boardInfo.id)} type="submit">Delete</Button>
-           
-           </Card.Title>
-          <Card.Text className="texter">
-            {boardInfo.cards.map( card => <CardContent key={card.id} card={card} board_id={boardInfo.id}/>)}
-          </Card.Text>
-          <CreateCard board_id={boardInfo.id}/>
-        </Card.Body>
+        <Card.Title>
+              <Dropdown alignRight>
+                    <Dropdown.Toggle className="custom-select" id="dropdown-basic" block>
+                        <h5>{boardInfo.title}</h5>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Header>Options</Dropdown.Header>
+                        <hr></hr>
+                        <Dropdown.Item>
+                          <Button onClick={() => handleDelete(boardInfo.id)} type="submit">Delete</Button>
+                        </Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+          </Card.Title>
+            <Card.Text className="texter">
+              {boardInfo.cards.map( card => <CardContent key={card.id} card={card} board_id={boardInfo.id}/>)}
+            </Card.Text>
+            <CreateCard board_id={boardInfo.id}/>
+          </Card.Body>
       </Card>
 
   )
