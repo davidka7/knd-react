@@ -17,14 +17,18 @@ const MyProject = ({project, projectId, ProjectId_save}) => {
 
     return (
         <span>
-            <Link 
+            <Link className="display-3"
                 to={`/projects/${project.id}`}
-                onClick={() => handleId(project.id)} >{project.topic}
+                onClick={() => handleId(project.id)} > <h3>{project.topic}</h3>
             </Link>
 
             <Dropdown >
                 <Dropdown.Toggle variant="white" id="dropdown-basic">
+<<<<<<< HEAD
                     OSome
+=======
+                    Options
+>>>>>>> nk2303/6-14-7PM-project-css-in-progress
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Item className="btn-block"><DeleteProject project={project}/></Dropdown.Item>

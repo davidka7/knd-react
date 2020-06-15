@@ -75,3 +75,25 @@ export const deleteProject = (id, dispatch) => {
         })
     });
 }
+
+export const editProject = ( topic, imageLink, project_id ) => {
+    const project = { project: { topic} 
+    }
+    return fetch(`${BACKEND_DOMAIN}/projects/${project_id}`, {
+        method: "PUT",
+        headers: headers(),
+        body: JSON.stringify(project)
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            return {
+                type: "EDIT_PROJECT_ERROR",
+                error: res.error
+            };
+        }
+        return {
+            type: "EDIT_PROJECT",
+            payload: res
+        }
+    });
+}

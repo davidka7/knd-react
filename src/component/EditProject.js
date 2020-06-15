@@ -1,44 +1,70 @@
 import React, {useState} from 'react';
-import { deleteProject } from '../actions/projectAction';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import {editProject} from '../actions/projectAction';
 
 
-const EditProject = ({project, deleteProject}) => {
+const EditProject = ({project, editProject}) => {
 
     const [show, setShow] = useState(false);
+    const [topic, setTopic] = useState('');
+    const [imageLink, setImageLink] = useState('');
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleDelete = () => {
-        deleteProject(project.id);
+
+    const handleTopicChange = e => { setTopic(e.target.value) };
+    const handleImageChange = e => { setImageLink(e.target.value) };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        editProject(topic, imageLink);
+        setTopic('');
+        setImageLink('');
     }
 
     return (
         <>
-            <Button onClick={handleShow}>Delete Project</Button>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                <Modal.Title>Delete {project.topic} project</Modal.Title>
-                </Modal.Header>
-                    <Modal.Body>Deleting means you will lose all cards and disconnect all members in this project: {project.topic}!</Modal.Body>
-                <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancel
-                </Button>
-                <Button type="submit" variant="primary" onClick={handleDelete}>
-                    Delete
-                </Button>
-                </Modal.Footer>
-            </Modal>   
+        <p className="text-primary" onClick={handleShow}>Edit Project</p>
+        <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+                <Modal.Title>Edit project {project.topic}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group controlId="formLoginUsername">
+                        <Form.Label>Edit Project Topic</Form.Label>
+                        <Form.Control 
+                            type="topic" 
+                            placeholder="Edit project topic..." 
+                            onChange={handleTopicChange}
+                            value={topic}
+                            />
+                    </Form.Group>
+
+                    <Form.Group controlId="formLogincPassword">
+                        <Form.Label>Edit Project image</Form.Label>
+                        <Form.Control 
+                            type="imageLink" 
+                            placeholder="Edit project image..."
+                            onChange={handleImageChange}
+                            value={imageLink}
+                             />
+                    </Form.Group>
+                    <Button type="submit" variant="primary" onClick={handleClose}>Submit Changes</Button>
+                </Form>
+            </Modal.Body>
+        </Modal>
         </>
     )
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteProject: (project_id) => deleteProject(project_id, dispatch),
+        editProject: (topic, imageLink, project_id) => editProject(topic, imageLink, project_id, dispatch),
     }
 }
 
