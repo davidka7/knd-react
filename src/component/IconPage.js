@@ -3,9 +3,9 @@ import Card from "react-bootstrap/Card";
 import { connect } from 'react-redux';
 import { getMyIcons } from '../actions/iconAction';
 import "./icon.css";
-import FavoriteBox from './FavoriteBox';
+import IconFavoriteBox from './IconFavoriteBox';
 import Icon from './Icon'
-import Trashcan from './Trashcan'
+import IconTrashcan from './IconTrashcan'
 
 const IconPage = ({ getMyIcons, icons}) => {
 
@@ -17,18 +17,17 @@ const IconPage = ({ getMyIcons, icons}) => {
     return (
 
       <div>
-          <Card style={{ width: "25rem" }} id="wrapper">
+          <Card style={{ width: "25rem" }} id="icon-box">
             <Card.Body>
               <Card.Text>
-                {console.log(icons)}
                 {icons.map(icon => <Icon icon={icon}/>)}
               </Card.Text>
             </Card.Body>
           </Card>
-
-          <Trashcan/>
         
-          <FavoriteBox />
+          <IconFavoriteBox />
+
+          <IconTrashcan/>
       </div>
     );
 };

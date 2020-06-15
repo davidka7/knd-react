@@ -5,7 +5,7 @@ import Icon from './Icon';
 import {onIconDrop} from '../actions/dropAction';
 
 
-const FavoriteBox = ({user, onIconDrop, selectedIcon}) => {
+const IconFavoriteBox = ({user, onIconDrop, selectedIcon}) => {
 
     const handleIconDrop = () => {
       if (!user.icon_img.includes(selectedIcon.icon_img)) {
@@ -16,7 +16,7 @@ const FavoriteBox = ({user, onIconDrop, selectedIcon}) => {
     return (
         <Card 
             style={{ width: "20rem", height: "500px" }} 
-            id="wrapper1" 
+            id="fav-box" 
             onDrop={handleIconDrop} 
             onDragOver={e => e.preventDefault()} >
 
@@ -43,4 +43,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FavoriteBox)
+export default connect(mapStateToProps, mapDispatchToProps)(IconFavoriteBox)

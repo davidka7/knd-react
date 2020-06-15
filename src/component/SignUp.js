@@ -13,7 +13,7 @@ const SignUp = () => {
 
     return (
         <div>
-            <Button onClick={handleShow}>SignUp</Button>
+            <Button onClick={handleShow} className="btn-success signup">SignUp</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>SignUp</Modal.Title>

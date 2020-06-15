@@ -1,7 +1,7 @@
-#wrapper{
+#icon-box{
     background-color: #8b99b1;
     overflow:auto;
-    float: right;
+    float: left;
     height: 550px;
     
 }
@@ -12,13 +12,13 @@
     width: 50px;
   } */
 
-#wrapper1{
+#fav-box{
     background: #8b99b1;
     overflow:auto;
-    float: left;
-    height: 200px;
+    float: center;
+    height: 550px;
 }
 
 
-.lol{ float: center;  overflow:auto; background:#8b99b1  }
+.lol{ float: right; overflow:auto; background:#8b99b1  }
 

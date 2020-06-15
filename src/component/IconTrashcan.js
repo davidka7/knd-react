@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { removeIcon } from '../actions/dropAction';
 
 
-const Trashcan = ({user, removeIcon, selectedIcon}) => {
+const IconTrashcan = ({user, removeIcon, selectedIcon}) => {
 
     const handleIconDrop = () => {
         removeIcon(user, selectedIcon)
@@ -34,5 +34,5 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Trashcan)
+export default connect(mapStateToProps, mapDispatchToProps)(IconTrashcan)
 
