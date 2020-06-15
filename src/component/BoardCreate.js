@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {createBoard} from '../actions/boardAction'
 import './board.css'
 
-const AddBoard = ({createBoard, projectId}) => {
+const BoardCreate = ({createBoard, projectId}) => {
 
     const [show, setShow] = useState(false);
     const [topic, setTopic] = useState('');
@@ -29,7 +29,7 @@ const AddBoard = ({createBoard, projectId}) => {
 
     return (
         <div className="board-col">
-            <Button variant="outline-primary" onClick={handleShow} block>Add board</Button>
+            <Button variant="outline-primary" className="add-board" onClick={handleShow} block>+ Add board</Button>
 
             <Modal show={show} onHide={handleClose}>
 
@@ -69,4 +69,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(AddBoard)
+export default connect(null, mapDispatchToProps)(BoardCreate)

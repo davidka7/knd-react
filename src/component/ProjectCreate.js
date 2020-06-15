@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
 import {createProject} from '../actions/projectAction'
-const CreateProject = ({projects, createProject}) => {
+
+const ProjectCreate = ({projects, createProject}) => {
 
     const [show, setShow] = useState(false);
     const [topic, setTopic] = useState('');
@@ -67,4 +68,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(CreateProject)
+export default connect(null, mapDispatchToProps)(ProjectCreate)

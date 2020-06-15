@@ -3,61 +3,60 @@ import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import {editProject} from '../actions/projectAction';
+import {editBoard} from '../actions/boardAction';
 
 
-const EditProject = ({project, editProject}) => {
+const BoardEdit = ({boardInfo, editBoard}) => {
 
     const [show, setShow] = useState(false);
-    const [topic, setTopic] = useState(project.topic);
-    const [imageLink, setImageLink] = useState(project.background_image);
+    const [title, setTopic] = useState(boardInfo.title);
+    const [image, setImage] = useState(boardInfo.image);
 
     const handleShow = () => setShow(true);
     const handleClose = () => {
-        setTopic(project.topic);
-        setImageLink(project.background_image);
+        setTopic(boardInfo.title);
+        setImage(boardInfo.image);
         setShow(false)
     }
     
     const handleTopicChange = e => { setTopic(e.target.value) };
-    const handleImageChange = e => { setImageLink(e.target.value) };
+    const handleImageChange = e => { setImage(e.target.value) };
 
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        editProject(topic, imageLink);
-        console.log("HERE", topic, imageLink);
-        setTopic(project.topic);
-        setImageLink(project.background_image);
+        editBoard(title, image);
+        setTopic(boardInfo.title);
+        setImage(boardInfo.image);
     }
 
     return (
         <>
-        <p onClick={handleShow}>Edit Project</p>
+        <p onClick={handleShow}>Edit board</p>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Edit project {project.topic}</Modal.Title>
+                <Modal.Title>Edit board {boardInfo.title}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
 
                     <Form.Group controlId="formLoginUsername">
-                        <Form.Label>Edit Project Topic : {project.topic}</Form.Label>
+                        <Form.Label>Edit board Topic : {boardInfo.title}</Form.Label>
                         <Form.Control 
-                            type="topic" 
-                            placeholder="New project topic..." 
+                            type="title" 
+                            placeholder="New boardInfo title..." 
                             onChange={handleTopicChange}
-                            value={topic}
+                            value={title}
                             />
                     </Form.Group>
 
                     <Form.Group controlId="formLogincPassword">
-                        <Form.Label>Edit Project image :</Form.Label>
+                        <Form.Label>Edit board image :</Form.Label>
                         <Form.Control 
-                            type="imageLink" 
-                            placeholder="New project image..."
+                            type="image" 
+                            placeholder="New boardInfo image..."
                             onChange={handleImageChange}
-                            value={imageLink}
+                            value={image}
                              />
                     </Form.Group>
                     
@@ -73,8 +72,8 @@ const EditProject = ({project, editProject}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        editProject: (topic, imageLink, project_id) => editProject(topic, imageLink, project_id, dispatch),
+        editBoard: (title, image, boardInfo_id) => editBoard(title, image, boardInfo_id, dispatch),
     }
 }
 
-export default connect(null, mapDispatchToProps)(EditProject)
+export default connect(null, mapDispatchToProps)(BoardEdit)

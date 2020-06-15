@@ -4,35 +4,43 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from "react-router-dom";
 import { getBoards } from '../actions/boardAction';
 import { ProjectId_save } from '../actions/projectIdAction';
-import DeleteProject from './DeleteProject';
-import EditProject from './EditProject';
+import DeleteProject from './ProjectDelete';
+import EditProject from './ProjectEdit';
 import Card from 'react-bootstrap/Card'
 import './Project.css'
 
-const MyProject = ({project, projectId, ProjectId_save}) => {
+const ShareProject = ({project, projectId, ProjectId_save}) => {
 
     const handleId = (project_id) => {
         projectId(project_id);
         ProjectId_save(project_id)
     }
 
+    let is_admin = false
+
     return (
         <Card>
-            <Dropdown alignRight>
-                <Dropdown.Toggle className="custom-select navbar-toggler" id="dropdown-basic" block>
+            <Dropdown>
+                <Dropdown.Toggle className="custom-select" id="dropdown-basic" block>
                     <h3>{project.topic}</h3>
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Header>Options</Dropdown.Header>
                     <hr></hr>
-                    <Dropdown.Item><EditProject project={project}/></Dropdown.Item>
-                    <Dropdown.Item><DeleteProject project={project}/></Dropdown.Item>
+                    {(is_admin) ? 
+                    (<> <Dropdown.Item><EditProject project={project}/></Dropdown.Item>
+                    <Dropdown.Item><DeleteProject project={project}/></Dropdown.Item> </>)
+                    :
+                    <Dropdown.Item>*For admins only</Dropdown.Item>
+                    }
                 </Dropdown.Menu>
             </Dropdown>
+                
+            
             <Link 
                 className="project-box"
                 to={`/projects/${project.id}`}
-                onClick={() => handleId(project.id)}> 
+                onClick={() => handleId(project.id)} >
             </Link>
         </Card>
     )
@@ -46,4 +54,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(MyProject)
+export default connect(null, mapDispatchToProps)(ShareProject)

@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { logout } from '../actions/userAction';
 import {connect} from 'react-redux';
+import Signout from './Signout'
 
 const SideBar = ({signout}) => {
     
     return (
         <div>
             SideBar
-            <button className="btn btn-outline-primary" onClick={signout}><Link to="/"> signout </Link> </button>
+            <Signout/>
         </div>
     )
 }

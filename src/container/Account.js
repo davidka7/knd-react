@@ -4,6 +4,7 @@ import './home.css'
 import Dropdown from 'react-bootstrap/Dropdown';
 import { logout } from '../actions/userAction';
 import { Link } from 'react-router-dom';
+import Signout from '../component/Signout'
 
 
 const Account = ({userInfo, signout}) => {
@@ -18,12 +19,10 @@ const Account = ({userInfo, signout}) => {
 
             <Dropdown.Menu>
                 <Dropdown.Header>{userInfo.username}'s account</Dropdown.Header>
-                    <hr></hr>
+                <hr></hr>
                 <Dropdown.Item><Link to="/profile"> Profile </Link></Dropdown.Item>
                 <hr></hr>
-                <Dropdown.Item onClick={signout}>
-                    <Link to="/"> signout </Link>
-                </Dropdown.Item>
+                <Dropdown.Item> <Signout/> </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>
     </>
