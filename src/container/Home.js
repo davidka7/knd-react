@@ -5,10 +5,12 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Login from '../component/Login';
 import SignUp from '../component/SignUp';
+import { connect } from 'react-redux';
 
 
 
-const Home = () => {
+
+const Home = ({userInfo}) => {
     
     return (
         <div className="home">
@@ -16,10 +18,16 @@ const Home = () => {
                 <Row>
                     <Col xs={12} md={9}>
                         <h1 className="display-3">Welcome to Plany Boat!</h1>
+                        { userInfo ? 
+                        <p className="text-info">Hi, {userInfo.username} !</p>
+                        :
+                        <> 
+                            <Login/>
+                            <SignUp/> 
+                        </>
+                        }
                         <p className="lead">Plany Boat lets you work more collaboratively and get more done.</p>
                         <p className="lead">Boards, lists, and cards enable you to organize and prioritize your projects in a fun and flexible way.</p>
-                        {/* <Login/>
-                        <SignUp/>  */}
                     </Col>
                     <Col xs={12} md={3} className ="a" >
                         <img src={require(`../images/giphy.gif`)} alt={"giffy"} height="200px" />
@@ -33,4 +41,9 @@ const Home = () => {
         </div>
     )
 }
-export default Home
+
+const mapStateToProp = (store) => {
+    return { userInfo : store.userContext.user }
+}
+
+export default connect(mapStateToProp)(Home)
