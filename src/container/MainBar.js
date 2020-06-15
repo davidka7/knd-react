@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Account from './Account';
+
+
 
 
 const MainBar = ({user}) => {
@@ -30,6 +33,9 @@ const MainBar = ({user}) => {
               </li>
             </ul>
           </div>
+          <Account/>
+
+          
         </nav>
     </div>)
     :

@@ -26,7 +26,7 @@ const App = ({user}) => {
       <Router>
         <MainBar />
         <Route exact path='/' render={(routeProps) =>
-                user ? <Redirect to={{pathname: '/projects'}} /> : <Account {...routeProps} />} />
+                user ? <Redirect to={{pathname: '/projects'}} /> : <Home {...routeProps} />} />
         <Route exact path='/projects/:projectId' render={(routeProps) => 
                 <BoardList {...routeProps} />} />
         <Route exact path='/home' render={(routeProps) => 
