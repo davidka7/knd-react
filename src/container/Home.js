@@ -18,8 +18,8 @@ const Home = () => {
                         <h1 className="display-3">Welcome to Plany Boat!</h1>
                         <p className="lead">Plany Boat lets you work more collaboratively and get more done.</p>
                         <p className="lead">Boards, lists, and cards enable you to organize and prioritize your projects in a fun and flexible way.</p>
-                        <Login/>
-                        <SignUp/> 
+                        {/* <Login/>
+                        <SignUp/>  */}
                     </Col>
                     <Col xs={12} md={3} className ="a" >
                         <img src={require(`../images/giphy.gif`)} alt={"giffy"} height="200px" />
