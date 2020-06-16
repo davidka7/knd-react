@@ -28,7 +28,7 @@ export const deleteCard = (card, dispatch) => {
             });
         }
     }).catch(err => {
-        dispatch( {
+        dispatch({
             type: "DELETE_CARD_ERROR",
             error: err
         })
@@ -37,15 +37,11 @@ export const deleteCard = (card, dispatch) => {
 
 export const createCard = ( card_title, content, board_id ) => {
 
-    let cards = {
-        card_title: card_title,
-        content: content,
-        board_id: board_id
-    }
+    let c = { card_title, content, board_id }
     return fetch(`${BACKEND_DOMAIN}/cards`, {
         method: "POST",
         headers: headers(),
-        body: JSON.stringify(cards)
+        body: JSON.stringify(c)
     }).then(res => res.json())
     .then(res => {
         if (res.error) {

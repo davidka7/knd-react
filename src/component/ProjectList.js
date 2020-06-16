@@ -2,27 +2,22 @@ import React, { useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { connect } from 'react-redux';
-import { getMyProjects, deleteProject } from '../actions/projectAction';
-import { Link } from "react-router-dom";
+import { getMyProjects } from '../actions/projectAction';
 import { getBoards } from '../actions/boardAction';
-import CreateProject from './CreateProject'
+import ProjectCreate from './ProjectCreate'
 import { ProjectId_save } from '../actions/projectIdAction';
-import {getuserprojetcs} from '../actions/userprojectAction'
-import Button from 'react-bootstrap/Button'
-import Dropdown from 'react-bootstrap/Dropdown'
-import './3dots.css'
+import { getuserprojetcs } from '../actions/userprojectAction';
+import './Project.css'
 import Other from './Other.js'
+import ProjectFromMe from './ProjectsFromMe'
+import ProjectShare from './ProjectShare'
 
 
-const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, deleteProject, getuserprojetcs }) => {
+const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getuserprojetcs }) => {
 
     const handleId = (project_id) => {
         projectId(project_id);
         ProjectId_save(project_id)
-    }
-
-    const handleDelete = (id) => {
-        deleteProject(id);
     }
 
     useEffect(() => {
@@ -35,50 +30,26 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
 
     return (
         <div>
-            <Row className="boards jumbotron">
-                {projects.projects.map(project => (
-                    <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> 
-                        <span>
-                        <Link 
-                            to={`/projects/${project.id}`}
-                            onClick={() => handleId(project.id)} >{project.topic}
-                        </Link>
-
-                        <Dropdown >
-                            <Dropdown.Toggle variant="white" id="dropdown-basic">
-                                <div ></div>
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu>
-                                <Dropdown.Item className="btn-block">
-                                    <Button onClick={() => handleDelete(project.id)}  type="submit">
-                                        Delete Project
-                                    </Button>
-                                </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                        </span> 
+            <Row className="project-list-box jumbotron">
+                <Col xs={12} md={12}><h3 className="text-muted"> Your projects </h3> </Col>
+                {projects.projects.map(project => ( 
+                    <Col xs={6} md={3} key={project.id}> 
+                        <ProjectFromMe project={project}/>
                     </Col>))
                 }
-                  <Col xs={6} md={2}><CreateProject /></Col>
-                </Row>
-               <h1> Shared projects </h1>
-                <Row className="boards jumbotron">
-              
-                {projects.user_project.map(project => (
-                    <Col xs={6} md={2} id="lol" key={project.id} className="btn btn-outline-primary btn-block"> 
-                        <span>
-                        <Link 
-                            to={`/projects/${project.id}`}
-                            onClick={() => handleId(project.id)} >{project.topic}
-                        </Link>
-                        </span> 
-                    </Col>))
-                }
-                  < Button> Shared Projects </Button>
-              < Other projects={projects.projects} />
-              
+                <Col xs={6} md={3}><ProjectCreate /></Col>
+            </Row>
 
-
+            
+            <Row className="project-list-box jumbotron">
+                <Col xs={12} md={12}><h3 className="text-muted"> Share projects </h3> </Col>
+                    {projects.user_project.map(project => (
+                        <Col xs={6} md={3} key={project.id}> 
+                            <ProjectShare project={project}/>
+                        </Col>))
+                    }
+                <Col xs={6} md={3}><Other projects={projects.projects} /></Col>
+                
             </Row>
 
 
@@ -96,7 +67,6 @@ const mapDispatchToProps = (dispatch) => {
         getMyProjects: () => getMyProjects().then(dispatch),
         getuserprojetcs: (id) => getuserprojetcs(id).then(dispatch),
         projectId: (project_id) => getBoards(project_id).then(dispatch),
-        deleteProject: (id) => deleteProject(id, dispatch),
         ProjectId_save: (id => ProjectId_save(id, dispatch)),
     }
 }

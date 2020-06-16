@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import {connect} from 'react-redux';
-import {deleteCard} from '../actions/cardAction'
-import {onCardDragStart} from '../actions/dragAction';
+import './card.css'
+import { connect } from 'react-redux';
+import { deleteCard } from '../actions/cardAction';
+import { onCardDragStart } from '../actions/dragAction';
 
 const Content = ({card, deleteCard, onCardDragStart}) => {
   
@@ -24,7 +25,7 @@ const Content = ({card, deleteCard, onCardDragStart}) => {
         <div>
             <Button 
               variant="outline-primary" 
-              className='btn-block' 
+              className='btn-block cardButton' 
               onClick={handleShow}
               draggable
               onDragStart={handleCardDrag}

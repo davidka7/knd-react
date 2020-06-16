@@ -19,12 +19,14 @@ export const getMyProjects = () => {
         if (res.message) {
             return {
                 type: "GET_MY_PROJECTS_ERROR",
-                error: res.message };
-            }
+                error: res.message 
+            };
+        }
         return {
-                type: "GET_MY_PROJECTS",
-                payload: res }
-        });
+            type: "GET_MY_PROJECTS",
+            payload: res 
+        }
+    });
 }
 
 export const createProject = ( topic ) => {
@@ -47,6 +49,7 @@ export const createProject = ( topic ) => {
         }
     });
 }
+
 export const deleteProject = (id, dispatch) => {
     fetch(`${BACKEND_DOMAIN}/projects/${id}`, {
         method: "DELETE",
@@ -54,23 +57,44 @@ export const deleteProject = (id, dispatch) => {
     }).then(res => res.json())
     .then(res => {
         if (res.error) {
-            dispatch( {
+            dispatch({
                 type: "DELETE_PROJECT_ERROR",
                 error: res.error
             });
         }
         else {
-            dispatch(
-                {
-                    type: "DELETE_PROJECT",
-                    id: id
-                }
-            );
+            dispatch({
+                type: "DELETE_PROJECT",
+                id: id
+            })
         }
     }).catch(err => {
         dispatch( {
             type: "DELETE_PROJECT_ERROR",
             error: err
         })
+    });
+}
+
+export const editProject = ( topic, imageLink, project_id ) => {
+    const project = { 
+        project: { topic, imageLink } 
+    }
+    return fetch(`${BACKEND_DOMAIN}/projects/${project_id}`, {
+        method: "PUT",
+        headers: headers(),
+        body: JSON.stringify(project)
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            return {
+                type: "EDIT_PROJECT_ERROR",
+                error: res.error
+            };
+        }
+        return {
+            type: "EDIT_PROJECT",
+            payload: res
+        }
     });
 }

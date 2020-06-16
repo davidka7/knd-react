@@ -3,54 +3,56 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
-import {createProject} from '../actions/projectAction'
-const CreateProject = ({projects, createProject}) => {
+import {createCard} from '../actions/cardAction'
+
+const CardCreate = ({createCard, board_id}) => {
 
     const [show, setShow] = useState(false);
-    const [topic, setTopic] = useState('');
-    const [imageLink, setImageLink] = useState('');
+    const [card_title, setTopic] = useState('');
+    const [content, setContent] = useState('');
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const handleTopicChange = e => { setTopic(e.target.value) };
-    const handleImageChange = e => { setImageLink(e.target.value) };
+    const handleContentChange = e => { setContent(e.target.value) };
 
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        createProject(topic, imageLink);
+        createCard(card_title, content, board_id);
         setTopic('');
-        setImageLink('');
+        setContent('');
     }
 
     return (
         <>
-        Create Project
-        <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}>Add</Button>
+    
+        <Button variant="outline-primary" className='btn btn-block' onClick={handleShow}>+ Add card</Button>
+
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-            <Modal.Title>Create a new project</Modal.Title>
+            <Modal.Title>Create a new Card</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group controlId="formLoginUsername">
-                        <Form.Label>Project Topic</Form.Label>
+                        <Form.Label>Title</Form.Label>
                         <Form.Control 
-                            type="topic" 
+                            type="card_title" 
                             placeholder="Add project topic..." 
                             onChange={handleTopicChange}
-                            value={topic}
+                            value={card_title}
                             />
                     </Form.Group>
 
                     <Form.Group controlId="formLogincPassword">
-                        <Form.Label>Project image</Form.Label>
+                        <Form.Label>Content</Form.Label>
                         <Form.Control 
-                            type="imageLink" 
-                            placeholder="Add project image..."
-                            onChange={handleImageChange}
-                            value={imageLink}
+                            type="Content" 
+                            placeholder="Add Content..."
+                            onChange={handleContentChange}
+                            value={content}
                              />
                     </Form.Group>
                     <Button type="submit" variant="primary" onClick={handleClose}>Create </Button>
@@ -64,8 +66,8 @@ const CreateProject = ({projects, createProject}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createProject: (topic, imageLink) => {createProject(topic, imageLink).then(dispatch) }
+        createCard: (card_title, content, board_id) => {createCard(card_title, content, board_id).then(dispatch) }
     }
 }
 
-export default connect(null, mapDispatchToProps)(CreateProject)
+export default connect(null, mapDispatchToProps)(CardCreate)

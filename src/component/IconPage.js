@@ -3,34 +3,31 @@ import Card from "react-bootstrap/Card";
 import { connect } from 'react-redux';
 import { getMyIcons } from '../actions/iconAction';
 import "./icon.css";
-import FavoriteBox from './FavoriteBox';
+import IconFavoriteBox from './IconFavoriteBox';
 import Icon from './Icon'
+import IconTrashcan from './IconTrashcan'
 
-const IconPage = ({getMyIcons, icons}) => {
+const IconPage = ({ getMyIcons, icons}) => {
 
     useEffect(() => {
       getMyIcons();
     }, [])
+
     
     return (
 
       <div>
-          <Card style={{ width: "25rem" }} id="wrapper">
+          <Card style={{ width: "25rem" }} id="icon-box">
             <Card.Body>
               <Card.Text>
                 {icons.map(icon => <Icon icon={icon}/>)}
               </Card.Text>
             </Card.Body>
           </Card>
-
-          <img 
-              className="lol"
-              src={require(`../images/funny.png`)} 
-              alt={"funny"} 
-              height="350px" width="320px" 
-          /> 
         
-          <FavoriteBox />
+          <IconFavoriteBox />
+
+          <IconTrashcan/>
       </div>
     );
 };

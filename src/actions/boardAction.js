@@ -9,13 +9,9 @@ const headers = () => {
     }
 }
 
-export const createBoard = ( topic, imageLink, projectId ) => {
+export const createBoard = ( title, image, project_id ) => {
     
-    const entry = {
-        title: topic,
-        image: imageLink,
-        project_id: projectId
-    }
+    const entry = { title, image, project_id }
     
     return fetch(`${BACKEND_DOMAIN}/boards`, {
         method: "POST",
@@ -77,5 +73,28 @@ export const deleteBoard = (id, dispatch) => {
             type: "DELETE_BOARD_ERROR",
             error: err
         })
+    });
+}
+
+export const editBoard = ( title, image, board_id ) => {
+    
+    const entry = { title, image }
+    
+    return fetch(`${BACKEND_DOMAIN}/boards/${board_id}`, {
+        method: "PUT",
+        headers: headers(),
+        body: JSON.stringify(entry)
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            return {
+                type: "UPDATE_BOARD_ERROR",
+                error: res.error
+            };
+        }
+        return {
+            type: "UPDATE_BOARD",
+            payload: res.board
+        }
     });
 }

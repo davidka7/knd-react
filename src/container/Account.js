@@ -1,36 +1,31 @@
 import React from 'react';
-import { connect } from 'react-redux'
-import Login from '../component/Login';
-import SignUp from '../component/SignUp';
+import { connect } from 'react-redux';
+import './home.css'
+import Dropdown from 'react-bootstrap/Dropdown';
+import { logout } from '../actions/userAction';
 import { Link } from 'react-router-dom';
-import Profile from './Profile';
-import Container from 'react-bootstrap/Container';
-const Account = ({userInfo}) => {
-    
-    const list = () => {
-        if (userInfo) {
-            return (
-                <div>
-                    <Profile /> 
-                    <Link className="btn btn-outline-primary" to="/homepage"> Homepage </Link>
-                </div >
-            )
-        }
-        else {
-            return (
-                <div>
-                    <Login/>
-                    <SignUp/> 
-                </div>
-            )
-        }
-    }
+import Signout from '../component/Signout'
 
+
+const Account = ({userInfo, signout}) => {
+    
     return (
-        <Container>
-            Home Page Data
-            {list()}
-        </Container>
+
+    <>
+        <Dropdown>
+            <Dropdown.Toggle id="dropdown-basic" className="btn-secondary my-2 my-sm-0">
+                Hi, {userInfo.username} !
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+                <Dropdown.Header>{userInfo.username}'s account</Dropdown.Header>
+                <hr></hr>
+                <Dropdown.Item><Link to="/profile"> Profile </Link></Dropdown.Item>
+                <hr></hr>
+                <Dropdown.Item> <Signout/> </Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
+    </>
     )
 }
 
@@ -38,4 +33,10 @@ const mapStateToProp = (store) => {
     return { userInfo : store.userContext.user }
 }
 
-export default connect(mapStateToProp)(Account)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signout: () => dispatch(logout())
+    }
+}
+
+export default connect(mapStateToProp, mapDispatchToProps)(Account)

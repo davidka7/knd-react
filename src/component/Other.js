@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -70,10 +71,8 @@ const Other = ({projects, user_project, getuser, user}) => {
   
 
     return (
-     <div> 
-     Share Projects
-  
-        <Button variant="outline-primary" className="btn btn-block" onClick={handleShow}> Add+ </Button>
+     <> 
+        <Button variant="outline-primary" className="btn-block" onClick={handleShow}> Share </Button>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
             <Modal.Title> Add Admin To Project</Modal.Title>
@@ -128,7 +127,7 @@ const Other = ({projects, user_project, getuser, user}) => {
                 </Form>
             </Modal.Body>
         </Modal>
-     </div>
+     </>
     )
 }
 const mapStateToProps = (store) => {

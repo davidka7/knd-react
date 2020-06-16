@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { login } from '../actions/userAction';
 
-const Login = ({ signin }) => {
+const SignIn = ({ signin }) => {
     
     const [show, setShow] = useState(false);
     const [username, setUsername] = useState('');
@@ -27,7 +27,7 @@ const Login = ({ signin }) => {
 
     return (
         <div>
-            <Button onClick={handleShow}>Login</Button>
+            <Button onClick={handleShow} className="btn-info signin">Login</Button>
             
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -75,4 +75,4 @@ const mapStateToProps = (store) => {
     return {loginError: store.userContext.error}
 }
     
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

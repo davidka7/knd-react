@@ -34,12 +34,13 @@
   }
 }
 
-.mainBar input { min-width: 450px}
+/* .mainBar input { min-width: 450px} */
 .mainBar div ul { font-size: 18px}
 
-.project-list {margin-left: 20px !important; margin-top: 20px}
+.signin { width: 250px }
 
-.boards { background-color: #e6e6e6 !important; padding: 10px !important}
-.boards div { padding: 0.25rem }
-.boards a { background-color: #ffffff; height: 100px; }
+.signup { width: 250px }
+
+
+
 
