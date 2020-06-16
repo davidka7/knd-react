@@ -13,6 +13,7 @@ const BoardDelete = ({boardInfo, deleteBoard}) => {
     const handleShow = () => setShow(true);
     const handleDelete = () => {
         deleteBoard(boardInfo.id);
+        setShow(false)
     }
 
     return (
