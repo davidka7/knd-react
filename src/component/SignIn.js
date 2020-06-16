@@ -57,7 +57,8 @@ const SignIn = ({ signin }) => {
                                 value={password}
                                 />
                         </Form.Group>
-                        <Button type="submit" variant="primary" onClick={handleClose}>Log in</Button>
+                        <br/>
+                        <Button className="btn-info signin" type="submit" onClick={handleClose}>Log in</Button>
                     </Form>
                 </Modal.Body>
             </Modal>

@@ -1,7 +1,7 @@
 .projectPage {
     background-image: url('../background/room-sketch.jpg');
     background-size: cover;
-    min-height: 800px;
+    min-height: 730px;
 }
 
 .project-box { display: block; min-height: 80px;}

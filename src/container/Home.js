@@ -8,8 +8,6 @@ import SignUp from '../component/SignUp';
 import { connect } from 'react-redux';
 
 
-
-
 const Home = ({userInfo}) => {
     
     return (
@@ -37,8 +35,8 @@ const Home = ({userInfo}) => {
                         </Row>
                         }
                         <br/>
-                        <p className="lead">Plany Boat lets you work more collaboratively and get more done.</p>
-                        <p className="lead">Boards, lists, and cards enable you to organize and prioritize your projects in a fun and flexible way.</p>
+                        <p className="lead">Plany Boat lets you work more collaboratively and get more done. <br/>
+                        Boards, lists, and cards enable you to organize and prioritize your projects in a fun and flexible way.</p>
                     </Col>
                     <Col xs={12} md={3} className ="a" >
                         <img src={require(`../images/giphy.gif`)} alt={"giffy"} height="200px" />

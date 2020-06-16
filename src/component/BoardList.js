@@ -3,7 +3,6 @@ import Board from './Board';
 import CardDeck from 'react-bootstrap/CardDeck';
 import {connect} from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Col from 'react-bootstrap/Col';
 import BoardCreate from './BoardCreate';
 import {getBoards} from '../actions/boardAction'
 import './board.css'

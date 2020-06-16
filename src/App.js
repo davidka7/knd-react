@@ -5,12 +5,11 @@ import './container/MainBar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootswatch/dist/sketchy/bootstrap.min.css";
 import MainBar from './container/MainBar';
-import Account from './container/Account';
 import IconPage from './component/IconPage';
 import Customization from './component/Customization';
 import Profile from './container/Profile';
 import Home from './container/Home';
-import BoardList from './component/BoardList';
+import BoardPage from './component/BoardPage';
 import ProjectPage from './component/ProjectPage';
 import {
   BrowserRouter as Router,
@@ -28,7 +27,7 @@ const App = ({user}) => {
         <Route exact path='/' render={(routeProps) =>
                 user ? <Redirect to={{pathname: '/projects'}} /> : <Home {...routeProps} />} />
         <Route exact path='/projects/:projectId' render={(routeProps) => 
-                <BoardList {...routeProps} />} />
+                <BoardPage {...routeProps} />} />
         <Route exact path='/home' render={(routeProps) => 
                 <Home {...routeProps} />} />
         <Route exact path='/projects' render={(routeProps) => 

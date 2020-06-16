@@ -6,6 +6,9 @@ import "./icon.css";
 import IconFavoriteBox from './IconFavoriteBox';
 import Icon from './Icon'
 import IconTrashcan from './IconTrashcan'
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const IconPage = ({ getMyIcons, icons}) => {
 
@@ -16,19 +19,23 @@ const IconPage = ({ getMyIcons, icons}) => {
     
     return (
 
-      <div>
-          <Card style={{ width: "25rem" }} id="icon-box">
-            <Card.Body>
-              <Card.Text>
-                {icons.map(icon => <Icon icon={icon}/>)}
-              </Card.Text>
-            </Card.Body>
-          </Card>
+      <Container>
+          <Row>
+            <Col xs={12} md={4}>
+              <Card style={{ width: "25rem" }} id="icon-box">
+                <Card.Body>
+                  <Card.Text>
+                    {icons.map(icon => <Icon icon={icon}/>)}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
         
-          <IconFavoriteBox />
+            <Col xs={12} md={4}><IconFavoriteBox /></Col>
 
-          <IconTrashcan/>
-      </div>
+            <Col xs={12} md={4}><IconTrashcan/></Col>
+          </Row>
+      </Container>
     );
 };
 

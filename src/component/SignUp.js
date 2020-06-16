@@ -58,7 +58,7 @@ const SignUp = () => {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="primary" onClick={handleSignUp}>Submit</Button>
+                    <Button className="btn-success signup" onClick={handleSignUp}>Submit</Button>
                 </Modal.Footer>
             </Modal>
         </div>
