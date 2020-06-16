@@ -74,9 +74,13 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, delet
                         </span> 
                     </Col>))
                 }
+                  < Button> Shared Projects </Button>
               < Other projects={projects.projects} />
-                
+              
+
+
             </Row>
+
 
           
         </div>
