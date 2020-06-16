@@ -51,6 +51,7 @@ export const createProject = ( topic ) => {
 }
 
 export const deleteProject = (id, dispatch) => {
+    console.log(id)
     fetch(`${BACKEND_DOMAIN}/projects/${id}`, {
         method: "DELETE",
         headers: headers(),

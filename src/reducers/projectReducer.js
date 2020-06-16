@@ -7,9 +7,11 @@ export const projectReducer = (state = PROJECT_INITIAL_STATE, action) => {
         case 'CREATE_PROJECT':
             return [...state, action.payload.project];
         case 'DELETE_PROJECT':   
+      
             return state.filter((p) => p.id !== action.id)
+           
         default:
             return state;
     }
-    
+
 }
