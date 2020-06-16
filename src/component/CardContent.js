@@ -19,7 +19,11 @@ const Content = ({card, deleteCard, onCardDragStart}) => {
 
     const handleDelete = (card) => {
       deleteCard(card);
-  }
+    }
+
+    const handleOtherCardDrop = () => {
+      onCardOnCardDrop(dragCard, destinationCard)
+    }
     
     return (
         <div>
@@ -29,13 +33,15 @@ const Content = ({card, deleteCard, onCardDragStart}) => {
               onClick={handleShow}
               draggable
               onDragStart={handleCardDrag}
+              onDrop={handleOtherCardDrop} 
+              onDragOver={e => e.preventDefault()}
               >{card.card_title} 
             </Button>
 
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card)} type="submit">Delete</Button>
-           </Modal.Title>
+                </Modal.Title>
               </Modal.Header>
                 <Modal.Body>
                   {card.content}
