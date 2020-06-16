@@ -2,7 +2,11 @@
     padding: 60px;
     background-image: url('../images/homewater.jpeg');
     background-size: cover;
-    max-height: 800px;
+    max-height: 730px;
+}
+
+.home p {
+    margin-bottom :0px
 }
 
 .home .a { text-align: right;}
@@ -25,3 +29,4 @@
     color: grey;
     font-size: 22px;
 }
+

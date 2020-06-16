@@ -28,6 +28,10 @@ export const onCardDrop = (droppedBoard, selectedCard) => {
     });  
 }
 
+export const cardOnCardDrop = (dragCard, destinationCard) => {
+    console.log(dragCard, destinationCard)
+}
+
 export const onIconDrop = (userInfo, selectedIcon) => {
 
     const update_icon = {

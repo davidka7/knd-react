@@ -1,7 +1,7 @@
 #icon-box{
     background-color: #8b99b1;
     overflow:auto;
-    float: left;
+    /* float: left; */
     height: 550px;
     
 }
@@ -15,10 +15,10 @@
 #fav-box{
     background: #8b99b1;
     overflow:auto;
-    float: center;
+    /* float: center; */
     height: 550px;
 }
 
 
-.lol{ float: right; overflow:auto; background:#8b99b1  }
+.lol{ background:#8b99b1  }
 

@@ -36,6 +36,7 @@ const Board = ({ boardInfo, onCardDrop, selectedCard }) => {
               </Dropdown>
           </Card.Title>
             <Card.Text className="texter">
+              {console.log(boardInfo.cards)}
               {boardInfo.cards.map( card => <CardContent key={card.id} card={card} board_id={boardInfo.id}/>)}
             </Card.Text>
             <CardCreate board_id={boardInfo.id}/>

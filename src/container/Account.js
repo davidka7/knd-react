@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './home.css'
 import Dropdown from 'react-bootstrap/Dropdown';
-import { logout } from '../actions/userAction';
 import { Link } from 'react-router-dom';
 import Signout from '../component/Signout'
 
 
-const Account = ({userInfo, signout}) => {
+const Account = ({userInfo}) => {
     
     return (
 
@@ -33,10 +32,4 @@ const mapStateToProp = (store) => {
     return { userInfo : store.userContext.user }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        signout: () => dispatch(logout())
-    }
-}
-
-export default connect(mapStateToProp, mapDispatchToProps)(Account)
+export default connect(mapStateToProp)(Account)

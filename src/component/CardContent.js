@@ -5,8 +5,9 @@ import './card.css'
 import { connect } from 'react-redux';
 import { deleteCard } from '../actions/cardAction';
 import { onCardDragStart } from '../actions/dragAction';
+import { cardOnCardDrop } from '../actions/dropAction';
 
-const Content = ({card, deleteCard, onCardDragStart}) => {
+const Content = ({card, deleteCard, onCardDragStart, selectedCard}) => {
   
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -19,7 +20,11 @@ const Content = ({card, deleteCard, onCardDragStart}) => {
 
     const handleDelete = (card) => {
       deleteCard(card);
-  }
+    }
+
+    const handleOtherCardDrop = () => {
+      cardOnCardDrop(selectedCard, card)
+    }
     
     return (
         <div>
@@ -29,13 +34,15 @@ const Content = ({card, deleteCard, onCardDragStart}) => {
               onClick={handleShow}
               draggable
               onDragStart={handleCardDrag}
+              onDrop={handleOtherCardDrop} 
+              onDragOver={e => e.preventDefault()}
               >{card.card_title} 
             </Button>
 
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card)} type="submit">Delete</Button>
-           </Modal.Title>
+                </Modal.Title>
               </Modal.Header>
                 <Modal.Body>
                   {card.content}
@@ -47,11 +54,17 @@ const Content = ({card, deleteCard, onCardDragStart}) => {
         </div>
     )
 }
+const mapStateToProps = (store) => {
+  return {
+    selectedCard: store.draggedItem
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {
     deleteCard: card => deleteCard(card, dispatch),
-    onCardDragStart: (card) => onCardDragStart(card, dispatch)
+    onCardDragStart: (card) => onCardDragStart(card, dispatch),
+    cardOnCardDrop: (dragCard, destinationCard) => cardOnCardDrop(dragCard, destinationCard, dispatch)
   }
 }
-export default connect(null, mapDispatchToProps)(Content)
+export default connect(mapStateToProps, mapDispatchToProps)(Content)
