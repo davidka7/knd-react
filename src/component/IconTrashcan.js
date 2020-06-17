@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { removeIcon } from '../actions/dropAction';
+import "./icon.css";
 
 
 const IconTrashcan = ({user, removeIcon, selectedIcon}) => {
@@ -11,7 +12,7 @@ const IconTrashcan = ({user, removeIcon, selectedIcon}) => {
 
     return (
         <img 
-            className="lol"
+            className="trash-can"
             src={require(`../images/funny.png`)} 
             alt={"funny"} 
             height="350px"

@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { onIconDragStart } from '../actions/dragAction';
+import "./icon.css";
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const Icon = ({icon, onIconDragStart}) => {
 
@@ -10,16 +13,14 @@ const Icon = ({icon, onIconDragStart}) => {
     }
 
     return (
-        <row>
-            <column> 
-                <img 
-                    src={require(`../images/${icon}`)} 
-                    alt={icon} 
-                    height="130px" width="130px" 
-                    onDragStart={handleIconDrag}
-                />
-            </column> 
-        </row>
+        <Col xs={12} md={4}>
+            <img className="icon-css"
+                src={require(`../images/${icon}`)} 
+                alt={icon} 
+                width="100px" 
+                onDragStart={handleIconDrag}
+            />
+        </Col>
     )
 }
 

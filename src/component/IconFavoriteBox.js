@@ -3,6 +3,8 @@ import Card from "react-bootstrap/Card";
 import {connect} from 'react-redux';
 import Icon from './Icon';
 import {onIconDrop} from '../actions/dropAction';
+import Row from 'react-bootstrap/Row';
+import "./icon.css";
 
 
 const IconFavoriteBox = ({user, onIconDrop, selectedIcon}) => {
@@ -15,17 +17,15 @@ const IconFavoriteBox = ({user, onIconDrop, selectedIcon}) => {
     
     return (
         <Card 
-            style={{ width: "20rem", height: "500px" }} 
-            id="fav-box" 
-            onDrop={handleIconDrop} 
-            onDragOver={e => e.preventDefault()} >
+          className="fav-box" 
+          onDrop={handleIconDrop} 
+          onDragOver={e => e.preventDefault()}
+        >
+            <Card.Title >Your Favorite Icons</Card.Title>
+            <Row>
+              {user.icon_img.map(icon => <Icon key={user.icon_img.indexOf(icon)} icon={icon}/>)}
+            </Row>
 
-          <Card.Body>
-          <Card.Title>Favorite Box</Card.Title>
-            <Card.Text>
-                {user.icon_img.map(icon => <Icon key={user.icon_img.indexOf(icon)} icon={icon}/>)}
-            </Card.Text>
-          </Card.Body>
         </Card>
     )
 }
