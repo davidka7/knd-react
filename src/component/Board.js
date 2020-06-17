@@ -17,12 +17,12 @@ const Board = ({ boardInfo, onCardDrop, selectedCard }) => {
   }
   
   return (
-        <Card className='board-col overflow-auto' 
-            onDrop={handleCardDrop} 
-            onDragOver={e => e.preventDefault()}>
-        <Card.Body>
+    <div className='board-col' 
+        onDrop={handleCardDrop} 
+        onDragOver={e => e.preventDefault()}>
 
-        <Card.Title>
+        <Card className="board-box overflow-auto">
+          <Card.Title>
             <Dropdown alignRight>
                   <Dropdown.Toggle className="custom-select" id="dropdown-basic" block>
                       <h5>{boardInfo.title}</h5>
@@ -40,8 +40,8 @@ const Board = ({ boardInfo, onCardDrop, selectedCard }) => {
               {boardInfo.cards.map( card => <CardContent key={card.id} card={card} board_id={boardInfo.id}/>)}
             </Card.Text>
             <CardCreate board_id={boardInfo.id}/>
-          </Card.Body>
-      </Card>
+        </Card>
+    </div>
 
   )
 }

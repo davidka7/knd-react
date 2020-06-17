@@ -15,12 +15,12 @@ const BoardList = ({boards, getBoards}) => {
     }, []);
 
     return (
-        <div className='boardPage'>
-            <CardDeck>
-                {boards.map( board => <Board key={board.id} boardInfo={board}/>)}
-                <BoardCreate projectId={projectId}/>
-            </CardDeck>  
-        </div>
+
+        <CardDeck>
+            {boards.map( board => <Board key={board.id} boardInfo={board}/>)}
+            <BoardCreate projectId={projectId}/>
+        </CardDeck>  
+
     )
 }
 
