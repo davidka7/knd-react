@@ -3,5 +3,5 @@
 }
 
 
-
-.btn-add-card .text-muted { padding: 15px 15px 0px 10px; font-size: 16px; margin: 0px}
+.btn-add-card { padding: 15px 0px 0px 0px; }
+.btn-add-card .btn { font-size: 16px; margin: 0px; border: 0px; text-align: left}

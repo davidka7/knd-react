@@ -33,27 +33,24 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
             <Row className="project-list-box jumbotron">
                 <Col xs={12} md={12}><h3 className="text-muted"> Your projects </h3> </Col>
                 {projects.projects.map(project => ( 
-                    <Col xs={6} md={3} key={project.id}> 
+                    <Col xs={6} md={2} key={project.id}> 
                         <ProjectFromMe project={project}/>
                     </Col>))
                 }
-                <Col xs={6} md={3}><ProjectCreate /></Col>
+                <Col xs={6} md={2}><ProjectCreate /></Col>
             </Row>
 
             
             <Row className="project-list-box jumbotron">
                 <Col xs={12} md={12}><h3 className="text-muted"> Share projects </h3> </Col>
                     {projects.user_project.map(project => (
-                        <Col xs={6} md={3} key={project.id}> 
+                        <Col xs={6} md={2} key={project.id}> 
                             <ProjectShare project={project}/>
                         </Col>))
                     }
-                <Col xs={6} md={3}><Other projects={projects.projects} /></Col>
+                <Col xs={6} md={2}><Other projects={projects.projects} /></Col>
                 
-            </Row>
-
-
-          
+            </Row>  
         </div>
     )
 }

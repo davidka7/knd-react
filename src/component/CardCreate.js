@@ -29,7 +29,7 @@ const CardCreate = ({createCard, board_id}) => {
     return (
         <div className='btn-add-card'>
     
-        <p className='text-muted' onClick={handleShow} block>+ Add card</p>
+        <Button variant="outline-secondary" onClick={handleShow} block>+ Add card</Button>
 
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>

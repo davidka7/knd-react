@@ -8,11 +8,11 @@ const ProjectPage = () => {
     
     return (
         <div className="projectPage">
-            <Container>
+
                 <ProjectBar/>
                 <br/>
                 <ProjectList/>
-            </Container>
+
         </div>
     )
 }
