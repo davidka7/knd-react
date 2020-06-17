@@ -1,3 +1,7 @@
 .cardButton {
     background-color: white;
 }
+
+
+
+.btn-add-card .text-muted { padding: 15px 15px 0px 10px; font-size: 16px; margin: 0px}

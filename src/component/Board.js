@@ -35,10 +35,9 @@ const Board = ({ boardInfo, onCardDrop, selectedCard }) => {
                   </Dropdown.Menu>
               </Dropdown>
           </Card.Title>
-            <Card.Text className="texter">
-              {console.log(boardInfo.cards)}
+            <div className="texter overflow-auto">
               {boardInfo.cards.map( card => <CardContent key={card.id} card={card} board_id={boardInfo.id}/>)}
-            </Card.Text>
+            </div>
             <CardCreate board_id={boardInfo.id}/>
         </Card>
     </div>

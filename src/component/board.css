@@ -1,13 +1,14 @@
 .texter {
     color: black;
   }
-  
 
 .board-page {
     margin: 0px;
     background-image: url('../background/random-sketch.jpg');
     background-size: cover;
     min-height: 730px;
+    max-width: 1500px;
+    overflow-x: auto;
 }
 .board-page .card-deck {
   padding: 30px;
