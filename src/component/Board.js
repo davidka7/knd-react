@@ -21,7 +21,7 @@ const Board = ({ boardInfo, onCardDrop, selectedCard }) => {
         onDrop={handleCardDrop} 
         onDragOver={e => e.preventDefault()}>
 
-        <Card className="board-box">
+        <Card className="board-box overflow-auto">
           <Card.Title>
             <Dropdown alignRight>
                   <Dropdown.Toggle className="custom-select" id="dropdown-basic" block>
