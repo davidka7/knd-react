@@ -3,7 +3,8 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {connect} from 'react-redux';
-import {createCard} from '../actions/cardAction'
+import {createCard} from '../actions/cardAction';
+import './card.css'
 
 const CardCreate = ({createCard, board_id}) => {
 
@@ -26,9 +27,9 @@ const CardCreate = ({createCard, board_id}) => {
     }
 
     return (
-        <>
+        <div className='btn-add-card'>
     
-        <Button variant="outline-primary" className='btn btn-block' onClick={handleShow}>+ Add card</Button>
+        <p className='text-muted' onClick={handleShow} block>+ Add card</p>
 
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -59,7 +60,7 @@ const CardCreate = ({createCard, board_id}) => {
                 </Form>
             </Modal.Body>
         </Modal>
-        </>
+        </div>
     );
 }
 

@@ -1,36 +1,34 @@
 .texter {
     color: black;
   }
-  
+
 
 .board-page {
     margin: 0px;
     background-image: url('../background/random-sketch.jpg');
     background-size: cover;
     min-height: 730px;
+    max-width: 1500px;
+    overflow-x: auto;
 }
 .board-page .card-deck {
   padding: 30px;
   flex-flow: row;
 }
 
-.board-col-css {
-  background-color: none;
-}
-
 .board-page .card-deck .card {
   margin: 0px 5px 0px 5px
 }
 
-.board-col { min-width: 300px !important; max-width: 300px !important; max-height: 660px; background-color: transparent; height: auto}
-.board-col .add-board {width: 300px}
-.board-col p div { padding: 0.25rem}
-.board-col p div button { background-color: #ffffff; text-align: left}
-.board-col .card-body { padding: 0.5rem; }
-.board-col .card { background-color: #e6e6e6}
-.board-col .text-muted { border: 0px; text-align: left;}
-.board-page { max-height: 730px; max-width: 1500px; overflow-x: auto;}
+.board-col { min-width: 300px !important; max-width: 300px !important; max-height: 660px; background-color: transparent}
 
-.board-box {background-color: #EBECF0}
+.board-box { background-color: #EBECF0}
+.board-box .add-board {width: 300px}
+.board-box .texter { max-height: 550px; } 
+.board-box .texter div { padding: 7px}
+.board-box .texter div button { background-color: #ffffff; text-align: left}
+.board-box .text-muted { border: 0px; text-align: left;}
 
 .custom-select {background-color: transparent;}
+
+#dropdown-basic { padding: 10px }
