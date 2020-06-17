@@ -22,13 +22,14 @@
 
 .board-col { min-width: 300px !important; max-width: 300px !important; max-height: 660px; background-color: transparent}
 
-.board-box { background-color: #EBECF0}
+.board-box { background-color: #EBECF0; padding: 10px}
+.board-box .card-title { margin: 0px}
 .board-box .add-board {width: 300px}
 .board-box .texter { max-height: 550px; } 
-.board-box .texter div { padding: 7px}
+.board-box .texter div { padding-top: 7px}
 .board-box .texter div button { background-color: #ffffff; text-align: left}
 .board-box .text-muted { border: 0px; text-align: left;}
 
 .custom-select {background-color: transparent;}
 
-#dropdown-basic { padding: 10px }
+#dropdown-basic { padding: 10px; }
