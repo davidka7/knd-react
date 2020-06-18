@@ -4,6 +4,9 @@
     min-height: 730px;
 }
 
+
+
+.projectPage .project-list-box { margin: 50px 100px 50px 100px;}
 .project-box { display: block; min-height: 80px;}
 hr { margin: 0px 0px 10px}
 .dropdown .custom-select {text-align: left}
@@ -17,6 +20,6 @@ hr { margin: 0px 0px 10px}
 
 .project-list-box .card {padding: 0px}
 .project-list-box { background-color: #e6e6e6 !important; padding: 10px !important}
-.project-list-box div { padding: 0.5rem }
+.project-list-box div { padding: 0.3rem }
 
 .dropdown-toggle::after { display: none;}

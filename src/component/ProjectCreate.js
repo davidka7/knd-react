@@ -20,7 +20,7 @@ const ProjectCreate = ({projects, createProject}) => {
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        createProject(topic, imageLink);
+        if (topic ) {createProject(topic, imageLink);}
         setTopic('');
         setImageLink('');
     }

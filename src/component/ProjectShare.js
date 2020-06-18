@@ -9,7 +9,7 @@ import EditProject from './ProjectEdit';
 import Card from 'react-bootstrap/Card'
 import './Project.css'
 
-const ShareProject = ({project, projectId, ProjectId_save}) => {
+const ProjectShare = ({project, projectId, ProjectId_save}) => {
 
     const handleId = (project_id) => {
         projectId(project_id);
@@ -54,4 +54,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(null, mapDispatchToProps)(ShareProject)
+export default connect(null, mapDispatchToProps)(ProjectShare)
