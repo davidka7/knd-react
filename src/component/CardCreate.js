@@ -21,7 +21,7 @@ const CardCreate = ({createCard, board_id}) => {
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        createCard(card_title, content, board_id);
+        if (card_title){createCard(card_title, content, board_id);}
         setTopic('');
         setContent('');
     }

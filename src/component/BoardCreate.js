@@ -22,7 +22,7 @@ const BoardCreate = ({createBoard, projectId}) => {
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        createBoard(topic, imageLink, projectId);
+        if (topic){createBoard(topic, imageLink, projectId);}
         setTopic('');
         setImageLink(''); 
     }
