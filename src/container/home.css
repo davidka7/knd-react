@@ -1,6 +1,6 @@
 .home { 
     padding: 60px;
-    background-image: url('../images/homewater.jpeg');
+    background-image: url('../background/hp-water.jpg');
     background-size: cover;
     max-height: 730px;
 }
