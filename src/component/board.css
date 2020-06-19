@@ -4,10 +4,10 @@
 
 .board-page {
     margin: 0px;
-    background-image: url('../background/random-sketch.jpg');
+    background-image: url('../background/bg-chua.jpg');
     background-size: cover;
-    min-height: 730px;
-    max-width: 1500px;
+    min-height: 830px;
+    max-width: 1700px;
     overflow-x: auto;
 }
 .board-page .card-deck {

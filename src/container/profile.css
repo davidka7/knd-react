@@ -1,8 +1,8 @@
 .profile-page {
     padding: 50px;
-    background-image: url('../background/room-sketch.jpg');
+    background-image: url('../background/bg-forest.jpg');
     background-size: cover;
-    min-height: 730px;
+    min-height: 830px;
     color: black;
     font-size: 20px
 }
