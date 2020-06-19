@@ -1,8 +1,8 @@
 .home { 
     padding: 60px;
-    background-image: url('../background/hp-water.jpg');
+    background-image: url('../background/hp-water1.jpg');
     background-size: cover;
-    max-height: 730px;
+    min-height: 830px;
 }
 
 .home p {
@@ -14,7 +14,7 @@
 .home .jumbotron {
     margin-top: 120px;
     background-color: #fff;
-    background-color: rgba(255,255,255,0.8)
+    background-color: rgba(255,255,255,0.9)
 }
 
 .home .jumbotron h1{

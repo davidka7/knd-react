@@ -1,7 +1,7 @@
 .projectPage {
-    background-image: url('../background/room-sketch.jpg');
+    background-image: url('../background/beach-bg.jpg');
     background-size: cover;
-    min-height: 730px;
+    min-height: 830px;
 }
 
 
@@ -19,7 +19,13 @@ hr { margin: 0px 0px 10px}
 .custom-select {border: 0px;}
 
 .project-list-box .card {padding: 0px}
-.project-list-box { background-color: #e6e6e6 !important; padding: 10px !important}
+.project-list-box { 
+    background-color: #e6e6e6; 
+    background-color: rgba(255,255,255,0.7);
+    padding: 10px !important;
+    color: black
+
+}
 .project-list-box div { padding: 0.3rem }
 
 .dropdown-toggle::after { display: none;}
