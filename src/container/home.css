@@ -1,10 +1,6 @@
 .home { 
     padding: 60px;
-<<<<<<< HEAD
     background-image: url('../background/hp-water1.jpg');
-=======
-    background-image: url('../background/hp-water.jpg');
->>>>>>> master
     background-size: cover;
     min-height: 830px;
 }
