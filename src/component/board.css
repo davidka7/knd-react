@@ -36,3 +36,7 @@
 .custom-select {background-color: transparent;}
 
 #dropdown-basic { padding: 10px; }
+
+.icon-btn {text-align: right;}
+.icon-btn .fav-box { margin: 0px; border: 0px; min-width: 300px}
+
