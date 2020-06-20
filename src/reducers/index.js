@@ -13,7 +13,7 @@ export default combineReducers({
     projects: projectReducer,
     boards: boardReducer,
     icons: iconReducer,
-    project_id: projectIDReducer,
+    projectInfo: projectIDReducer,
     draggedItem: dragReducer,
     user_project: user_projectReducer,
     user_share: usersReducer

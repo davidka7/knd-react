@@ -3,10 +3,13 @@ import './board.css';
 import Dropdown from 'react-bootstrap/Dropdown'
 import IconFavoriteBox from './IconFavoriteBox';
 
-const BoardNavBar = ({projectId}) => {
+
+const BoardNavBar = ({projectInfo}) => {
+
 
     return (
         <span>
+            Project: {projectInfo.topic}
             <Dropdown className="icon-btn">
                 <Dropdown.Toggle variant="secondary" id="dropdown-button-drop-left">
                     Fav Icons
@@ -19,7 +22,6 @@ const BoardNavBar = ({projectId}) => {
         </span>
     )
 }
-
 
 
 export default BoardNavBar

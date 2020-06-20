@@ -3,10 +3,11 @@ import BoardNavBar from './BoardNavBar';
 import BoardList from './BoardList';
 import {connect} from 'react-redux';
 import { useParams } from 'react-router-dom';
-import {getBoards} from '../actions/boardAction'
+import {getBoards} from '../actions/boardAction';
+import {ProjectId_save} from '../actions/projectIdAction'
 import './board.css'
 
-const BoardPage = ({boards, getBoards}) => {
+const BoardPage = ({boards, getBoards, ProjectId_save, projectInfo}) => {
 
     const { projectId } = useParams();
 
@@ -14,10 +15,14 @@ const BoardPage = ({boards, getBoards}) => {
         getBoards(projectId)
     }, []);
 
+    useEffect(() =>{
+        ProjectId_save(projectId)
+    }, []);
+
     return (
         <div className="board-page">
-            <BoardNavBar projectId={projectId}/>
-            <BoardList boards={boards} projectId={projectId}/>
+            <BoardNavBar projectInfo={projectInfo}/>
+            <BoardList boards={boards} projectInfo={projectInfo}/>
         </div>
     )
 }
@@ -25,12 +30,16 @@ const BoardPage = ({boards, getBoards}) => {
 
 
 const mapStateToProps = (store) => {
-    return {boards: store.boards}
+    return {
+        boards: store.boards,
+        projectInfo: store.projectInfo
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getBoards: (projectId) => getBoards(projectId).then(dispatch)
+        getBoards: (projectId) => getBoards(projectId).then(dispatch),
+        ProjectId_save: (projectId) => ProjectId_save(projectId, dispatch)
     }
 }
 

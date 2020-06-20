@@ -8,11 +8,11 @@
     background-size: cover;
     min-height: 830px;
     max-width: 1700px;
-    overflow-x: auto;
 }
 .board-page .card-deck {
   padding: 30px;
   flex-flow: row;
+  overflow-x: auto;
 }
 
 .board-col-css {
