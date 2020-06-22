@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { signup } from '../actions/userAction';
+import { connect } from 'react-redux';
 
-const SignUp = () => {
+const SignUp = ({signup, signupError}) => {
 
     const [show, setShow] = useState(false);
 
@@ -24,7 +26,7 @@ const SignUp = () => {
                             <Form.Label>Username</Form.Label>
                             <Form.Control type="username" placeholder="Enter username" />
                             <Form.Text className="text-muted">
-                            Username shouls be unique
+                            Username should be unique
                             </Form.Text>
                         </Form.Group>
 
@@ -49,6 +51,9 @@ const SignUp = () => {
                         <Form.Group controlId="formLoginPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" />
+                            <Form.Text className="text-muted">
+                                assword should be more than 6 characters
+                            </Form.Text>
                         </Form.Group>
 
                         <Form.Group controlId="formLoginConfirmPassword">
@@ -64,4 +69,15 @@ const SignUp = () => {
         </div>
     )
 }
-export default SignUp
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signup: (email, username, full_name, favorite_color, password) => signup(email, username, full_name, favorite_color, password).then(dispatch)
+    }
+}
+
+const mapStateToProps = (store) => {
+    return {signupError: store.userContext.signupError}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

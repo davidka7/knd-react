@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { login } from '../actions/userAction';
 
-const SignIn = ({ signin }) => {
+const SignIn = ({ signin, loginError }) => {
     
     const [show, setShow] = useState(false);
     const [username, setUsername] = useState('');
@@ -42,10 +42,8 @@ const SignIn = ({ signin }) => {
                                 placeholder="Enter username" 
                                 onChange={handleUsernameChange}
                                 value={username}
+                                className={`${loginError ? ' is-invalid' : ''}`}
                                 />
-                            <Form.Text className="text-muted">
-                            Username shouls be unique
-                            </Form.Text>
                         </Form.Group>
 
                         <Form.Group controlId="formLogincPassword">
@@ -55,10 +53,16 @@ const SignIn = ({ signin }) => {
                                 placeholder="Password"
                                 onChange={handlePasswordChange}
                                 value={password}
+                                className={`${loginError ? ' is-invalid' : ''}`}
                                 />
                         </Form.Group>
+                        {loginError ? 
+                        <p class="text-danger">
+                            Sorry, that username and password doesnt match?
+                        </p>
+                        : null}
                         <br/>
-                        <Button className="btn-info signin" type="submit" onClick={handleClose}>Log in</Button>
+                        <Button className="btn-info signin" type="submit">Log in</Button>
                     </Form>
                 </Modal.Body>
             </Modal>
@@ -73,7 +77,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (store) => {
-    return {loginError: store.userContext.error}
+    return {loginError: store.userContext.loginError}
 }
     
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
