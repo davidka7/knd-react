@@ -91,7 +91,9 @@ const Other = ({projects, user_project, getuser, user}) => {
                     <Button type="submit" variant="primary" >Search </Button>
                 </Form>
                 <Form onSubmit={handleSubmit1}>
-                    <Form.Group controlId="exampleForm.ControlSelect1">
+                { (user.id)? 
+
+                   (<><Form.Group controlId="exampleForm.ControlSelect1">
                         <Form.Label>Project</Form.Label>
                         <Form.Control as="select" multiple
                             type="project1" 
@@ -105,6 +107,7 @@ const Other = ({projects, user_project, getuser, user}) => {
 
                              </Form.Control>
                     </Form.Group>
+                     
                     <Form.Group controlId="exampleForm.ControlSelect2">
                         <Form.Label>Project</Form.Label>
                         <Form.Control as="select" multiple
@@ -119,7 +122,8 @@ const Other = ({projects, user_project, getuser, user}) => {
 
 
                              </Form.Control>
-                    </Form.Group>
+                    </Form.Group></>) :("Awaiting User")
+}
                     { (user.id)? 
                      (<Button type="submit" variant="primary" onClick={handleClose}>Share </Button>): (<div >"haha"</div>) }
                      

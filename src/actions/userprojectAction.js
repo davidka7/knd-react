@@ -75,3 +75,30 @@ export const getuser = (name) => {
         });
     
 }
+
+export const deleteUserProject = (id, dispatch) => {
+    console.log(id)
+    fetch(`${BACKEND_DOMAIN}/user_projects/${id.id}`, {
+        method: "DELETE",
+        headers: headers(),
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            dispatch({
+                type: "DELETE_USER_PROJECT_ERROR",
+                error: res.error
+            });
+        }
+        else {
+            dispatch({
+                type: "DELETE_USER_PROJECT",
+                id: id.project_id
+            })
+        }
+    }).catch(err => {
+        dispatch( {
+            type: "DELETE_USER_PROJECT_ERROR",
+            error: err
+        })
+    });
+}

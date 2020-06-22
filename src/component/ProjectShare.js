@@ -4,12 +4,12 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { Link } from "react-router-dom";
 import { getBoards } from '../actions/boardAction';
 import { ProjectId_save } from '../actions/projectIdAction';
-import DeleteProject from './ProjectDelete';
-import EditProject from './ProjectEdit';
+import DeleteUserProject from './ProjectUserDelete';
+
 import Card from 'react-bootstrap/Card'
 import './Project.css'
 
-const ProjectShare = ({project, projectId, ProjectId_save}) => {
+const ProjectShare = ({project, projectId, ProjectId_save, user_projects}) => {
 
     const handleId = (project_id) => {
         projectId(project_id);
@@ -17,7 +17,7 @@ const ProjectShare = ({project, projectId, ProjectId_save}) => {
     }
 
     let is_admin = false
-
+console.log(project)
     return (
         <Card>
             <Dropdown>
@@ -27,11 +27,13 @@ const ProjectShare = ({project, projectId, ProjectId_save}) => {
                 <Dropdown.Menu>
                     <Dropdown.Header>Options</Dropdown.Header>
                     <hr></hr>
-                    {(is_admin) ? 
-                    (<> <Dropdown.Item><EditProject project={project}/></Dropdown.Item>
-                    <Dropdown.Item><DeleteProject project={project}/></Dropdown.Item> </>)
+
+                    {(user_projects[0].admin_permission === true) ? 
+                    (<> 
+                    <Dropdown.Item>Admin</Dropdown.Item>
+                    <Dropdown.Item><DeleteUserProject project={user_projects}/></Dropdown.Item> </>)
                     :
-                    <Dropdown.Item>*For admins only</Dropdown.Item>
+                    <Dropdown.Item><DeleteUserProject project={user_projects}/></Dropdown.Item>
                     }
                 </Dropdown.Menu>
             </Dropdown>
