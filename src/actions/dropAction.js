@@ -43,6 +43,7 @@ export const onIconDrop = (userInfo, selectedIcon) => {
         body: JSON.stringify(update_icon)
     }).then(res => res.json())
     .then(res => {
+        console.log("DROP ICON ACTION", res)
         return {
             type: "DROP_ICON",
             payload: res
