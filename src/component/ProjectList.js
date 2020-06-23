@@ -51,9 +51,7 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
                         project.id === p.project_id
                     ))} />
                         </Col>))
-
                     }
-
                 <Col xs={6} md={2}><Other projects={projects.projects} /></Col>
                 
             </Row>  

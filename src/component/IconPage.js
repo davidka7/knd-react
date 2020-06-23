@@ -24,7 +24,7 @@ const IconPage = ({ getMyIcons, icons}) => {
                 <Card className="icon-box">
                 <Card.Title>Free box of icons</Card.Title>
                   <Row>
-                      {icons.map(icon => <Icon icon={icon}/>)}
+                      {icons.map(icon => <Icon key={icon} icon={icon}/>)}
                   </Row>
                 </Card>
             </Col>
