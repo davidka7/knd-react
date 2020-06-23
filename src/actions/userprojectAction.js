@@ -102,3 +102,9 @@ export const deleteUserProject = (id, dispatch) => {
         })
     });
 }
+
+export const clearUserSearch = () => {
+    return {
+        type: "CLEAR_USE_FROM_SEARCH"
+    }
+}
