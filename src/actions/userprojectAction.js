@@ -103,6 +103,10 @@ export const deleteUserProject = (id, dispatch) => {
 
 export const clearUserSearch = () => {
     return {
+<<<<<<< HEAD
         type: "CLEAR_USER_FROM_SEARCH"
+=======
+        type: "CLEAR_USE_FROM_SEARCH"
+>>>>>>> master
     }
 }
