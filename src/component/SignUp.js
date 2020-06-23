@@ -52,7 +52,7 @@ const SignUp = ({signup, signupError}) => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password" />
                             <Form.Text className="text-muted">
-                                assword should be more than 6 characters
+                                Password should be more than 6 characters
                             </Form.Text>
                         </Form.Group>
 
