@@ -6,9 +6,11 @@ import Form from 'react-bootstrap/Form';
 import { connect } from 'react-redux';
 import { getuser } from '../actions/userprojectAction';
 import { user_project } from '../actions/userprojectAction';
+import { clearUserSearch } from '../actions/userprojectAction';
 
-const Other = ({ projects, user_project, getuser, user }) => {
-    console.log(user.id)
+
+const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSearch }) => {
+
     // useEffect(() => {
     //     console.log(person1)
     //     getuser(person1);
@@ -20,9 +22,9 @@ const Other = ({ projects, user_project, getuser, user }) => {
     // const [user_id, setId] = useState("")
     const [perso, setPerso] = useState("")
     const [show, setShow] = useState(false);
-    const [admin, setAdmin] = useState(false)
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const [isAdmin, setIsAdmin] = useState(false)
+    const handleClose = () => {setShow(false); clearUserSearch();}
+    const handleShow = () => {setShow(true); setPerso('')}
     // const [person1, setPerso] = useState('');
     const [project1, setProjec] = useState('');
     // const [person, setPerson] = useState('');
@@ -38,7 +40,7 @@ const Other = ({ projects, user_project, getuser, user }) => {
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        getuser(perso);
+        if ( currentUser.username !== perso ){ getuser(perso) }
         setProjec('');
     }
 
@@ -47,7 +49,7 @@ const Other = ({ projects, user_project, getuser, user }) => {
         e.stopPropagation();
         // setId(user.id)
         // console.log(user_id)
-        user_project(user.id, project1, admin);
+        user_project(user.id, project1, isAdmin);
         // setId('')
         setProjec('');
     }
@@ -60,9 +62,7 @@ const Other = ({ projects, user_project, getuser, user }) => {
     // const handleProject = e => {  setProject(projects.filter(project => project.topic == e.target.value))  };
 
 
-    // setProject(e.target.value)
-
-    const handleAdmin = e => { setAdmin(e.target.value); console.log("KIM LOOK HERE", e.target.value) };
+    const handleAdmin = () => setIsAdmin(!isAdmin);
     const handlePerso = e => { setPerso(e.target.value) };
     const handleProjec = e => { setProjec(projects.filter(project => project.topic === e.target.value)) };
 
@@ -70,7 +70,7 @@ const Other = ({ projects, user_project, getuser, user }) => {
 
     return (
         <>
-            <Button variant="outline-primary" className="btn-block" onClick={handleShow}> Share </Button>
+            <Button variant="outline-primary" onClick={handleShow} block> Share </Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Admin To Project</Modal.Title>
@@ -84,15 +84,14 @@ const Other = ({ projects, user_project, getuser, user }) => {
                                 placeholder="name"
                                 onChange={handlePerso}
                                 value={perso}
-                                className={ `${user.id ? 'is-valid' : ''}`}
+                                className={ `${user ? 'is-valid' : ''}`}
                             />
                         </Form.Group>
-                        {user.id ? <p className="text-success">Found username {user.username}</p> : null}
+                        {user ? <p className="text-success">Found username {user.username}</p> : null}
                         <Button type="submit" variant="primary" >Search </Button>
                     </Form>
                     <Form onSubmit={handleSubmit1}>
-                        {(user.id) ?
-
+                        {user ?
                             <>
                                 <Form.Group controlId="exampleForm.ControlSelect1">
                                     <Form.Label>Project</Form.Label>
@@ -107,55 +106,46 @@ const Other = ({ projects, user_project, getuser, user }) => {
                                     </Form.Control>
                                 </Form.Group>
 
-
                                 <Form.Group controlId="exampleForm.ControlSelect2">
-                                    <Form.Label>Admin can edit and delete the project.</Form.Label>
-                                    {/* <Form.Control as="select" multiple
-                                        type="admin"
-                                        placeholder=""
-                                        onChange={handleAdmin}
-                                        value={admin}
-                                    > */}
+                                    <Form.Label>Admin can edit and delete this project.</Form.Label>
                                     <Form.Check 
                                         type="switch"
-                                        id="admin-switch"
+                                        id="isAdmin-switch"
                                         label={`Make ${user.username} admin`}
                                         onChange={handleAdmin}
-                                        value={true}
+                                        value={isAdmin}
                                     />
-
-                                        {/* <option>true</option>
-                                        <option>false</option> */}
-
-                                    {/* </Form.Control> */}
                                 </Form.Group>
-
                             </>
                             : 
                             ("Awaiting User")
                         }
-                        { user.id ?
-                            <Button type="submit" variant="primary" onClick={handleClose}>Share </Button>
+                        { user ?
+                            <><Button variant="secondary" onClick={handleClose}> Cancel </Button>
+                            <Button type="submit" variant="primary" onClick={handleClose}>Share </Button></>
                             : 
                             <div >"haha"</div>
                         }
-
-
                     </Form>
                 </Modal.Body>
             </Modal>
+
         </>
     )
 }
 const mapStateToProps = (store) => {
-    return { user: store.user_share }
+    return { 
+        user: store.user_share,
+        currentUser: store.userContext.user
+     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getuser: (perso) => getuser(perso).then(dispatch),
         // c1: (person, project) => c1(person, project).then(dispatch),
-        user_project: (user_id, project1, admin) => user_project(user_id, project1, admin).then(dispatch),
+        user_project: (user_id, project1, isAdmin) => user_project(user_id, project1, isAdmin).then(dispatch),
+        clearUserSearch: () => dispatch(clearUserSearch())
 
     }
 }

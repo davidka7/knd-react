@@ -8,9 +8,6 @@ const headers = () => {
 }
 
 // export const getUser = (id) => {
-  
-    
-
 //     return fetch(`${BACKEND_DOMAIN}/users/${id}`, {
 //         method: "GET",
 //         headers: headers(),
@@ -28,9 +25,9 @@ const headers = () => {
 //         }
 //     });
 // }
+
 const loginSignup = (apiUrl, username, password) => {
-    console.log(apiUrl, username, password)
-    
+
     const user = { user: { username, password} }
     return fetch(apiUrl, {
         method: "POST",
