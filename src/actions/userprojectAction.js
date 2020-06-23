@@ -11,6 +11,7 @@ const headers = () => {
 
 
 export const user_project = (user_id, project_id, admin ) => {
+    console.log("THIS HAPPENED JUST BECAUSE")
     let p_id = project_id[0].id
  let userprojects={ user_project: {project_id: p_id, user_id: user_id, admin_permission: admin}}
     return fetch(`${BACKEND_DOMAIN}/user_projects`, {
@@ -68,7 +69,6 @@ export const getuser = (name) => {
                 error: res.message
             };
         }
-    
         return {
             type: "GET_USER",
             payload: res }
