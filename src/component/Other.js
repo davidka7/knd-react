@@ -40,7 +40,6 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        console.log("SO THIS IS CURRENT USER AND PERSO", currentUser, perso)
         if ( currentUser.username !== perso ){ getuser(perso) }
         setProjec('');
     }
