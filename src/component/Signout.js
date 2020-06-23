@@ -5,9 +5,7 @@ import { logout } from '../actions/userAction';
 
 const Signout = ({signout}) => {
     
-    return (
-        <Link to="/" onClick={signout}> Signout </Link>
-    )
+    return ( <Link to="/" onClick={signout}> Signout </Link> )
 }
 
 const mapDispatchToProps = (dispatch) => {

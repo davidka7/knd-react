@@ -54,23 +54,21 @@ export const getuserprojetcs = (id) => {
 
 
 
-export const getuser = (name) => {
-    return fetch(`${BACKEND_DOMAIN}/users/${name}`, {
+export const getuser = (username) => {
+    return fetch(`${BACKEND_DOMAIN}/users/searchUserBy/${username}`, {
         method: "GET",
         headers: headers(),
     }).then(res => res.json())
     .then(res => {
         console.log(res, "ehehe")
-        // if (res !== null)
-        // {
-        if (res.message) {
+        if (res.error) {
             return {
-                type: "GET_USER_ERROR",
-                error: res.message
+                type: "SEARCH_USER_ERROR",
+                error: res.error
             };
         }
         return {
-            type: "GET_USER",
+            type: "SEARCH_USER",
             payload: res }
         });
     
@@ -105,6 +103,6 @@ export const deleteUserProject = (id, dispatch) => {
 
 export const clearUserSearch = () => {
     return {
-        type: "CLEAR_USE_FROM_SEARCH"
+        type: "CLEAR_USER_FROM_SEARCH"
     }
 }
