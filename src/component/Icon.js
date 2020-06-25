@@ -14,10 +14,10 @@ const Icon = ({icon, onIconDragStart}) => {
 
     return (
         <Col xs={12} md={4}>
-            <img className="icon-css"
+            <img id="iconcss"
                 src={require(`../images/${icon}`)} 
                 alt={icon} 
-                width="100px" 
+                // width="100px" 
                 onDragStart={handleIconDrag}
             />
         </Col>
