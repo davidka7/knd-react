@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import IconInCard from './IconInCard';
+import { iconOnCardDrop } from '../actions/dropAction';
 import './card.css'
 import { connect } from 'react-redux';
 import { deleteCard } from '../actions/cardAction';
 import { onCardDragStart } from '../actions/dragAction';
 import { cardOnCardDrop } from '../actions/dropAction';
 
-const Content = ({card, deleteCard, onCardDragStart, selectedCard}) => {
+
+
+const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop}) => {
   
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -22,8 +26,8 @@ const Content = ({card, deleteCard, onCardDragStart, selectedCard}) => {
       deleteCard(card);
     }
 
-    const handleOtherCardDrop = () => {
-      cardOnCardDrop(selectedCard, card)
+    const handleItemDrop = () => {
+      draggedItem.icon_img ? iconOnCardDrop(card, draggedItem.icon_img) : cardOnCardDrop(draggedItem, card)
     }
     
     return (
@@ -34,9 +38,13 @@ const Content = ({card, deleteCard, onCardDragStart, selectedCard}) => {
               onClick={handleShow}
               draggable
               onDragStart={handleCardDrag}
-              onDrop={handleOtherCardDrop} 
+              onDrop={handleItemDrop} 
               onDragOver={e => e.preventDefault()}
-              >{card.card_title} 
+              >
+                <div>
+                  <IconInCard icon={card.image}/>
+                </div>
+                {card.card_title} 
             </Button>
 
             <Modal show={show} onHide={handleClose}>
@@ -54,9 +62,11 @@ const Content = ({card, deleteCard, onCardDragStart, selectedCard}) => {
         </div>
     )
 }
+
+
 const mapStateToProps = (store) => {
   return {
-    selectedCard: store.draggedItem
+    draggedItem: store.draggedItem
   }
 }
 
@@ -64,7 +74,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     deleteCard: card => deleteCard(card, dispatch),
     onCardDragStart: (card) => onCardDragStart(card, dispatch),
-    cardOnCardDrop: (dragCard, destinationCard) => cardOnCardDrop(dragCard, destinationCard, dispatch)
+    cardOnCardDrop: (dragCard, destinationCard) => cardOnCardDrop(dragCard, destinationCard, dispatch),
+    iconOnCardDrop: (selectedCard, droppedIcon) => iconOnCardDrop(selectedCard, droppedIcon).then(dispatch),
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Content)

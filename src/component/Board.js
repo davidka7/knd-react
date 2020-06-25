@@ -10,10 +10,17 @@ import BoardDelete from './BoardDelete';
 import BoardEdit from './BoardEdit'
 
 
-const Board = ({ boardInfo, onCardDrop, selectedCard }) => {
+const Board = ({ boardInfo, onCardDrop, draggedItem }) => {
 
   const handleCardDrop = () => {
-    onCardDrop(boardInfo, selectedCard)
+  console.log(boardInfo, draggedItem)
+  console.log("hi")
+  // if draggedItem.icon_img
+  //   null
+  // else
+  //   onCardDrop(boardInfo, draggedItem)
+  // end
+    draggedItem.icon_img ?  console.log("hi") : onCardDrop(boardInfo, draggedItem) 
   }
   
   return (
@@ -47,13 +54,13 @@ const Board = ({ boardInfo, onCardDrop, selectedCard }) => {
 
 const mapStateToProps = (store) => {
   return {
-    selectedCard: store.draggedItem
+    draggedItem: store.draggedItem
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onCardDrop: (boardInfo, selectedCard) => (onCardDrop(boardInfo, selectedCard)).then(dispatch)
+    onCardDrop: (boardInfo, draggedItem) => (onCardDrop(boardInfo, draggedItem)).then(dispatch)
   }
 }
 
