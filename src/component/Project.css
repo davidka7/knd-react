@@ -1,11 +1,20 @@
 .projectPage {
     background-image: url('../background/beach-bg.jpg');
     background-size: cover;
-    min-height: 830px;
+    /* min-height:  */
+    position: fixed; 
+    /* top: 0; 
+    left: 0;  */
+      
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+ 
 }
 #projectFromMe {
     background-color: lightblue;
     background-size: cover;
+    
  
 }
 
