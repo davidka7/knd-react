@@ -64,13 +64,13 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
 
     const handleAdmin = () => setIsAdmin(!isAdmin);
     const handlePerso = e => { setPerso(e.target.value) };
-    const handleProjec = e => { setProjec(projects.filter(project => project.topic === e.target.value)) };
+    
+console.log(user)
 
-
-
+console.log(projects)
     return (
         <>
-            <Button variant="outline-primary" onClick={handleShow} block> Share </Button>
+            <Button variant="outline-primary" onClick={handleShow} block> Add Member </Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Admin To Project</Modal.Title>
@@ -93,18 +93,6 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                     <Form onSubmit={handleSubmit1}>
                         {user ?
                             <>
-                                <Form.Group controlId="exampleForm.ControlSelect1">
-                                    <Form.Label>Project</Form.Label>
-                                    <Form.Control 
-                                        as="select" 
-                                        multiple
-                                        type="project1"
-                                        placeholder=""
-                                        onChange={handleProjec}
-                                        value={project1} >
-                                        {projects.map(project => <option> {project.topic} </option>)}
-                                    </Form.Control>
-                                </Form.Group>
 
                                 <Form.Group controlId="exampleForm.ControlSelect2">
                                     <Form.Label>Admin can edit and delete this project.</Form.Label>

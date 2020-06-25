@@ -8,7 +8,7 @@ import ProjectCreate from './ProjectCreate'
 import { ProjectId_save } from '../actions/projectIdAction';
 import { getuserprojetcs } from '../actions/userprojectAction';
 import './Project.css'
-import Other from './Other.js'
+
 import ProjectFromMe from './ProjectsFromMe'
 import ProjectShare from './ProjectShare'
 
@@ -52,7 +52,7 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
                     ))} />
                         </Col>))
                     }
-                <Col xs={6} md={2}><Other projects={projects.projects} /></Col>
+                {/* <Col xs={6} md={2}><Other projects={projects.projects} /></Col> */}
                 
             </Row>  
         </div>
