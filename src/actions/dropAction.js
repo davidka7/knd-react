@@ -68,6 +68,23 @@ export const removeIcon = (userInfo, selectedIcon) => {
             payload: res
         }
     });
+}
 
-    
+export const iconOnCardDrop = (selectedCard, icon) => {
+
+    const card = { image: icon }
+
+    return fetch(`${BACKEND_DOMAIN}/cards/${selectedCard.id}`, {
+        method: "PUT",
+        headers: headers(),
+        body: JSON.stringify(card)
+    }).then(res => res.json())
+    .then(res => {
+        console.log("LOOK HERE FOR ICON ON CARD DROP", res)
+        return {
+            type: "DROP_ICON_ON_CARD",
+            payload: { droppedCard: res.card, formerBoardId: selectedCard.board_id}
+        }
+    });
+
 }

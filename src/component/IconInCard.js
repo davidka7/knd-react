@@ -2,26 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { onIconDragStart } from '../actions/dragAction';
 import "./icon.css";
-import Col from 'react-bootstrap/Col';
 
-const Icon = ({icon, onIconDragStart}) => {
+const IconInCard = ({icon, onIconDragStart}) => {
 
     const handleIconDrag = e => {
         e.persist();
         onIconDragStart(icon);
     }
-    console.log(icon)
 
+    
     return (
-        <Col xs={12} md={4}>
-            <img id="iconcss"
+        (icon) ?
+            (<img className="icon-css"
                 src={require(`../images/${icon}`)} 
                 alt={icon} 
-                // width="100px" 
+                width="50px" 
                 onDragStart={handleIconDrag}
-            />
-        </Col>
+            /> )
+        :
+            null
     )
+
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -29,6 +30,7 @@ const mapDispatchToProps = (dispatch) => {
         onIconDragStart: (icon => onIconDragStart(icon, dispatch)),
     }
 }
+
   
 
-export default connect(null, mapDispatchToProps)(Icon)
+export default connect(null, mapDispatchToProps)(IconInCard)
