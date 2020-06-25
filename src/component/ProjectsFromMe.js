@@ -8,6 +8,7 @@ import ProjectDelete from './ProjectDelete';
 import ProjectEdit from './ProjectEdit';
 import Card from 'react-bootstrap/Card'
 import './Project.css'
+import Other from './Other.js'
 
 const ProjectFromMe = ({project, projectId, ProjectId_save}) => {
 
@@ -27,6 +28,7 @@ const ProjectFromMe = ({project, projectId, ProjectId_save}) => {
                     <hr></hr>
                     <Dropdown.Item><ProjectEdit project={project}/></Dropdown.Item>
                     <Dropdown.Item><ProjectDelete project={project}/></Dropdown.Item>
+                    <Dropdown.Item> <Other projects={project} /></Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
             <Link 
