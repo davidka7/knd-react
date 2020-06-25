@@ -25,6 +25,11 @@ export const boardReducer = (state = PROJECT_INITIAL_STATE, action) => {
             state = state.map(b => b.id === action.payload.formerBoardId
                 ? { ...b, cards: b.cards.filter(c => c.id !== action.payload.droppedCard.id) } : b);
             return state
+        case 'DROP_ICON_ON_CARD':
+            state = state.map(b => b.id === action.payload.droppedCard.board_id
+                ? {...b, cards: [...b.cards] } : b);
+
+
         default:
             return state;
     }   
