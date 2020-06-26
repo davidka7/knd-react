@@ -13,12 +13,13 @@ const IconInCard = ({icon, onIconDragStart}) => {
     
     return (
         (icon) ?
-            (<img className="icon-css"
+            <div className="text-center">
+            <img className="icon-css"
                 src={require(`../images/${icon}`)} 
                 alt={icon} 
                 width="50px" 
                 onDragStart={handleIconDrag}
-            /> )
+            /></div>
         :
             null
     )

@@ -41,9 +41,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
               onDrop={handleItemDrop} 
               onDragOver={e => e.preventDefault()}
               >
-                <div>
                   <IconInCard icon={card.image}/>
-                </div>
                 {card.card_title} 
             </Button>
 
