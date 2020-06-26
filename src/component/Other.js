@@ -48,10 +48,13 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
         e.preventDefault();
         e.stopPropagation();
         // setId(user.id)
-        // console.log(user_id)
+        // console.log(user_id);
+        console.log("GET HERE")
+        setShow(false); 
+        clearUserSearch();
         user_project(user.id, project1, isAdmin);
         // setId('')
-        setProjec('');
+        // setProjec('');
     }
     // const handleId = () => {
     //     user_project()
@@ -110,7 +113,7 @@ console.log(projects)
                         }
                         { user ?
                             <><Button variant="secondary" onClick={handleClose}> Cancel </Button>
-                            <Button type="submit" variant="primary" onClick={handleClose}>Share </Button></>
+                            <Button type="submit" variant="primary" >Share </Button></>
                             : 
                             <div >"haha"</div>
                         }

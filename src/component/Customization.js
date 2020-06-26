@@ -1,16 +1,35 @@
-import React from 'react';
+
 import ListGroup from 'react-bootstrap/ListGroup'
 import Card from 'react-bootstrap/Card'
 import Sticky from 'react-sticky-el';
 import "./customization.css"
 import { Link } from 'react-scroll'
-
+import './Project.css'
+import React, {useEffect, useState} from "react";
 const Customization = () => {
-
+  console.log(document.getElementById('projectFromMe'))
+  document.getElementById('projectFromMe').style.backgroundColor ='green';
+  // console.log(document.getElementById('projectFromMe').style.backgroundColor)
+// console.log(document.getElementById("iconcss"))
   const Settings1 = "setting1"
   const Settings2 = "setting2"
   const Settings3 = "setting3"
-  const Settings4 = "setting4"
+  const Settings4 = "setting4" 
+  const handleClick1 = e => {
+    setSize(e.target.value)
+    if (e.target.value == 0){
+      // console.log(document.getElementById('projectFromMe'))
+  // {document.icon-css.style.width = `50px`}
+  console.log(document.getElementById('projectFromMe'))
+   document.getElementById('projectFromMe').style.backgroundColor = 'red';
+  // console.log(document.getElementById('projectFromMe').style)
+    }
+ else if (e.target.value == 1) {
+  document.getElementById('projectFromMe').style.backgroundColor ='green';
+    //  {document.icon-css.style.width = `100px`}
+ }
+ }
+ const [size, setSize] =useState(1)
   
   return (
     <div>
@@ -78,6 +97,7 @@ const Customization = () => {
           </Card>
           <br />
           <br />
+          <input id="ruin" type="range" min={0} max={1} value={size} onChange={handleClick1}/>
           <br />
           <br />
           <Card border="black">

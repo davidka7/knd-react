@@ -5,6 +5,7 @@
     background-size: cover;
     min-height: 830px;
     color: black
+    
 }
 
 .icon-box{
@@ -15,8 +16,9 @@
     color: black
 }
 
-.icon-css {
+#iconcss {
     padding: 15px;
+    width:100px
 }
 
 div.col-md-4.col-12{
