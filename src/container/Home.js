@@ -5,7 +5,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import SignIn from '../component/SignIn';
 import SignUp from '../component/SignUp';
+import Demo from '../component/Demo';
 import { connect } from 'react-redux';
+
 
 
 const Home = ({userInfo}) => {
@@ -19,19 +21,29 @@ const Home = ({userInfo}) => {
                         <br/>
                         { userInfo ? <p className="text-info">Hi, {userInfo.username} !</p>
                         :
-                        <Row> 
-                            <Col xs={12} md={5}>
-                                <p className="lead">Have an account?</p>
-                                <SignIn/>
-                            </Col>
-                            <Col xs={12} md={2}>
-                                <p className="lead">Or</p>
-                            </Col>
-                            <Col xs={12} md={5}>
-                                <p className="lead">Don't have an account?</p>
-                                <SignUp/> 
-                            </Col>
-                        </Row>
+                        <> 
+                            <Row>
+                                <Col xs={12} md={5}>
+                                    <p className="lead">Have an account?</p>
+                                    <SignIn/>
+                                </Col>
+                                <Col xs={12} md={2}>
+                                    <p className="lead">Or</p>
+                                </Col>
+                                <Col xs={12} md={5}>
+                                    <p className="lead">Login with demo account</p>
+                                    <Demo/>
+                                </Col>
+                            </Row>
+                            <br/>
+                            <Row>
+                                <Col xs={12} md={5}>
+                                    <p className="lead">Don't have an account?</p>
+                                    <SignUp/>
+                                </Col>
+                                
+                            </Row>
+                        </>
                         }
                         <br/>
                         <p className="lead">Plany Boat lets you work more collaboratively and get more done. <br/>
