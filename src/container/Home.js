@@ -18,8 +18,9 @@ const Home = ({userInfo}) => {
                 <Row>
                     <Col xs={12} md={9}>
                         <h1 className="display-3">Welcome to Plany Boat!</h1>
+                        <p className="lead">Plany Boat lets you work more collaboratively and get more done. <br/>
+                        Boards, lists, and cards enable you to organize and prioritize your projects in a fun and flexible way.</p>
                         <br/>
-                        
                     </Col>
                     <Col xs={12} md={3} className ="a" >
                         <img src={require(`../images/giphy.gif`)} alt={"giffy"} height="200px" />
@@ -28,9 +29,9 @@ const Home = ({userInfo}) => {
                 <Row>
                     { userInfo ? <p className="text-info">Hi, {userInfo.username} !</p>
                     :
-                    <> 
+                    <Col xs={12} md={12}> 
                         <Row>
-                            <Col xs={12} md={5}>
+                            <Col xs={12} md={3}>
                                 <p className="lead">Have an account?</p>
                                 <SignIn/>
                             </Col>
@@ -42,22 +43,20 @@ const Home = ({userInfo}) => {
                                 <Demo/>
                             </Col>
                         </Row>
-                        <br/><br/>
+                        <br/>
                         <Row>
-                            <Col xs={12} md={12}>
+                            <Col xs={12} md={5}>
                                 <p className="lead">Don't have an account?</p>
                                 <SignUp/>
                             </Col>
                         </Row>
-                    </>
+                    </Col>
                     }
-                    <br/><br/>
-                    <p className="lead">Plany Boat lets you work more collaboratively and get more done. <br/>
-                    Boards, lists, and cards enable you to organize and prioritize your projects in a fun and flexible way.</p>
-                    <hr className="my-4"></hr>
-                    <p className="size22">This is a complex and interactive app, created by two programing sailors: Kim and David.</p>
-                    <p className="size22"></p>
                 </Row>
+                
+                <hr className="my-4"></hr>
+                <p className="size22">This is a complex and interactive app, created by two programing sailors: Kim and David.</p>
+                <p className="size22"></p>
             </Container>
 
         </div>
