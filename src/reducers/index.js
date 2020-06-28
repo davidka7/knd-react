@@ -16,5 +16,9 @@ export default combineReducers({
     projectInfo: projectIDReducer,
     draggedItem: dragReducer,
     user_project: user_projectReducer,
-    user_share: userSearchReducer
+    user_share: userSearchReducer,
+    
+    // boards: combineReducers({
+    //     cards: cardsReducer,
+    // })
 });
