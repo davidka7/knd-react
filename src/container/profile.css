@@ -2,7 +2,14 @@
     padding: 50px;
     background-image: url('../background/bg-forest.jpg');
     background-size: cover;
-    min-height: 830px;
+    position: fixed; 
+    /* top: 0; 
+    left: 0;  */
+      
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+ 
     color: black;
     font-size: 20px
 }

@@ -1,9 +1,27 @@
+body, html {
+background-color: blue;
+    /* position: fixed;  */
+    /* top: 0; 
+    left: 0;  */
+      /* display: flex; */
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    /* min-height: ".text_right"; */
+ /* min-height: 100px; */
+
+}
+body, .text-right {
+min-height:100%;
+
+
+}
+
 .text-right {
 float: right;
 width: 70%;
 background-color: rgb(233, 203, 165);
 /* overflow:auto; */
-
+/* height:100%; */
 color: blue;
 
 }

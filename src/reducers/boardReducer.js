@@ -30,7 +30,6 @@ export const boardReducer = (state = PROJECT_INITIAL_STATE, action) => {
                 ? {...b, cards: b.cards.map( c => c.id === action.payload.droppedCard.id 
                     ? {...c, image: action.payload.droppedCard.image} : c ) } : b);
 
-
         default:
             return state;
     }   

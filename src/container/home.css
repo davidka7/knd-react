@@ -2,7 +2,14 @@
     padding: 60px;
     background-image: url('../background/hp-water1.jpg');
     background-size: cover;
-    min-height: 830px;
+    position: fixed; 
+    /* top: 0; 
+    left: 0;  */
+      
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+ 
 }
 
 .home p {

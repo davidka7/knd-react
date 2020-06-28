@@ -7,8 +7,8 @@ import { Link } from 'react-scroll'
 import './Project.css'
 import React, {useEffect, useState} from "react";
 const Customization = () => {
-  console.log(document.getElementById('projectFromMe'))
-  document.getElementById('projectFromMe').style.backgroundColor ='green';
+  // console.log(document.getElementById('projectFromMe'))
+  // document.getElementById('projectFromMe').style.backgroundColor ='green';
   // console.log(document.getElementById('projectFromMe').style.backgroundColor)
 // console.log(document.getElementById("iconcss"))
   const Settings1 = "setting1"
@@ -20,12 +20,12 @@ const Customization = () => {
     if (e.target.value == 0){
       // console.log(document.getElementById('projectFromMe'))
   // {document.icon-css.style.width = `50px`}
-  console.log(document.getElementById('projectFromMe'))
-   document.getElementById('projectFromMe').style.backgroundColor = 'red';
+  // console.log(document.getElementById('projectFromMe'))
+  //  document.getElementById('projectFromMe').style.backgroundColor = 'red';
   // console.log(document.getElementById('projectFromMe').style)
     }
  else if (e.target.value == 1) {
-  document.getElementById('projectFromMe').style.backgroundColor ='green';
+  // document.getElementById('projectFromMe').style.backgroundColor ='green';
     //  {document.icon-css.style.width = `100px`}
  }
  }
@@ -91,6 +91,27 @@ const Customization = () => {
           <br />
           <br />
           <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          value  <br />
+          <br />
+          <br />
+          value  <br />
+          <br />
+          <br />
+          value  <br />
+          <br />
+          <br />
+          valuev
+          <br />
+          <br />
+          <br />
+          hi
+          hihi
           <br />
           <Card border="black">
             <Card.Header id="setting2"> Icon </Card.Header>
