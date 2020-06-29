@@ -27,7 +27,7 @@ const Home = ({userInfo}) => {
                     </Col>
                 </Row>
                 <Row>
-                    { userInfo ? <p className="text-info">Hi, {userInfo.username} !</p>
+                    { userInfo ? <Col xs={12} md={9}><p className="text-info">Hi, {userInfo.username} !</p></Col>
                     :
                     <Col xs={12} md={12}> 
                         <Row>
