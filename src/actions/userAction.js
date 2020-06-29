@@ -52,17 +52,13 @@ export const login = (username, password) => {
     return loginSignup(`${BACKEND_DOMAIN}/login`, username, password);
 }
 
-export const signup = (email, username, full_name, favorite_color, password) => {
+
+export const signup = (username, full_name, email, favorite_color, password) => {
 
     const user = {
-        user: {
-            username,
-            full_name,
-            favorite_color,
-            email,
-            password
-        }
+        user: { username, full_name, email, favorite_color, password }
     }
+
     return fetch(`${BACKEND_DOMAIN}/users`, {
         method: "POST",
         headers: headers(),
