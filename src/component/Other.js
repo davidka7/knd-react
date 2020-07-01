@@ -37,21 +37,12 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
     const handleSubmit1 = e => {
         e.preventDefault();
         e.stopPropagation();
-        // setId(user.id)
-        // console.log(user_id);
         setShow(false); 
         clearUserSearch();
         user_project(user.id, projects.id, isAdmin);
         // setId('')
         // setProjec('');
     }
-    // const handleId = () => {
-    //     user_project()
-    // }
-
-    // const [projecto, setProjecto] = useState('')
-    // const handlePerson = e => { setPerson(e.target.value) };
-    // const handleProject = e => {  setProject(projects.filter(project => project.topic == e.target.value))  };
 
     const handleAdmin = e => setIsAdmin(e.target.value);
     const handlePerso = e => { setPerso(e.target.value) };
