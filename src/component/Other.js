@@ -19,11 +19,11 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
     const [project1, setProjec] = useState('');
 
     const handleSubmit = e => {
+        // console.log("GET HERE")
         e.preventDefault();
         e.stopPropagation();
-        console.log("IT GET HERE");
-        if ( currentUser.username !== perso ){ 
-            getuser(perso) }
+        console.log("GET HERE")
+        if ( currentUser.username !== perso ){ getuser(perso) }
         setProjec('');
     }
 
@@ -40,13 +40,18 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
 
     return (
         <>
-            <p onClick={handleShow}>Add Member</p>
+         <p onClick={handleShow}>Add Member </p>
+            {/* <Button variant="outline-primary" onClick={handleShow} block> Add Member </Button> */}
+        
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Admin To Project</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    <div>
                     <Form onSubmit={handleSubmit}>
+
+                        <>
                         <Form.Group controlId="formPerson1">
                             <Form.Label>Look up username</Form.Label>
                             <Form.Control
@@ -57,8 +62,10 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                                 className={ `${user ? 'is-valid' : ''}`}
                             />
                         </Form.Group>
+                        <Button variant="primary" type="submit" onClick={handleSubmit}> Search </Button>
                         {user ? <p className="text-success">Found username {user.username}</p> : null}
-                        <Button variant="primary" type="submit" onClick={handleSubmit}>Search </Button>
+</>
+                       
                     </Form>
                     <Form onSubmit={handleSubmit1}>
                         {user ?
@@ -79,7 +86,14 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                             : 
                             "If you don't know your friend's username, ask them."
                         }
+                        { user ?
+                            <><Button variant="secondary" onClick={handleClose}> Cancel </Button>
+                            <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button></>
+                            : 
+                            null
+                        }
                     </Form>
+                    </div>
                 </Modal.Body>
             </Modal>
 
