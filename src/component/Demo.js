@@ -4,34 +4,34 @@ import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { login } from '../actions/userAction';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-const SignIn = ({ signin, loginError }) => {
+const Demo = ({ signin, loginError }) => {
     
     const [show, setShow] = useState(false);
     const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-
-    const handleUsernameChange = e => { setUsername(e.target.value) }
-    const handlePasswordChange = e => { setPassword(e.target.value) }
 
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        signin(username, password);
+        signin(username, '123');
         setUsername('');
-        setPassword('');
     }
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const handleKimDemo = () => { setUsername('kim')};
+    const handleDavidDemo = () => { setUsername('david')};
+
     return (
         <div>
-            <Button onClick={handleShow} className="btn-info signin">Login</Button>
-    
+            <Button onClick={handleShow} className="btn-warning signin">Demo</Button>
+            
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Login</Modal.Title>
+                    <Modal.Title>Login with demo account</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form onSubmit={handleSubmit}>
@@ -40,7 +40,6 @@ const SignIn = ({ signin, loginError }) => {
                             <Form.Control 
                                 type="username" 
                                 placeholder="Enter username" 
-                                onChange={handleUsernameChange}
                                 value={username}
                                 className={`${loginError ? ' is-invalid' : ''}`}
                                 />
@@ -51,18 +50,19 @@ const SignIn = ({ signin, loginError }) => {
                             <Form.Control 
                                 type="password" 
                                 placeholder="Password"
-                                onChange={handlePasswordChange}
-                                value={password}
+                                value='123'
                                 className={`${loginError ? ' is-invalid' : ''}`}
                                 />
                         </Form.Group>
-                        {loginError ? 
-                        <p class="text-danger">
-                            Sorry, that username and password doesnt match?
-                        </p>
-                        : null}
                         <br/>
-                        <Button className="btn-info signin" type="submit">Log in</Button>
+                        Login as:
+                        <br/>
+                        <Row>
+                            <Col xs={6} md={6}><Button className="btn-secondary" onClick={handleKimDemo} block>Kim</Button></Col>
+                            <Col xs={6} md={6}><Button className="btn-secondary" onClick={handleDavidDemo} block>David</Button></Col>
+                        </Row>
+                        <br/>
+                        <Button className="btn-info" type="submit" block>Login</Button>
                     </Form>
                 </Modal.Body>
             </Modal>
@@ -80,4 +80,4 @@ const mapStateToProps = (store) => {
     return {loginError: store.userContext.loginError}
 }
     
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(Demo);

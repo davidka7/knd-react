@@ -8,10 +8,29 @@ import { connect } from 'react-redux';
 const SignUp = ({signup, signupError}) => {
 
     const [show, setShow] = useState(false);
+    const [email, setEmail] = useState('');
+    const [fullName, setFullname] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [color, setColor] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleSignUp = () => setShow(false);
+
+    const handleUsernameChange = e => {setUsername(e.target.value)}
+    const handleFullNameChange = e => {setFullname(e.target.value)}
+    const handleEmailChange = e => {setEmail(e.target.value)}
+    const handlePasswordChange = e => {setPassword(e.target.value)}
+    const handleColorChange = e => {setColor(e.target.value)}
+    const handleConfirmPasswordChange = e => {setConfirmPassword(e.target.value)}
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        signup(username, fullName, email, color, password);
+        setShow(false);
+    }
 
     return (
         <div>
@@ -21,10 +40,15 @@ const SignUp = ({signup, signupError}) => {
                     <Modal.Title>SignUp</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="formLoginUsername">
                             <Form.Label>Username</Form.Label>
-                            <Form.Control type="username" placeholder="Enter username" />
+                            <Form.Control 
+                                type="username" 
+                                placeholder="Enter username" 
+                                onChange={handleUsernameChange}
+                                value={username}
+                                />
                             <Form.Text className="text-muted">
                             Username should be unique
                             </Form.Text>
@@ -32,25 +56,42 @@ const SignUp = ({signup, signupError}) => {
 
                         <Form.Group controlId="formLoginFullname">
                             <Form.Label>Full name</Form.Label>
-                            <Form.Control type="fullname" placeholder="Enter your full name." />
+                            <Form.Control 
+                            type="fullname" 
+                            placeholder="Enter your full name." 
+                            onChange={handleFullNameChange}
+                            value={fullName}
+                            />
                         </Form.Group>
 
                         <Form.Group controlId="formLoginEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                        </Form.Text>
+                        <Form.Control 
+                            type="email" 
+                            placeholder="Enter email" 
+                            onChange={handleEmailChange}
+                            value={email}
+                            />
                     </Form.Group>
 
                         <Form.Group controlId="formLoginColor">
                             <Form.Label>Favorite colors</Form.Label>
-                            <Form.Control type="favorite" placeholder="Enter your favorite color" />
+                            <Form.Control 
+                                type="favorite" 
+                                placeholder="Enter your favorite color" 
+                                onChange={handleColorChange}
+                                value={color}
+                                />
                         </Form.Group>
 
                         <Form.Group controlId="formLoginPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control 
+                                type="password" 
+                                placeholder="Password" 
+                                onChange={handlePasswordChange}
+                                value={password}
+                                />
                             <Form.Text className="text-muted">
                                 Password should be more than 6 characters
                             </Form.Text>
@@ -58,13 +99,17 @@ const SignUp = ({signup, signupError}) => {
 
                         <Form.Group controlId="formLoginConfirmPassword">
                             <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control type="password" placeholder="Confirm your password" />
+                            <Form.Control 
+                            type="password" 
+                            placeholder="Confirm your password" 
+                            onChange={handleConfirmPasswordChange}
+                            value={confirmPassword}
+                            />
+                            
                         </Form.Group>
+                        <Button type="submit" className="btn-success signup" >Submit</Button>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button className="btn-success signup" onClick={handleSignUp}>Submit</Button>
-                </Modal.Footer>
             </Modal>
         </div>
     )
@@ -72,7 +117,7 @@ const SignUp = ({signup, signupError}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        signup: (email, username, full_name, favorite_color, password) => signup(email, username, full_name, favorite_color, password).then(dispatch)
+        signup: (username, fullName, email, favorite_color, password) => signup(username, fullName, email, favorite_color, password).then(dispatch)
     }
 }
 

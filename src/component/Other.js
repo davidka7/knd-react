@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Col from 'react-bootstrap/Col';
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -15,21 +14,13 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
     //     console.log(person1)
     //     getuser(person1);
     // }, [])
-    // const [show1, setShow1] = useState(false);
 
-    // const handleClose1 = () => setShow1(false);
-    // const handleShow1 = () => setShow1(true);
-    // const [user_id, setId] = useState("")
     const [perso, setPerso] = useState("")
     const [show, setShow] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false)
     const handleClose = () => {setShow(false); clearUserSearch();}
     const handleShow = () => {setShow(true); setPerso('')}
-    // const [person1, setPerso] = useState('');
     const [project1, setProjec] = useState('');
-    // const [person, setPerson] = useState('');
-    // const [project, setProject] = useState('');
-
 
     const handleSubmit = e => {
         // console.log("GET HERE")
@@ -45,7 +36,6 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
         e.stopPropagation();
         // setId(user.id)
         // console.log(user_id);
-        console.log("GET HERE")
         setShow(false); 
         clearUserSearch();
         user_project(user.id, project1, isAdmin);
@@ -54,23 +44,20 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
     }
     // const handleId = () => {
     //     user_project()
-
     // }
+
     // const [projecto, setProjecto] = useState('')
     // const handlePerson = e => { setPerson(e.target.value) };
     // const handleProject = e => {  setProject(projects.filter(project => project.topic == e.target.value))  };
 
-
     const handleAdmin = () => setIsAdmin(!isAdmin);
     const handlePerso = e => { setPerso(e.target.value) };
-    
-console.log(user)
 
-console.log(projects)
     return (
         <>
          <p onClick={handleShow}>Add Member </p>
             {/* <Button variant="outline-primary" onClick={handleShow} block> Add Member </Button> */}
+        
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Admin To Project</Modal.Title>
@@ -78,12 +65,13 @@ console.log(projects)
                 <Modal.Body>
                     <div>
                     <Form onSubmit={handleSubmit}>
+
                         <>
-                        <Form.Group controlId="exampleForm.ControlInput1" role="form">
-                            <Form.Label>Person</Form.Label>
+                        <Form.Group controlId="formPerson1">
+                            <Form.Label>Look up username</Form.Label>
                             <Form.Control
-                                type="name"
-                                placeholder="user"
+                                type="perso"
+                                placeholder="Type username..."
                                 onChange={handlePerso}
                                 value={perso}
                                 className={ `${user ? 'is-valid' : ''}`}
@@ -97,7 +85,6 @@ console.log(projects)
                     <Form onSubmit={handleSubmit1}>
                         {user ?
                             <>
-
                                 <Form.Group controlId="exampleForm.ControlSelect2">
                                     <Form.Label>Admin can edit and delete this project.</Form.Label>
                                     <Form.Check 
@@ -110,13 +97,13 @@ console.log(projects)
                                 </Form.Group>
                             </>
                             : 
-                            ("Awaiting User")
+                            "If you don't know your friend's username, ask them."
                         }
                         { user ?
                             <><Button variant="secondary" onClick={handleClose}> Cancel </Button>
                             <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button></>
                             : 
-                            <div >"haha"</div>
+                            null
                         }
                     </Form>
                     </div>
@@ -136,7 +123,6 @@ const mapStateToProps = (store) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getuser: (perso) => getuser(perso).then(dispatch),
-        // c1: (person, project) => c1(person, project).then(dispatch),
         user_project: (user_id, project1, isAdmin) => user_project(user_id, project1, isAdmin).then(dispatch),
         clearUserSearch: () => dispatch(clearUserSearch())
 

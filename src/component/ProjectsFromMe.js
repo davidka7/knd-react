@@ -27,8 +27,8 @@ const ProjectFromMe = ({project, projectId, ProjectId_save}) => {
                     <Dropdown.Header>Options</Dropdown.Header>
                     <hr></hr>
                     <Dropdown.Item><ProjectEdit project={project}/></Dropdown.Item>
-                    <Dropdown.Item><ProjectDelete project={project}/></Dropdown.Item>
                     <Dropdown.Item> <Other projects={project} /></Dropdown.Item>
+                    <Dropdown.Item><ProjectDelete project={project}/></Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
             <Link 
