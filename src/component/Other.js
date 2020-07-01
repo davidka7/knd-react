@@ -73,7 +73,7 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                             />
                         </Form.Group>
                         {user ? <p className="text-success">Found username {user.username}</p> : null}
-                        <Button variant="primary" type="submit">Search </Button>
+                        <Button variant="primary" type="submit" onClick={handleSubmit}>Search </Button>
                     </Form>
                     <Form onSubmit={handleSubmit1}>
                         {user ?
@@ -93,7 +93,7 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                             "If you don't know your friend's username, ask them."
                         }
                         { user ?
-                            <><Button variant="secondary" onClick={handleClose}> Cancel </Button>
+                            <><Button type="button" variant="secondary" onClick={handleClose}> Cancel </Button>
                             <Button type="submit" variant="primary" >Share </Button></>
                             : 
                             null
