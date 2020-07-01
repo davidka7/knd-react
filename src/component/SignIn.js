@@ -28,7 +28,7 @@ const SignIn = ({ signin, loginError }) => {
     return (
         <div>
             <Button onClick={handleShow} className="btn-info signin">Login</Button>
-            
+    
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Login</Modal.Title>
