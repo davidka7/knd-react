@@ -10,10 +10,6 @@ import { clearUserSearch } from '../actions/userprojectAction';
 
 const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSearch }) => {
 
-    // useEffect(() => {
-    //     console.log(person1)
-    //     getuser(person1);
-    // }, [])
 
     const [perso, setPerso] = useState("")
     const [show, setShow] = useState(false);
@@ -34,21 +30,10 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
     const handleSubmit1 = e => {
         e.preventDefault();
         e.stopPropagation();
-        // setId(user.id)
-        // console.log(user_id);
         setShow(false); 
         clearUserSearch();
         user_project(user.id, project1, isAdmin);
-        // setId('')
-        // setProjec('');
     }
-    // const handleId = () => {
-    //     user_project()
-    // }
-
-    // const [projecto, setProjecto] = useState('')
-    // const handlePerson = e => { setPerson(e.target.value) };
-    // const handleProject = e => {  setProject(projects.filter(project => project.topic == e.target.value))  };
 
     const handleAdmin = () => setIsAdmin(!isAdmin);
     const handlePerso = e => { setPerso(e.target.value) };
@@ -88,15 +73,11 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                                         value={isAdmin}
                                     />
                                 </Form.Group>
+                                <Button type="button" variant="secondary" onClick={handleClose}> Cancel </Button>
+                                <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button>
                             </>
                             : 
                             "If you don't know your friend's username, ask them."
-                        }
-                        { user ?
-                            <><Button type="button" variant="secondary" onClick={handleClose}> Cancel </Button>
-                            <Button type="submit" variant="primary" >Share </Button></>
-                            : 
-                            null
                         }
                     </Form>
                 </Modal.Body>
