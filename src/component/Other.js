@@ -90,7 +90,7 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                                 </Form.Group>
                             </>
                             : 
-                            "If you don't know your friend's username, ask them"
+                            "If you don't know your friend's username, ask them."
                         }
                         { user ?
                             <><Button variant="secondary" onClick={handleClose}> Cancel </Button>
