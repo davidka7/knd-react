@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { getuser } from '../actions/userprojectAction';
 import { user_project } from '../actions/userprojectAction';
 import { clearUserSearch } from '../actions/userprojectAction';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSearch }) => {
@@ -19,11 +21,10 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
     const [project1, setProjec] = useState('');
 
     const handleSubmit = e => {
-        // console.log("GET HERE")
+
         e.preventDefault();
         e.stopPropagation();
-        console.log("GET HERE")
-        if ( currentUser.username !== perso ){ getuser(perso) }
+        if ( currentUser.username !== perso ){ getuser(perso) };
         setProjec('');
     }
 
@@ -40,32 +41,31 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
 
     return (
         <>
-         <p onClick={handleShow}>Add Member </p>
-            {/* <Button variant="outline-primary" onClick={handleShow} block> Add Member </Button> */}
-        
+         <p onClick={handleShow}>Members</p>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add Admin To Project</Modal.Title>
+                    <Modal.Title>Project's member</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div>
-                    <Form onSubmit={handleSubmit}>
-
-                        <>
-                        <Form.Group controlId="formPerson1">
-                            <Form.Label>Look up username</Form.Label>
+                    <Form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
+                        <Form.Group as={Row} controlId="formPerson1">
+                            <Form.Label column sm={2}>Add member</Form.Label>
+                            {/* <Col sm={8}> */}
                             <Form.Control
                                 type="perso"
-                                placeholder="Type username..."
+                                placeholder="Look up username..."
                                 onChange={handlePerso}
                                 value={perso}
                                 className={ `${user ? 'is-valid' : ''}`}
                             />
+                            {/* </Col> */}
+                            <Col sm={1}>
+                                <Button variant="primary" type="submit" onClick={handleSubmit}> Search </Button>
+                            </Col>
                         </Form.Group>
-                        <Button variant="primary" type="submit" onClick={handleSubmit}> Search </Button>
+                        
                         {user ? <p className="text-success">Found username {user.username}</p> : null}
-</>
-                       
                     </Form>
                     <Form onSubmit={handleSubmit1}>
                         {user ?
@@ -87,8 +87,10 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                             "If you don't know your friend's username, ask them."
                         }
                         { user ?
-                            <><Button variant="secondary" onClick={handleClose}> Cancel </Button>
-                            <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button></>
+                            <>
+                            <Button variant="secondary" onClick={handleClose}> Cancel </Button>
+                            <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button>
+                            </>
                             : 
                             null
                         }

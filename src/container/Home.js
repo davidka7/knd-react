@@ -1,8 +1,8 @@
 import React from 'react';
 import './home.css'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import SignIn from '../component/SignIn';
 import SignUp from '../component/SignUp';
 import Demo from '../component/Demo';

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import {editProject} from '../actions/projectAction';
+import ProjectDelete from './ProjectDelete'
 
 
 const ProjectEdit = ({project, editProject}) => {
@@ -35,7 +36,7 @@ const ProjectEdit = ({project, editProject}) => {
         <p onClick={handleShow}>Edit Project</p>
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title>Edit project {project.topic}</Modal.Title>
+                <Modal.Title>Edit {project.topic}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
@@ -65,6 +66,7 @@ const ProjectEdit = ({project, editProject}) => {
            
                 </Form>
             </Modal.Body>
+            <ProjectDelete project={project}/>
         </Modal>
         </>
     )

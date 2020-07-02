@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { deleteProject } from '../actions/projectAction';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
 
 
 const ProjectDelete = ({project, deleteProject}) => {
@@ -17,7 +17,7 @@ const ProjectDelete = ({project, deleteProject}) => {
 
     return (
         <>
-            <p onClick={handleShow}>Delete Project</p>
+            <Button onClick={handleShow}>Delete Project</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                 <Modal.Title>Delete {project.topic} project</Modal.Title>
