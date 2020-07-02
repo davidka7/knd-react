@@ -7,7 +7,7 @@ import { getuser } from '../actions/userprojectAction';
 import { user_project } from '../actions/userprojectAction';
 import { clearUserSearch } from '../actions/userprojectAction';
 import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
+// import DropdownButton from 'react-bootstrap/DropdownButton'
 const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSearch }) => {
 
     // useEffect(() => {
@@ -43,7 +43,8 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
         // setId('')
         // setProjec('');
     }
-
+    const handleDelete1 = e => "d";
+    const handlePermission = e => "d";
     const handleAdmin = e => setIsAdmin(e.target.value);
     const handlePerso = e => { setPerso(e.target.value) };
     const [value, setValue] = useState('');
@@ -99,9 +100,10 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
               />  
               <Button onClick={handleSubmit} type="submit" > Search</Button>
               <ul className="list-unstyled">
+                
                 {React.Children.toArray(children).filter(
                   (child) =>
-                    !perso || child.props.children.toLowerCase().startsWith(perso),
+                  !perso ||  child.props.children.toLowerCase().startsWith(perso),
                 )}
               </ul>
               
@@ -133,8 +135,8 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
     </Dropdown.Toggle>
 
     <Dropdown.Menu as={CustomMenu}>
-      <Dropdown.Item eventKey="1">Kim Admin Permission: Viewer</Dropdown.Item>
-   {/* <div>   <button>Change Permission</button> <button>Delete</button> </div> */}
+      <Dropdown.Item eventKey="1">Kim Admin Permission: Viewer  </Dropdown.Item>
+<button onClick={handlePermission}>Change Permission</button><button onClick={handleDelete1}>Delete</button>
       <Dropdown.Item eventKey="2">Max Admin Permission: Viewer</Dropdown.Item>
       {/* <button>Change Permission</button> <button>Delete</button> */}
       <Dropdown.Item eventKey="3">
