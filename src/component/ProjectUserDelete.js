@@ -6,14 +6,11 @@ import Modal from 'react-bootstrap/Modal'
 
 
 const ProjectUserDelete = ({project, deleteUserProject}) => {
-console.log(project)
-    const [show, setShow] = useState(false);
 
+    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleDelete = () => {
-        deleteUserProject(project[0]);
-    }
+    const handleDelete = () => { deleteUserProject(project[0]) }
 
     return (
         <>

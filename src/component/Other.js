@@ -8,13 +8,14 @@ import { user_project } from '../actions/userprojectAction';
 import { clearUserSearch } from '../actions/userprojectAction';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Dropdown from 'react-bootstrap/Dropdown';
+import MemberEdit from './MemberEdit';
+import MemberAdd from './MemberAdd';
 
 
-import Dropdown from 'react-bootstrap/Dropdown'
-// import DropdownButton from 'react-bootstrap/DropdownButton'
+
 const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSearch }) => {
 
-    console.log(projects.id)
     const tru = useState("true")
     const fals = useState("false")
     const project1 = useState(projects.id)
@@ -29,7 +30,6 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
         e.preventDefault();
         e.stopPropagation();
         if (currentUser.username !== perso) { getuser(perso) };
-        setProjec('');
     }
 
     const handleSubmit1 = e => {
@@ -104,10 +104,11 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
 
     return (
         <>
-            <p onClick={handleShow}>Edit Members </p>
+            <p onClick={handleShow}>Edit Members</p>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton><Modal.Title>Project's member</Modal.Title></Modal.Header>
                 <Modal.Body>
+                    <MemberAdd/>
                     <Form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
                         <Form.Group as={Row} controlId="formPerson1">
                             <Form.Label column sm={2}>Add member</Form.Label>
@@ -115,7 +116,8 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                                     <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">Search For New Members</Dropdown.Toggle>
                                     <Dropdown.Menu as={CustomMenu}>
                                         <Dropdown.Item eventKey="1">Kim Admin Permission: Viewer  </Dropdown.Item>
-                                        <button onClick={handlePermission}>Change Permission</button><button onClick={handleDelete1}>Delete</button>
+                                        <button onClick={handlePermission}>Change Permission</button>
+                                        <button onClick={handleDelete1}>Delete</button>
                                         <Dropdown.Item eventKey="2">Max Admin Permission: Viewer</Dropdown.Item>
                                         <Dropdown.Item eventKey="3">Tim - Admin Permission: Co-Admin</Dropdown.Item>
                                         <Dropdown.Item eventKey="4">David - Admin Permission: Admin</Dropdown.Item>
@@ -124,36 +126,35 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                                 <Dropdown>
                                     <Dropdown.Toggle id="dropdown-custom-components" as={CustomToggle1}>Edit Members</Dropdown.Toggle>
                                     <Dropdown.Menu >
-                                        <Dropdown.Item href="#/action-1"> Kim Viewer <div>   <button>Change Permission</button> <button>Delete</button> </div></Dropdown.Item>
-                                        <Dropdown.Item href="#/action-2">Max Viewer <div>   <button>Change Permission</button> <button>Delete</button> </div></Dropdown.Item>
-                                        <Dropdown.Item href="#/action-3">Tim  Co-Admin<div>   <button>Change Permission</button> <button>Delete</button> </div></Dropdown.Item>
-                                        <Dropdown.Item href="#/action-4">David  Admin<div>   <button>Change Permission</button> <button>Delete</button> </div></Dropdown.Item>
+                                        <Dropdown.Item href="#/action-1">Kim Viewer<div><button>Change Permission</button> <button>Delete</button> </div></Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2">Max Viewer<div><button>Change Permission</button> <button>Delete</button> </div></Dropdown.Item>
+                                        <Dropdown.Item href="#/action-3">Tim  Co-Admin<div><button>Change Permission</button> <button>Delete</button> </div></Dropdown.Item>
+                                        <Dropdown.Item href="#/action-4">David  Admin<div><button>Change Permission</button> <button>Delete</button> </div></Dropdown.Item>
                                     </Dropdown.Menu >
                                 </Dropdown>
                                 <Col sm={1}><Button variant="primary" type="submit" onClick={handleSubmit}> Search </Button></Col>
                                 {user ? <p className="text-success">Found username {user.username}</p> : null}
                         </Form.Group>
                     </Form>
-                            <Form onSubmit={handleSubmit1}>
-                                {user ?
-                                    <>
-                                        <Form.Label>Admin can edit and delete this project.</Form.Label>
-                                        <button onChange={handleAdmin} value={tru}>Is Admin</button>
-                                        <button onChange={handleAdmin} value={fals}>Can only View</button>
-                                    </>
-                                    :
-                                    "If you don't know your friend's username, ask them."
-                                }
-                                {user ?
-                                    <>
-                                        <Button variant="secondary" onClick={handleClose}> Cancel </Button>
-                                        <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button>
-                                    </>
-                                    :
-                                    null
-                                }
+                        <Form onSubmit={handleSubmit1}>
+                            {user ?
+                                <>
+                                    <Form.Label>Admin can edit and delete this project.</Form.Label>
+                                    <button onChange={handleAdmin} value={tru}>Is Admin</button>
+                                    <button onChange={handleAdmin} value={fals}>Can only View</button>
+                                </>
+                                :
+                                "If you don't know your friend's username, ask them."
+                            }
+                            {user ?
+                                <>
+                                    <Button variant="secondary" onClick={handleClose}> Cancel </Button>
+                                    <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button>
+                                </>
+                                :
+                                null
+                            }
                         </Form>
-                 
                 </Modal.Body>
             </Modal>
 

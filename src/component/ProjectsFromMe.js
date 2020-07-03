@@ -7,7 +7,7 @@ import { ProjectId_save } from '../actions/projectIdAction';
 import ProjectEdit from './ProjectEdit';
 import Card from 'react-bootstrap/Card'
 import './Project.css'
-import Other from './Other.js'
+import Member from './Member'
 
 const ProjectFromMe = ({project, projectId, ProjectId_save}) => {
 
@@ -26,7 +26,7 @@ const ProjectFromMe = ({project, projectId, ProjectId_save}) => {
                     <Dropdown.Header>Options</Dropdown.Header>
                     <hr></hr>
                     <Dropdown.Item><ProjectEdit project={project}/></Dropdown.Item>
-                    <Dropdown.Item> <Other projects={project} /></Dropdown.Item>
+                    <Dropdown.Item> <Member project={project} /></Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
             <Link 
