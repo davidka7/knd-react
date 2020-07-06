@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { connect } from 'react-redux';
@@ -8,28 +7,32 @@ import { user_project } from '../actions/userprojectAction';
 import { clearUserSearch } from '../actions/userprojectAction';
 
 
-const MemberAdd = ({ projects, user_project, getuser, user, currentUser, clearUserSearch }) => {
+const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUserSearch }) => {
 
 
     const [perso, setPerso] = useState("")
     const [isAdmin, setIsAdmin] = useState(false)
-    const [project1, setProjec] = useState('');
 
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        if (currentUser.username !== perso) { getuser(perso) }
-        setProjec('');
+        if (!(currentUser.username == perso || isMember(perso))) { getuser(perso) }
+    }
+
+    const isMember = (findUsername) => {
+        return project.user_projects.find(e => e.user.username === findUsername)
     }
 
     const handleSubmit1 = e => {
         e.preventDefault();
         clearUserSearch();
-        user_project(user.id, project1, isAdmin);
+        user_project(user.id, project.id, isAdmin);
     }
 
     const handleAdmin = () => setIsAdmin(!isAdmin);
-    const handlePerso = e => { setPerso(e.target.value) };
+    const handlePerso = e => { 
+        setPerso(e.target.value);
+    };
 
     return (
         <>
@@ -82,7 +85,7 @@ const mapStateToProps = (store) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getuser: (perso) => getuser(perso).then(dispatch),
-        user_project: (user_id, project1, isAdmin) => user_project(user_id, project1, isAdmin).then(dispatch),
+        user_project: (user_id, projectId, isAdmin) => user_project(user_id, projectId, isAdmin).then(dispatch),
         clearUserSearch: () => dispatch(clearUserSearch())
 
     }

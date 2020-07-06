@@ -7,24 +7,6 @@ const headers = () => {
     }
 }
 
-// export const getUser = (id) => {
-//     return fetch(`${BACKEND_DOMAIN}/users/${id}`, {
-//         method: "GET",
-//         headers: headers(),
-//     }).then(res => res.json())
-//     .then(res => {
-//         if (res.error) {
-//             return {
-//                 type: "LOGIN_ERROR",
-//                 error: res.error
-//             };
-//         }
-//         return {
-//             type: "LOGIN",
-//             payload: res
-//         }
-//     });
-// }
 
 const loginSignup = (apiUrl, username, password) => {
 
@@ -52,7 +34,6 @@ export const login = (username, password) => {
     return loginSignup(`${BACKEND_DOMAIN}/login`, username, password);
 }
 
-
 export const signup = (username, full_name, email, favorite_color, password) => {
 
     const user = {
@@ -74,6 +55,7 @@ export const signup = (username, full_name, email, favorite_color, password) => 
         return {
             type: "SIGNUP",
             payload: res
+            // loginSignup(`${BACKEND_DOMAIN}/login`, username, password)
         }
     }); 
 
