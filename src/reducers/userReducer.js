@@ -18,7 +18,7 @@ export const userReducer = (state = INITIAL_STATE, action) => {
         case "SIGNUP":
             localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(action.payload));
             localStorage.setItem("token", action.payload.jwt);
-            return { user: action.payload.user, loginError: action.error, signupError: null };
+            return { user: action.payload.user, loginError: null, signupError: action.error };
         case "DROP_ICON":
             localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(action.payload));
             return { user: action.payload.user, loginError: null, signupError: null };
