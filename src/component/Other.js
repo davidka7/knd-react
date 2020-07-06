@@ -8,12 +8,14 @@ import { user_project } from '../actions/userprojectAction';
 import { clearUserSearch } from '../actions/userprojectAction';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from 'react-bootstrap/Dropdown';
+import MemberEdit from './MemberEdit';
+import MemberAdd from './MemberAdd';
+
 
 
 const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSearch }) => {
 
-    console.log(projects.id)
     const tru = useState("true")
     const fals = useState("false")
     const project1 = useState(projects.id)
@@ -106,6 +108,7 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton><Modal.Title>Project's member</Modal.Title></Modal.Header>
                 <Modal.Body>
+                    <MemberAdd/>
                     <Form className="form-inline my-2 my-lg-0" onSubmit={handleSubmit}>
                         <Form.Group as={Row} controlId="formPerson1">
                             <Form.Label column sm={2}>Add member</Form.Label>
@@ -133,26 +136,25 @@ const Other = ({ projects, user_project, getuser, user, currentUser, clearUserSe
                                 {user ? <p className="text-success">Found username {user.username}</p> : null}
                         </Form.Group>
                     </Form>
-                            <Form onSubmit={handleSubmit1}>
-                                {user ?
-                                    <>
-                                        <Form.Label>Admin can edit and delete this project.</Form.Label>
-                                        <button onChange={handleAdmin} value={tru}>Is Admin</button>
-                                        <button onChange={handleAdmin} value={fals}>Can only View</button>
-                                    </>
-                                    :
-                                    "If you don't know your friend's username, ask them."
-                                }
-                                {user ?
-                                    <>
-                                        <Button variant="secondary" onClick={handleClose}> Cancel </Button>
-                                        <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button>
-                                    </>
-                                    :
-                                    null
-                                }
+                        <Form onSubmit={handleSubmit1}>
+                            {user ?
+                                <>
+                                    <Form.Label>Admin can edit and delete this project.</Form.Label>
+                                    <button onChange={handleAdmin} value={tru}>Is Admin</button>
+                                    <button onChange={handleAdmin} value={fals}>Can only View</button>
+                                </>
+                                :
+                                "If you don't know your friend's username, ask them."
+                            }
+                            {user ?
+                                <>
+                                    <Button variant="secondary" onClick={handleClose}> Cancel </Button>
+                                    <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button>
+                                </>
+                                :
+                                null
+                            }
                         </Form>
-                 
                 </Modal.Body>
             </Modal>
 
