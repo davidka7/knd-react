@@ -4,9 +4,9 @@
 
 .board-page {
     margin: 0px;
-    background-image: url('../background/bg-chua.jpg');
-    /* image-orientation: cover; */
-    /* position: fixed;  */
+    background-image: url('../background/city.jpg');
+    background-size: cover;
+    position: fixed; 
     /* top: 0; 
     left: 0;  */
       

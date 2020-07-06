@@ -1,5 +1,5 @@
 body, html {
-background-color: blue;
+background-color: white;
     /* position: fixed;  */
     /* top: 0; 
     left: 0;  */
@@ -22,7 +22,7 @@ width: 70%;
 background-color: rgb(233, 203, 165);
 /* overflow:auto; */
 /* height:100%; */
-color: blue;
+color: black;
 
 }
 .text-left {

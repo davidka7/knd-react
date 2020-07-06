@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootswatch/dist/sketchy/bootstrap.min.css";
 import MainBar from './container/MainBar';
 import IconPage from './component/IconPage';
-import Customization from './component/Customization';
+// import Customization from './component/Customization';
 import Profile from './container/Profile';
 import Settings from './container/Settings';
 import Home from './container/Home';
@@ -36,8 +36,7 @@ const App = ({user}) => {
         <Route exact path='/icons' render={(routeProps) => 
                 <IconPage {...routeProps} />} />
         <Route exact path='/profile' render={(routeProps) => 
-                !user ? <Redirect to={{pathname: '/'}} /> : <Profile {...routeProps} />} />
-                
+                !user ? <Redirect to={{pathname: '/'}} /> : <Profile {...routeProps} />} /> 
         <Route exact path='/settings' render={(routeProps) => 
                 <Settings {...routeProps} />} />
 

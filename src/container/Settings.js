@@ -2,7 +2,7 @@
 import ListGroup from 'react-bootstrap/ListGroup'
 import Card from 'react-bootstrap/Card'
 import Sticky from 'react-sticky-el';
-// import "./customization.css"
+import "./settings.css"
 import { Link } from 'react-scroll'
 // import './Project.css'
 import React, {useEffect, useState} from "react";

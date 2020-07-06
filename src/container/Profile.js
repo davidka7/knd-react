@@ -13,7 +13,7 @@ const Profile = () => {
             <Col><UserInfo /></Col>
             <Col> <Card>
                 QUOTE:
-                <p className="text-warning">I have a dream I hope it will come true.
+                <p>I have a dream I hope it will come true.
                 That you will grow old with me, and I will grow old with you.
                 We thank the earth, sea, and the sky we thank too.</p>
                 </Card>
