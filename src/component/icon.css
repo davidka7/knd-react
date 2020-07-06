@@ -1,7 +1,7 @@
 .icon-page {
     padding: 50px;
     margin: 0px 0px 0px 0px;
-    background-image: url('../background/random.png');
+    background-image: url('../background/room.png');
     background-size: cover;
     position: fixed; 
     /* top: 0; 
@@ -18,7 +18,7 @@
 .icon-box{
     padding: 20px;
     overflow: auto;
-    height: 550px;
+    height: 600px;
     margin: 50px;
     color: black
 }
@@ -33,10 +33,11 @@ div.col-md-4.col-12{
     padding: 0px;
 }
 
+
 .fav-box{
     padding: 20px;
     overflow:auto;
-    height: 550px;
+    height: 600px;
     margin: 50px
 }
 .icon-page .top-trash {
@@ -44,5 +45,5 @@ div.col-md-4.col-12{
 }
 
 .trash-can {
-
+    
 }
