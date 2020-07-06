@@ -29,7 +29,7 @@ const MainBar = ({user}) => {
                 <Link to="/profile" className="nav-link">Profile</Link>
               </li>
               <li className="nav-item">
-                <Link to="/customization" className="nav-link">Settings</Link>
+                <Link to="/settings" className="nav-link">Settings</Link>
               </li>
             </ul>
           </div>
