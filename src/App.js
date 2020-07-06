@@ -8,6 +8,7 @@ import MainBar from './container/MainBar';
 import IconPage from './component/IconPage';
 import Customization from './component/Customization';
 import Profile from './container/Profile';
+import Settings from './container/Settings';
 import Home from './container/Home';
 import BoardPage from './component/BoardPage';
 import ProjectPage from './component/ProjectPage';
@@ -37,8 +38,8 @@ const App = ({user}) => {
         <Route exact path='/profile' render={(routeProps) => 
                 !user ? <Redirect to={{pathname: '/'}} /> : <Profile {...routeProps} />} />
                 
-        <Route exact path='/customization' render={(routeProps) => 
-                <Customization {...routeProps} />} />
+        <Route exact path='/settings' render={(routeProps) => 
+                <Settings {...routeProps} />} />
 
       </Router>
 
