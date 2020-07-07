@@ -38,8 +38,8 @@ const App = ({user}) => {
         <Route exact path='/profile' render={(routeProps) => 
                 !user ? <Redirect to={{pathname: '/'}} /> : <Profile {...routeProps} />} />
                 
-        <Route exact path='/settings' render={(routeProps) => 
-                <Settings {...routeProps} />} />
+        {/* <Route exact path='/settings' render={(routeProps) => 
+                <Settings {...routeProps} />} /> */}
 
       </Router>
 

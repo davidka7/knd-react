@@ -31,6 +31,10 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
     const handleItemDrop = () => {
       draggedItem.icon_img ? iconOnCardDrop(card, draggedItem.icon_img) : cardOnCardDrop(draggedItem, card)
     }
+
+    const handleIconDelete = () => {
+      console.log("GET HERE")
+    }
     
     return (
         <div>
@@ -43,38 +47,33 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
               onDrop={handleItemDrop} 
               onDragOver={e => e.preventDefault()}
               >
-            <Dropdown className="d-inline-block" onMouseOver={(e) => setShow1(true)} drop={"right"}     onMouseLeave={(e) => setShow1(false)} show={show1} >
-                <Dropdown.Toggle caret>
-                { <IconInCard icon={card.image}/>}
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item header>Delete</Dropdown.Item>
-                
-                </Dropdown.Menu>
-            </Dropdown>
-{/* <div width="50px">
-            <DropdownButton
-            
-            drop={"right"}
-            // className="ddown"
-           key={"right"}
-            // variant="transparent"
-            // aria-expanded={false}
-            title={ <IconInCard icon={card.image}/>}
-            onMouseEnter={(e) => setShow1(true)}
-            onMouseLeave={(e) => setShow1(false)}
-            show={show1}>
-          <Dropdown.Item href="#" eventKey="1">Delete</Dropdown.Item>
-   
-            </DropdownButton>
-   </div> */}
-
-                {card.card_title} 
+              <Dropdown 
+                  onMouseOver={ e => setShow1(true)}
+                  drop="right" 
+                  onMouseLeave={(e) => setShow1(false)} 
+                  show={show1} >
+                  <Dropdown.Toggle variant="transparent" caret>
+                    <IconInCard icon={card.image}/>
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item 
+                      onMouseOver={ e => setShow(false)} 
+                      onMouseLeave={(e) => setShow(false)} 
+                      onClick={handleIconDelete}>
+                      X
+                      </Dropdown.Item>
+                  </Dropdown.Menu>
+              </Dropdown>
+                  {card.card_title} 
             </Button>
-
+{console.log(show)}
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
              
+<<<<<<< HEAD
+                <IconInCard icon={card.image}/>
+              
+=======
 
               <Dropdown>
   <Dropdown.Toggle variant="transparent" id="dropdown-basic">
@@ -88,6 +87,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
 </Dropdown>
 
 
+>>>>>>> master
                 <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card)} type="submit">Delete</Button>
                 </Modal.Title>
               </Modal.Header>

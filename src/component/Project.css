@@ -41,5 +41,5 @@ hr { margin: 0px 0px 10px}
 
 }
 .project-list-box div { padding: 0.3rem }
-
+.dropright .dropdown-toggle::after { display: none;}
 .dropdown-toggle::after { display: none;}
