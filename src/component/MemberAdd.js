@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getuser } from '../actions/userprojectAction';
 import { user_project } from '../actions/userprojectAction';
 import { clearUserSearch } from '../actions/userprojectAction';
+import Dropdown from 'react-bootstrap/Dropdown'
 
 
 const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUserSearch }) => {
@@ -32,6 +33,7 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
     const handleAdmin = () => setIsAdmin(!isAdmin);
     const handlePerso = e => { 
         setPerso(e.target.value);
+        if (isMember(e.target.value)) {}
     };
 
     return (
@@ -46,6 +48,13 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
                         value={perso}
                         className={`${user ? 'is-valid form-control mr-sm-2' : 'form-control mr-sm-2'}`}
                     />
+                    <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                    <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                    <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+
+
                 </Form.Group>
                 <Button className="btn-secondary my-2 my-sm-0" type="submit" onClick={handleSubmit}> Search </Button>
                 {user ? <p className="text-success">Found username {user.username}</p> : null}
