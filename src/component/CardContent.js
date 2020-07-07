@@ -8,10 +8,10 @@ import { connect } from 'react-redux';
 import { deleteCard } from '../actions/cardAction';
 import { onCardDragStart } from '../actions/dragAction';
 import { cardOnCardDrop } from '../actions/dropAction';
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown';
+import {removeIconFromCard} from '../actions/cardAction';
 
-const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop}) => {
+const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop, removeIconFromCard}) => {
   
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -22,7 +22,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
       e.persist();
       onCardDragStart(card);
     }
-    console.log(show1)
+    console.log("WHAT IS THIS", card)
 
     const handleDelete = (card) => {
       deleteCard(card);
@@ -33,7 +33,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
     }
 
     const handleIconDelete = () => {
-      console.log("GET HERE")
+      removeIconFromCard(card);
     }
     
     return (
@@ -57,16 +57,17 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item 
-                      onMouseOver={ e => setShow(false)} 
-                      onMouseLeave={(e) => setShow(false)} 
-                      onClick={handleIconDelete}>
-                      X
+                      onMouseOver={ () => setShow(false)} 
+                      onMouseLeave={() => setShow(false)} 
+                      onClick={handleIconDelete}
+                      >
+                    x
                       </Dropdown.Item>
                   </Dropdown.Menu>
               </Dropdown>
                   {card.card_title} 
             </Button>
-{console.log(show)}
+
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
              
@@ -99,6 +100,7 @@ const mapDispatchToProps = (dispatch) => {
     onCardDragStart: (card) => onCardDragStart(card, dispatch),
     cardOnCardDrop: (dragCard, destinationCard) => cardOnCardDrop(dragCard, destinationCard, dispatch),
     iconOnCardDrop: (selectedCard, droppedIcon) => iconOnCardDrop(selectedCard, droppedIcon).then(dispatch),
+    removeIconFromCard: (card) => removeIconFromCard(card).then(dispatch)
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Content)
