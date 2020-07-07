@@ -9,6 +9,7 @@ import { deleteCard } from '../actions/cardAction';
 import { onCardDragStart } from '../actions/dragAction';
 import { cardOnCardDrop } from '../actions/dropAction';
 import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
 
 const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop}) => {
   
@@ -21,6 +22,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
       e.persist();
       onCardDragStart(card);
     }
+    console.log(show1)
 
     const handleDelete = (card) => {
       deleteCard(card);
@@ -68,8 +70,24 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
              
+<<<<<<< HEAD
                 <IconInCard icon={card.image}/>
               
+=======
+
+              <Dropdown>
+  <Dropdown.Toggle variant="transparent" id="dropdown-basic">
+  <IconInCard icon={card.image}/>
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+    <Dropdown.Item href="#/action-1">Delete</Dropdown.Item>
+  
+  </Dropdown.Menu>
+</Dropdown>
+
+
+>>>>>>> master
                 <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card)} type="submit">Delete</Button>
                 </Modal.Title>
               </Modal.Header>
