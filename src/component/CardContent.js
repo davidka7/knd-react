@@ -50,16 +50,16 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
               {card.image === '' ?
                 null
                 :
-                <Dropdown 
+                <Dropdown className="sizers" 
                     onMouseOver={ e => setShow1(true)}
                     drop="right" 
                     onMouseLeave={e => setShow1(false)} 
                     show={show1} >
                     <Dropdown.Toggle variant="transparent" caret>
                       <IconInCard icon={card.image}/>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <Dropdown.Item 
+                    </Dropdown.Toggle >
+                    <Dropdown.Menu className="sizer">
+                      <Dropdown.Item className="sizer"
                         onMouseOver={ () => setShow(false)} 
                         onMouseLeave={() => setShow(false)} 
                         onClick={handleIconDelete}
