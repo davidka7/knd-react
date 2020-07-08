@@ -47,24 +47,29 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
               onDrop={handleItemDrop} 
               onDragOver={e => e.preventDefault()}
               >
-              <Dropdown 
-                  onMouseOver={ e => setShow1(true)}
-                  drop="right" 
-                  onMouseLeave={(e) => setShow1(false)} 
-                  show={show1} >
-                  <Dropdown.Toggle variant="transparent" caret>
-                    <IconInCard icon={card.image}/>
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item 
-                      onMouseOver={ () => setShow(false)} 
-                      onMouseLeave={() => setShow(false)} 
-                      onClick={handleIconDelete}
-                      >
-                    x
-                      </Dropdown.Item>
-                  </Dropdown.Menu>
-              </Dropdown>
+              {console.log("HERERE",card.image === '')}
+              {card.image === '' ?
+                null
+                :
+                <Dropdown 
+                    onMouseOver={ e => setShow1(true)}
+                    drop="right" 
+                    onMouseLeave={(e) => setShow1(false)} 
+                    show={show1} >
+                    <Dropdown.Toggle variant="transparent" caret>
+                      <IconInCard icon={card.image}/>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item 
+                        onMouseOver={ () => setShow(false)} 
+                        onMouseLeave={() => setShow(false)} 
+                        onClick={handleIconDelete}
+                        >
+                      x
+                        </Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+              }
                   {card.card_title} 
             </Button>
 
