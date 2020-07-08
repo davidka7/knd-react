@@ -17,12 +17,11 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [show1, setShow1] = useState(false)
+    
     const handleCardDrag = e => {
       e.persist();
       onCardDragStart(card);
     }
-    console.log("WHAT IS THIS", card)
 
     const handleDelete = (card) => {
       deleteCard(card);
@@ -72,7 +71,6 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
               }
                   {card.card_title} 
             </Button>
-{console.log(show)}
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
              
