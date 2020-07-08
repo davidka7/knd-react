@@ -12,7 +12,6 @@ const IconInCard = ({card, icon, onIconDragStart}) => {
         e.persist();
         onIconDragStart(icon);
     }
-    const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false)
 
     const handleIconDelete = () => {

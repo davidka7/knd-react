@@ -44,10 +44,13 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
                   <IconInCard icon={card.image} card={card}/>
                   {card.card_title} 
             </Button>
-
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <IconInCard icon={card.image}/>
+
+              
+  <IconInCard icon={card.image}/>
+
+
                 <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card)} type="submit">Delete</Button>
                 </Modal.Title>
               </Modal.Header>
