@@ -56,3 +56,27 @@ export const createCard = ( card_title, content, board_id ) => {
         }
     });
 }
+
+export const removeIconFromCard = (selectedCard) => {
+
+    const card = { image: '' }
+
+    return fetch(`${BACKEND_DOMAIN}/cards/${selectedCard.id}`, {
+        method: "PUT",
+        headers: headers(),
+        body: JSON.stringify(card)
+    }).then(res => res.json())
+    .then(res => {
+        if (res.error) {
+            return {
+                type: "REMOVE_ICON_FROM_CARD_ERROR",
+                error: res.error
+            };
+        }
+        console.log("DAVID LOOK HERE", res)
+        return {
+            type: "REMOVE_ICON_FROM_CARD",
+            payload: res.card
+        }
+    });
+}
