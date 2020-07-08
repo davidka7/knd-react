@@ -72,7 +72,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
               }
                   {card.card_title} 
             </Button>
-
+{console.log(show)}
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
              
