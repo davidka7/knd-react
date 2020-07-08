@@ -8,8 +8,6 @@ import { connect } from 'react-redux';
 import { deleteCard } from '../actions/cardAction';
 import { onCardDragStart } from '../actions/dragAction';
 import { cardOnCardDrop } from '../actions/dropAction';
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
 
 const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop}) => {
   
@@ -17,12 +15,11 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [show1, setShow1] = useState(false)
+    
     const handleCardDrag = e => {
       e.persist();
       onCardDragStart(card);
     }
-    console.log(show1)
 
     const handleDelete = (card) => {
       deleteCard(card);
@@ -32,9 +29,6 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
       draggedItem.icon_img ? iconOnCardDrop(card, draggedItem.icon_img) : cardOnCardDrop(draggedItem, card)
     }
 
-    const handleIconDelete = () => {
-      console.log("GET HERE")
-    }
     
     return (
         <div>
@@ -47,47 +41,16 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
               onDrop={handleItemDrop} 
               onDragOver={e => e.preventDefault()}
               >
-              <Dropdown 
-                  onMouseOver={ e => setShow1(true)}
-                  drop="right" 
-                  onMouseLeave={(e) => setShow1(false)} 
-                  show={show1} >
-                  <Dropdown.Toggle variant="transparent" caret>
-                    <IconInCard icon={card.image}/>
-                  </Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item 
-                      onMouseOver={ e => setShow(false)} 
-                      onMouseLeave={(e) => setShow(false)} 
-                      onClick={handleIconDelete}>
-                      X
-                      </Dropdown.Item>
-                  </Dropdown.Menu>
-              </Dropdown>
+                  <IconInCard icon={card.image} card={card}/>
                   {card.card_title} 
             </Button>
-{console.log(show)}
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-             
-<<<<<<< HEAD
-                <IconInCard icon={card.image}/>
+
               
-=======
-
-              <Dropdown>
-  <Dropdown.Toggle variant="transparent" id="dropdown-basic">
   <IconInCard icon={card.image}/>
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu>
-    <Dropdown.Item href="#/action-1">Delete</Dropdown.Item>
-  
-  </Dropdown.Menu>
-</Dropdown>
 
 
->>>>>>> master
                 <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card)} type="submit">Delete</Button>
                 </Modal.Title>
               </Modal.Header>
