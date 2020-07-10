@@ -1,6 +1,6 @@
 .home { 
     padding: 60px;
-    background-image: url('../background/hp-water1.jpg');
+    background-image: url('../background/main.png');
     background-size: cover;
     position: fixed; 
     /* top: 0; 
@@ -21,7 +21,7 @@
 .home .jumbotron {
     margin-top: 120px;
     background-color: #fff;
-    background-color: rgba(255,255,255,0.9)
+    background-color: rgba(255,255,255,0.7)
 }
 
 .home .jumbotron h1{
