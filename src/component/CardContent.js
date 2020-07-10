@@ -16,6 +16,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [show1, setShow1] = useState(false)
 
     
     const handleCardDrag = e => {
@@ -46,20 +47,19 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
               onDrop={handleItemDrop} 
               onDragOver={e => e.preventDefault()}
               >
-              {console.log("HERERE",card.image === '')}
               {card.image === '' ?
                 null
                 :
-                <Dropdown 
+                <Dropdown className="sizers" 
                     onMouseOver={ e => setShow1(true)}
                     drop="right" 
-                    onMouseLeave={(e) => setShow1(false)} 
+                    onMouseLeave={e => setShow1(false)} 
                     show={show1} >
                     <Dropdown.Toggle variant="transparent" caret>
                       <IconInCard icon={card.image}/>
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                      <Dropdown.Item 
+                    </Dropdown.Toggle >
+                    <Dropdown.Menu className="sizer">
+                      <Dropdown.Item className="sizer"
                         onMouseOver={ () => setShow(false)} 
                         onMouseLeave={() => setShow(false)} 
                         onClick={handleIconDelete}

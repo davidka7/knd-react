@@ -23,6 +23,7 @@ const loginSignup = (apiUrl, username, password) => {
                 error: res.error
             };
         }
+        console.log(res)
         return {
             type: "LOGIN",
             payload: res
@@ -52,12 +53,12 @@ export const signup = (username, full_name, email, favorite_color, password) => 
                 error: res.error
             };
         }
+        console.log(res)
         return {
             type: "SIGNUP",
             payload: res
-            // loginSignup(`${BACKEND_DOMAIN}/login`, username, password)
         }
-    }); 
+    }).then( () => login(username, password) ); 
 
 }
 
