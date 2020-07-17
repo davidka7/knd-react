@@ -10,6 +10,7 @@ import { onCardDragStart } from '../actions/dragAction';
 import { cardOnCardDrop } from '../actions/dropAction';
 import Dropdown from 'react-bootstrap/Dropdown';
 import {removeIconFromCard} from '../actions/cardAction';
+import CardDelete from './CardDelete';
 
 const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop, removeIconFromCard}) => {
   
@@ -24,9 +25,6 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
       onCardDragStart(card);
     }
 
-    const handleDelete = (card) => {
-      deleteCard(card);
-    }
 
     const handleItemDrop = () => {
       draggedItem.icon_img ? iconOnCardDrop(card, draggedItem.icon_img) : cardOnCardDrop(draggedItem, card)
@@ -64,7 +62,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
                         onMouseLeave={() => setShow(false)} 
                         onClick={handleIconDelete}
                         >
-                      x
+                      X
                         </Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
@@ -76,15 +74,14 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
              
                 <IconInCard icon={card.image}/>
               
-                <Modal.Title>{card.card_title}  <Button onClick={() => handleDelete(card)} type="submit">Delete</Button>
+                <Modal.Title>{card.card_title}
                 </Modal.Title>
               </Modal.Header>
                 <Modal.Body>
                   {card.content}
                 </Modal.Body>
-              <Modal.Footer>
-                <Button variant="primary" onClick={handleClose}>Submit</Button>
-              </Modal.Footer>
+                <hr/>
+                <CardDelete card={card}/>
             </Modal>
         </div>
     )

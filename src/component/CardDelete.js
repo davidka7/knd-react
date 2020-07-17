@@ -1,35 +1,35 @@
 import React, {useState} from 'react';
-import { deleteProject } from '../actions/projectAction';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { deleteCard } from '../actions/cardAction';
 
 
-const ProjectDelete = ({project, deleteProject}) => {
+const CardDelete = ({card, deleteCard}) => {
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleDelete = () => {
-        deleteProject(project.id);
+        deleteCard(card);
     }
 
     return (
-        <Row className='del-p'>   
+        <Row className='card-del'>   
             <Col xs={6} md={6}>      
-                <p>Do you want to delete project <span class="text-info">{project.topic}</span> ? </p>
+                <p>Do you want to delete card? </p>
             </Col>  
             <Col xs={6} md={6}>  
-                <Button className="btn-danger" onClick={handleShow} block>Delete Project</Button>
+                <Button className="btn-danger" onClick={handleShow} block>Delete</Button>
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Header closeButton>
-                    <Modal.Title>Delete <span class="text-info">{project.topic}</span> project</Modal.Title>
+                    <Modal.Title>Delete card</Modal.Title>
                     </Modal.Header>
                         <Modal.Body className="text-danger">
-                            Deleting means you will lose all cards and disconnect all members in this project: {project.topic}!
+                            Delete this card: {card.card_title}!
                         </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}> Cancel </Button>
@@ -43,8 +43,8 @@ const ProjectDelete = ({project, deleteProject}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteProject: (project_id) => deleteProject(project_id, dispatch),
+        deleteCard: (card) => deleteCard(card, dispatch),
     }
 }
 
-export default connect(null, mapDispatchToProps)(ProjectDelete)
+export default connect(null, mapDispatchToProps)(CardDelete)

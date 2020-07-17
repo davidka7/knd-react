@@ -43,4 +43,4 @@ hr { margin: 0px 0px 10px}
 .dropright .dropdown-toggle::after { display: none;}
 .dropdown-toggle::after { display: none;}
 
-.del-p { margin: 0px !important}
+.del-p { padding: 15px }

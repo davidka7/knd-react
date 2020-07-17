@@ -42,7 +42,7 @@ const ProjectEdit = ({project, editProject}) => {
                 <Form onSubmit={handleSubmit}>
 
                     <Form.Group controlId="formLoginUsername">
-                        <Form.Label>Edit Project Topic : {project.topic}</Form.Label>
+                        <Form.Label>Edit Project Topic : <span class="text-info">{project.topic}</span></Form.Label>
                         <Form.Control 
                             type="topic" 
                             placeholder="New project topic..." 
@@ -66,9 +66,9 @@ const ProjectEdit = ({project, editProject}) => {
            
                 </Form>
             </Modal.Body>
-            <br/><hr/><br/>
-            
+            <hr/>
             <ProjectDelete project={project}/>
+
         </Modal>
         </>
     )
