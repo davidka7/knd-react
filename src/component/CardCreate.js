@@ -50,8 +50,9 @@ const CardCreate = ({createCard, board_id}) => {
                     <Form.Group controlId="formLogincPassword">
                         <Form.Label>Content</Form.Label>
                         <Form.Control 
+                            as="textarea" rows="3"
                             type="Content" 
-                            placeholder="Add Content..."
+                            placeholder="Add description..."
                             onChange={handleContentChange}
                             value={content}
                              />

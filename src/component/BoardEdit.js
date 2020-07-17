@@ -53,8 +53,8 @@ const BoardEdit = ({boardInfo, editBoard}) => {
                     <Form.Group controlId="formLogincPassword">
                         <Form.Label>Edit board image :</Form.Label>
                         <Form.Control 
-                            type="image" 
-                            placeholder="New boardInfo image..."
+                            type="text" 
+                            placeholder="New image..."
                             onChange={handleImageChange}
                             value={image}
                              />

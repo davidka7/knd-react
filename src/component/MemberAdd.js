@@ -48,11 +48,7 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
                         value={perso}
                         className={`${user ? 'is-valid form-control mr-sm-2' : 'form-control mr-sm-2'}`}
                     />
-                    <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-                    <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-                    <Dropdown.Item eventKey="3">Something else here</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+                
 
 
                 </Form.Group>

@@ -45,7 +45,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
               onDrop={handleItemDrop} 
               onDragOver={e => e.preventDefault()}
               >
-              {card.image === '' ?
+              {card.image === '' || card.image == undefined ?
                 null
                 :
                 <Dropdown className="sizers" 
@@ -62,7 +62,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
                         onMouseLeave={() => setShow(false)} 
                         onClick={handleIconDelete}
                         >
-                      X
+                      x
                         </Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
@@ -74,11 +74,12 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
              
                 <IconInCard icon={card.image}/>
               
-                <Modal.Title>{card.card_title}
-                </Modal.Title>
+                <Modal.Title>Edit card</Modal.Title>
+                
               </Modal.Header>
                 <Modal.Body>
-                  {card.content}
+                  <h5>Title: </h5> {card.card_title}
+                  <h5>Description: </h5> {card.content}
                 </Modal.Body>
                 <hr/>
                 <CardDelete card={card}/>
