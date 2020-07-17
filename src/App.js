@@ -8,7 +8,6 @@ import MainBar from './container/MainBar';
 import IconPage from './component/IconPage';
 // import Customization from './component/Customization';
 import Profile from './container/Profile';
-import Settings from './container/Settings';
 import Home from './container/Home';
 import BoardPage from './component/BoardPage';
 import ProjectPage from './component/ProjectPage';

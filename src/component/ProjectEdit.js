@@ -62,10 +62,12 @@ const ProjectEdit = ({project, editProject}) => {
                     </Form.Group>
                     
                     <Button variant="secondary" onClick={handleClose}> Cancel </Button>
-                    <Button type="submit" variant="primary" onClick={handleClose}>Submit Changes</Button>
+                    <Button type="submit" className="btn-success" onClick={handleClose}>Save Changes</Button>
            
                 </Form>
             </Modal.Body>
+            <br/><hr/><br/>
+            
             <ProjectDelete project={project}/>
         </Modal>
         </>

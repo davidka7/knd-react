@@ -16,8 +16,6 @@ const ProjectShare = ({project, projectId, ProjectId_save, user_projects}) => {
         ProjectId_save(project_id)
     }
 
-    let is_admin = false
-console.log(project)
     return (
         <Card>
             <Dropdown>
