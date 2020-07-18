@@ -39,30 +39,25 @@ const BoardEdit = ({boardInfo, editBoard}) => {
             </Modal.Header>
             <Modal.Body>
                 <Form onSubmit={handleSubmit}>
-
-                    <Form.Group controlId="formLoginUsername">
-                        <Form.Label>Edit board Topic : {boardInfo.title}</Form.Label>
+                    <Form.Group controlId="formBoardEditTitle">
+                        <Form.Label>Title:</Form.Label>
                         <Form.Control 
                             type="title" 
-                            placeholder="New boardInfo title..." 
+                            placeholder={boardInfo.title}
                             onChange={handleTopicChange}
-                            value={title}
-                            />
+                            value={title} />
                     </Form.Group>
 
-                    <Form.Group controlId="formLogincPassword">
-                        <Form.Label>Edit board image :</Form.Label>
+                    <Form.Group controlId="formBoardEditImage">
+                        <Form.Label>Descriptions:</Form.Label>
                         <Form.Control 
-                            type="text" 
-                            placeholder="New image..."
+                            as="textarea" rows="3"
+                            type="image" 
+                            placeholder={boardInfo.image}
                             onChange={handleImageChange}
-                            value={image}
-                             />
+                            value={image} />
                     </Form.Group>
-                    
-                    <Button variant="secondary" onClick={handleClose}> Cancel </Button>
-                    <Button type="submit" variant="primary" onClick={handleClose}>Submit Changes</Button>
-           
+                    <Button type="submit" variant="primary" onClick={handleClose}>Create </Button>
                 </Form>
             </Modal.Body>
         </Modal>

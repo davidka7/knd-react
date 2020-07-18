@@ -9,11 +9,9 @@
     position: fixed; 
     /* top: 0; 
     left: 0;  */
-      
     /* Preserve aspet ratio */
     min-width: 100%;
-  min-height: 100%
- 
+    min-height: 100%;
 }
 .board-page .card-deck {
   padding: 30px;
@@ -42,7 +40,7 @@
 .custom-select {background-color: transparent;}
 
 #dropdown-basic { padding: 10px; }
-
+.dropdown-menu { font-family: 'Neucha'; } 
 .icon-btn {text-align: right;}
 .icon-btn .fav-box { margin: 0px; border: 0px; min-width: 300px}
 

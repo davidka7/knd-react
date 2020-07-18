@@ -14,17 +14,17 @@ const ProjectUserDelete = ({project, deleteUserProject}) => {
 
     return (
         <>
-            <p onClick={handleShow}>Delete Project</p>
+            <p onClick={handleShow}>Unjoin Project</p>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                <Modal.Title>Delete Friendship</Modal.Title>
+                <Modal.Title>Unjoin Project</Modal.Title>
                 </Modal.Header>
                     <Modal.Body className="text-danger">
-                        Deleting means you will disconnect
+                        Unjoin means you will remove this project out of your profile.
                     </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}> Cancel </Button>
-                    <Button type="submit" variant="danger" onClick={handleDelete}> Delete </Button>
+                    <Button type="submit" variant="danger" onClick={handleDelete}> Unjoin </Button>
                 </Modal.Footer>
             </Modal>   
         </>
