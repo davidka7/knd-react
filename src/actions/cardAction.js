@@ -73,7 +73,7 @@ export const removeIconFromCard = (selectedCard) => {
                 error: res.error
             };
         }
-        console.log("DAVID LOOK HERE", res)
+
         return {
             type: "REMOVE_ICON_FROM_CARD",
             payload: res.card

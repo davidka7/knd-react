@@ -74,7 +74,7 @@ export const getuser = (username) => {
 }
 
 export const deleteUserProject = (id, dispatch) => {
-    console.log(id)
+
     fetch(`${BACKEND_DOMAIN}/user_projects/${id.id}`, {
         method: "DELETE",
         headers: headers(),

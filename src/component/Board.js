@@ -13,13 +13,6 @@ import BoardEdit from './BoardEdit'
 const Board = ({ boardInfo, onCardDrop, draggedItem }) => {
 
   const handleCardDrop = () => {
-  console.log(boardInfo, draggedItem)
-  console.log("hi")
-  // if draggedItem.icon_img
-  //   null
-  // else
-  //   onCardDrop(boardInfo, draggedItem)
-  // end
     draggedItem.icon_img ?  console.log("hi") : onCardDrop(boardInfo, draggedItem) 
   }
   

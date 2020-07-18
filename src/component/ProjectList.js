@@ -27,7 +27,6 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
     useEffect(() => {
         getuserprojetcs(projects.userContext.user.id);
     }, [])
-    console.log(projects)
 
     return (
         <div>
