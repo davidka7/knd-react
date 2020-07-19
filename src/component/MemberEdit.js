@@ -5,12 +5,11 @@ import MemberInfo from './MemberInfo'
 const MemberEdit = ({project}) => {
 
     const [show, setShow] = useState(false);
-    console.log(project)
-
+    
     return (
         <>
             <p>Current members:</p>
-           { console.log(project)}
+            { console.log(project)}
             {project.user_projects.map( u => <MemberInfo key={u.id} member={u}/> )}
         </>
     )

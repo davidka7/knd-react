@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import { getuser } from '../actions/userprojectAction';
 import { user_project } from '../actions/userprojectAction';
 import { clearUserSearch } from '../actions/userprojectAction';
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from 'react-bootstrap/Dropdown';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUserSearch }) => {
@@ -39,20 +41,21 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
     return (
         <>
             <Form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
-                <Form.Group controlId="formPerson1">
-                    <Form.Label>Search new member</Form.Label>
-                    <Form.Control
-                        type="text"
-                        placeholder="Type username..."
-                        onChange={handlePerso}
-                        value={perso}
-                        className={`${user ? 'is-valid form-control mr-sm-2' : 'form-control mr-sm-2'}`}
-                    />
-                
-
-
+                <Form.Group as={Row} controlId="formPerson1">
+                    <Form.Label column sm={4}>Search new member</Form.Label>
+                    <Col sm={8}>
+                        <Form.Control
+                            type="text"
+                            placeholder="Type username..."
+                            onChange={handlePerso}
+                            value={perso}
+                            className={`${user ? 'is-valid form-control mr-sm-2' : 'form-control mr-sm-2'}`}
+                        />
+                    
+                    <Button className="btn-secondary my-2 my-sm-0" type="submit" onClick={handleSubmit}> Search </Button>
+                </Col>
                 </Form.Group>
-                <Button className="btn-secondary my-2 my-sm-0" type="submit" onClick={handleSubmit}> Search </Button>
+                
                 {user ? <p className="text-success">Found username {user.username}</p> : null}
             </Form>
             <Form onSubmit={handleSubmit1}>
@@ -72,7 +75,7 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
                         <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button>
                     </>
                     :
-                    <p className="text-muted">If you don't know your friend's username, ask them.</p>
+                    <p className="text-muted">Enter the username to look for user.</p>
                 }
             </Form>
 

@@ -17,7 +17,7 @@ const ProjectUserDelete = ({project, deleteUserProject}) => {
             <p onClick={handleShow}>Unjoin Project</p>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                <Modal.Title>Unjoin Project</Modal.Title>
+                    <Modal.Title>Unjoin Project</Modal.Title>
                 </Modal.Header>
                     <Modal.Body className="text-danger">
                         Unjoin means you will remove this project out of your profile.

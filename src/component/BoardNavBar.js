@@ -12,18 +12,22 @@ const BoardNavBar = ({projectInfo, userInfo}) => {
 
     return (
         <Row className='b-nav'>
-            {projectInfo.topic} | Team members: {userInfo.username}, 
-            {/* {projectInfo.user_projects.map( u_p => <>'hi'</>)} */}
-            {console.log(projectInfo.user_projects)}
-            <Dropdown className="icon-btn">
-                <Dropdown.Toggle variant="secondary" id="dropdown-button-drop-left">
-                    Fav Icons
-                </Dropdown.Toggle>
+            <Col sm={8} md={8}>
+                {projectInfo.topic} | Team members: {userInfo.username}, 
+                {/* {projectInfo.user_projects.map( u_p => <>'hi'</>)} */}
+                {console.log(projectInfo.user_projects)}
+            </Col>
+            <Col sm={4} md={4}>
+                <Dropdown className="icon-btn">
+                    <Dropdown.Toggle variant="secondary" id="dropdown-button-drop-left">
+                        Fav Icons
+                    </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                    <IconFavoriteBox/>
-                </Dropdown.Menu>
-            </Dropdown>
+                    <Dropdown.Menu>
+                        <IconFavoriteBox/>
+                    </Dropdown.Menu>
+                </Dropdown>
+            </Col>
         </Row>
     )
 }
