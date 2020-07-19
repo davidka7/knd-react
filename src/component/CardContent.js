@@ -11,6 +11,7 @@ import { cardOnCardDrop } from '../actions/dropAction';
 import Dropdown from 'react-bootstrap/Dropdown';
 import {removeIconFromCard} from '../actions/cardAction';
 import CardDelete from './CardDelete';
+import CardEdit from './CardEdit';
 
 const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop, removeIconFromCard}) => {
   
@@ -74,12 +75,11 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
              
                 <IconInCard icon={card.image}/>
               
-                <Modal.Title>Edit card</Modal.Title>
+                <Modal.Title>Card Info</Modal.Title>
                 
               </Modal.Header>
                 <Modal.Body>
-                  <h5>Title: </h5> {card.card_title}
-                  <h5>Description: </h5> {card.content}
+                  <CardEdit card={card}/>
                 </Modal.Body>
                 <hr/>
                 <CardDelete card={card}/>

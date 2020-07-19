@@ -20,7 +20,7 @@ const ProjectDelete = ({project, deleteProject}) => {
     return (
         <Row className='del-p'>   
             <Col xs={6} md={6}>      
-                <p>Do you want to delete project <span class="text-info">{project.topic}</span> ? </p>
+                <p>Do you want to delete <span class="text-info">{project.topic}</span> ? </p>
             </Col>  
             <Col xs={6} md={6}>  
                 <Button className="btn-danger" onClick={handleShow} block>Delete Project</Button>

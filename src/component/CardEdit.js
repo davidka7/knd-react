@@ -1,49 +1,60 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import { connect } from 'react-redux';
-import Modal from 'react-bootstrap/Modal';
+import Modal from 'react-bootstrap/Modal'
+import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { deleteCard } from '../actions/cardAction';
 
-
-const CardEdit = ({card, deleteCard}) => {
+const CardEdit = ({card}) => {
 
     const [show, setShow] = useState(false);
+    const [card_title, setTopic] = useState(card.card_title);
+    const [content, setContent] = useState(card.content);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleDelete = () => {
-        deleteCard(card);
+
+    const handleTopicChange = e => { setTopic(e.target.value) };
+    const handleContentChange = e => { setContent(e.target.value) };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        
     }
 
     return (
-        <Row className='card-del'>   
-            <Col xs={6} md={6}>      
-                <p>Do you want to delete card? </p>
-            </Col>  
-            <Col xs={6} md={6}>  
-                <Button className="btn-danger" onClick={handleShow} block>Delete</Button>
-                <Modal show={show} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                    <Modal.Title>Delete card</Modal.Title>
-                    </Modal.Header>
-                        <Modal.Body className="text-danger">
-                            Delete this card: {card.card_title}!
-                        </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}> Cancel </Button>
-                        <Button type="submit" variant="danger" onClick={handleDelete}> Delete </Button>
-                    </Modal.Footer>
-                </Modal>   
-            </Col>
-        </Row>
+        
+                <Form onSubmit={handleSubmit}>
+                    <Form.Group controlId="formLoginUsername">
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control 
+                            type="card_title" 
+                            placeholder={card.card_title}
+                            onChange={handleTopicChange}
+                            value={card_title}
+                            />
+                    </Form.Group>
+
+                    <Form.Group controlId="formLogincPassword">
+                        <Form.Label>Content</Form.Label>
+                        <Form.Control 
+                            as="textarea" rows="3"
+                            type="Content" 
+                            placeholder={card.content}
+                            onChange={handleContentChange}
+                            value={content}
+                             />
+                    </Form.Group>
+                    {/* <Button type="submit" variant="primary" onClick={handleClose}>Change </Button> */}
+                </Form>
+            
     )
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        deleteCard: (card) => deleteCard(card, dispatch),
     }
 }
 
