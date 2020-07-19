@@ -57,7 +57,7 @@ const BoardEdit = ({boardInfo, editBoard}) => {
                             onChange={handleImageChange}
                             value={image} />
                     </Form.Group>
-                    <Button type="submit" variant="primary" onClick={handleClose}>Create </Button>
+                    <Button type="submit" variant="primary" onClick={handleClose}>Update </Button>
                 </Form>
             </Modal.Body>
         </Modal>

@@ -80,6 +80,7 @@ const Content = ({card, deleteCard, onCardDragStart, draggedItem, iconOnCardDrop
               </Modal.Header>
                 <Modal.Body>
                   <CardEdit card={card}/>
+                  Assign member:
                 </Modal.Body>
                 <hr/>
                 <CardDelete card={card}/>
