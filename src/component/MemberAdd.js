@@ -8,7 +8,7 @@ import { clearUserSearch } from '../actions/userprojectAction';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import "./MemberAdd.css";
 
 const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUserSearch }) => {
 
@@ -40,20 +40,22 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
 
     return (
         <>
-            <Form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
+            <Form onSubmit={handleSubmit} >
                 <Form.Group as={Row} controlId="formPerson1">
-                    <Form.Label column sm={4}>Search new member</Form.Label>
-                    <Col sm={8}>
+                <Form.Label column sm={4}>Search new member</Form.Label>
+                    <div sm={4} id="change">
+
                         <Form.Control
                             type="text"
+                            id="change-width"
                             placeholder="Type username..."
                             onChange={handlePerso}
                             value={perso}
                             className={`${user ? 'is-valid form-control mr-sm-2' : 'form-control mr-sm-2'}`}
                         />
                     
-                    <Button className="btn-secondary my-2 my-sm-0" type="submit" onClick={handleSubmit}> Search </Button>
-                </Col>
+                    <Button id="change-width1" className="btn-secondary my-2 my-sm-0" type="submit" onClick={handleSubmit}> Search </Button>
+                </div>
                 </Form.Group>
                 
                 {user ? <p className="text-success">Found username {user.username}</p> : null}
