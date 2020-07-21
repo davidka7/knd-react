@@ -8,8 +8,8 @@ const MemberEdit = ({project}) => {
     
     return (
         <>
+        <hr/>
             <p>Current members:</p>
-            { console.log(project)}
             {project.user_projects.map( u => <MemberInfo key={u.id} member={u}/> )}
         </>
     )

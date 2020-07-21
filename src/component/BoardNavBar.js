@@ -21,7 +21,7 @@ const BoardNavBar = ({projectInfo, userInfo}) => {
             </Col>
             <Col sm={4} md={4}>
                 <Dropdown className="icon-btn">
-                    <Dropdown.Toggle variant="secondary" id="dropdown-button-drop-left">
+                    <Dropdown.Toggle className="btn-warning" id="dropdown-button-drop-left">
                         Fav Icons
                     </Dropdown.Toggle>
 

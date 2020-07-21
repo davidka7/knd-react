@@ -5,9 +5,7 @@ import { connect } from 'react-redux';
 import { getuser } from '../actions/userprojectAction';
 import { user_project } from '../actions/userprojectAction';
 import { clearUserSearch } from '../actions/userprojectAction';
-import Dropdown from 'react-bootstrap/Dropdown';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import "./MemberAdd.css";
 
 const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUserSearch }) => {
