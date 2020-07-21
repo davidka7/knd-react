@@ -4,14 +4,14 @@ import "./MemberAdd.css";
 const MemberInfo = ({member}) => {
 
     return (
-        <>
+        <div>
            <div id ="same-line"> {member.user.username}
            </div> 	&nbsp;
             <p id ="same-line1" className="text-muted">
                 Role: {member.admin_permission ? "Co-Admin" : "viewer"}
             </p>
             
-        </>
+        </div>
     )
 }
 
