@@ -31,6 +31,7 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
     }
 
     const handleAdmin = () => setIsAdmin(!isAdmin);
+    const handleAdmin1 = () => setIsAdmin(isAdmin);
     const handlePerso = e => { 
         setPerso(e.target.value);
         if (isMember(e.target.value)) {}
@@ -61,15 +62,17 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
             <Form onSubmit={handleSubmit1}>
                 {user ?
                     <>
-                        <Form.Group controlId="exampleForm.ControlSelect2">
-                            <Form.Label>Admin can edit and delete this project.</Form.Label>
-                            <Form.Check
-                                type="switch"
-                                id="isAdmin-switch"
-                                label={`Make ${user.username} admin`}
+           
+                        <Form.Group >
+                        <Button 
                                 onChange={handleAdmin}
-                                value={isAdmin}
-                            />
+                                value={isAdmin} variant="transparent" > {`Make ${user.username} admin`}</Button>
+                        /<Button 
+                                onChange={handleAdmin1}
+                                value={isAdmin} variant="transparent" >{`Make ${user.username} Viewer`}</Button>
+                            <Form.Label>Click. Admin can edit and delete this project.</Form.Label>
+                         
+                           
                         </Form.Group>
                         <Button type="button" variant="secondary" > Cancel </Button>
                         <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button>
