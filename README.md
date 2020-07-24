@@ -1,13 +1,13 @@
-# Youtube Playlist client
+# Plany Boat client
 
-A playlist-management tool for YouTube streaming which minimizes video ad interference.
+A project management.
 
 ![Image]()
 
 
 ## Features
 
-The user can make an account, create a playlist, search videos from Youtube, and  add the video into that playlist.
+The user can ...
 
 ## Authors
 
@@ -15,7 +15,8 @@ Built by [Ngan Kim Khong](https://github.com/nk2303) and [Fat David](https://git
 
 
 ## Video Tutorial 
-https://www.youtube.com/watch?v=axmKyyd579c
+
+*Coming
 
 ## Installation 
 (backend) (https://github.com/nk2303/youtube-playlist-ruby-on-rails)
