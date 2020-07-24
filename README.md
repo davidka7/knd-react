@@ -1,4 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Youtube Playlist client
+
+A playlist-management tool for YouTube streaming which minimizes video ad interference.
+
+![Image]()
+
+
+## Features
+
+The user can make an account, create a playlist, search videos from Youtube, and  add the video into that playlist.
+
+## Authors
+
+Built by [Ngan Kim Khong](https://github.com/nk2303) and [Fat David](https://github.com/davidka7)
+
+
+## Video Tutorial 
+https://www.youtube.com/watch?v=axmKyyd579c
+
+## Installation 
+(backend) (https://github.com/nk2303/youtube-playlist-ruby-on-rails)
+1) Clone the repo. 
+2) From your terminal, navigate to the youtube-playlist-ruby-on-rails.  
+3) From your terminal, type: 
+  ```bundle install```
+  ```rails db:seed```
+  ```rails db:migrate```
+  ```rails s```
+  
+(frontend) (https://github.com/nk2303/youtube-playlist)
+1) Clone the repo. 
+2) From your terminal, navigate to the youtube-playlist.  
+3) From your terminal, type:
+``` npm start ```
+4) From your web browswer:
+    - sign up with a username and password
+5) Enjoy :)
+
+
+_______
+
+## Technologies
+
+[React](https://reactjs.org/)
+[React Hooks](https://reactjs.org/docs/hooks-reference.html)
+[React Bootstrap](https://react-bootstrap.github.io/)
+[Bootswatch](https://bootswatch.com/)
+
+
+## Learn More
+
+This project was created with [Create React App](https://github.com/facebook/create-react-app).
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
 
 ## Available Scripts
 
