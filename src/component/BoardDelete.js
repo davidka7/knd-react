@@ -17,6 +17,7 @@ const BoardDelete = ({boardInfo, deleteBoard}) => {
     }
 
     //hi
+    //
 
     return (
         <>
