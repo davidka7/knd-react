@@ -16,6 +16,9 @@ const BoardDelete = ({boardInfo, deleteBoard}) => {
         setShow(false)
     }
 
+    //hi
+    //
+
     return (
         <>
             <p onClick={handleShow}>Delete board</p>
