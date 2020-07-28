@@ -4,7 +4,7 @@ A management application for teammates to prioritize between tasks, share and ke
 
 ![Image login](./readmephotos/login.png)
 ![Image login](./readmephotos/boards.png)
-![Image login](./readmephotos/project.png)
+![Image login](./readmephotos/project1.png)
 
 
 ## Features
