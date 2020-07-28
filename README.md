@@ -9,7 +9,11 @@ A management application for teammates to prioritize between tasks, share and ke
 
 ## Features
 
-The user can ...
+The user can create new project, add boards into the project and add cards into boards.
+Users can share projects with others.
+Cards can be dragged and move around and dropped into the boards.
+Users can add icon into cards.
+
 
 ## Authors
 
