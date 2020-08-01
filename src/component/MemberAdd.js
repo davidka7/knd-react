@@ -57,7 +57,7 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
                 </div>
                 </Form.Group>
                 
-                {user ? <p className="text-success">Found username {user.username}</p> : null}
+                {user ? <p className="text-success">Found username! {user.username}</p> : null}
             </Form>
             <Form onSubmit={handleSubmit1}>
                 {user ?
