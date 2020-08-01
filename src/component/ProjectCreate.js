@@ -38,7 +38,7 @@ console.log(imageLink)
                         <Form.Label>Project Topic</Form.Label>
                         <Form.Control 
                             type="topic" 
-                            maxlength="14"
+                            maxLength="14"
                             placeholder="Add project topic..." 
                             onChange={handleTopicChange}
                             value={topic}
