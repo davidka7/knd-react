@@ -34,6 +34,7 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
                 <Col xs={12} md={12}><h3 className="text-muted"> Your projects </h3> </Col>
                 {projects.projects.map(project => ( 
                     <Col xs={6} md={2} key={project.id}> 
+                    
                         <ProjectFromMe project={project}/>
                     </Col>))
                 }
