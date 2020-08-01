@@ -14,9 +14,14 @@
 #projectFromMe {
     background-color: white;
     background-size: cover;
- 
+    ;
 }
 
+#break {
+    overflow-x: scroll !important;
+
+
+}
 
 
 .projectPage .project-list-box { margin: 50px 100px 50px 100px;}
@@ -26,7 +31,7 @@ hr { margin: 0px 0px 10px}
 .dropdown-header {text-align: center; font-size: 18px;}
 .dropdown-item p {margin: 0px}
 
-.jumbotron h1 { color: black }
+.jumbotron h1 { color: blue }
 .custom-select {border: 0px;}
 
 .custom-select {border: 0px;}

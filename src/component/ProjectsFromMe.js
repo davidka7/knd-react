@@ -18,9 +18,9 @@ const ProjectFromMe = ({project, projectId, ProjectId_save}) => {
 
     return (
         <Card id="projectFromMe" >
-            <Dropdown alignRight>
-                <Dropdown.Toggle className="custom-select navbar-toggler" id="dropdown-basic" block>
-                    <h3>{project.topic}</h3>
+            <Dropdown   alignRight>
+                <Dropdown.Toggle  id ="break" className="custom-select navbar-toggler" id="dropdown-basic" block>
+                 <span   > <h3>{project.topic}</h3> </span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Header>Options</Dropdown.Header>
