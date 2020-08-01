@@ -29,8 +29,9 @@ export const getMyProjects = () => {
     });
 }
 
-export const createProject = ( topic ) => {
-    const project = { topic }
+export const createProject = ( topic, imageLink) => {
+    const project = { topic, imageLink }
+    console.log(imageLink)
     return fetch(`${BACKEND_DOMAIN}/projects`, {
         method: "POST",
         headers: headers(),

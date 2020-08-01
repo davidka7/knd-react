@@ -15,9 +15,9 @@ const ProjectFromMe = ({project, projectId, ProjectId_save}) => {
         projectId(project_id);
         ProjectId_save(project_id)
     }
-
+console.log(project)
     return (
-        <Card id="projectFromMe" >
+        <Card style={{backgroundImage: `url(${project.background_image})`}} id="projectFromMe" >
             <Dropdown   alignRight>
                 <Dropdown.Toggle  id ="break" className="custom-select navbar-toggler" id="dropdown-basic" block>
                  <span   > <h3>{project.topic}</h3> </span>

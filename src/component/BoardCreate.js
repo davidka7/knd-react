@@ -46,7 +46,7 @@ const BoardCreate = ({createBoard, projectId}) => {
                         </Form.Group>
 
                         <Form.Group controlId="formLogincPassword">
-                            <Form.Label>Board Background</Form.Label>
+                            <Form.Label>Board Url Background</Form.Label>
                             <Form.Control 
                                 type="imageLink" 
                                 placeholder="Add Board image..."
