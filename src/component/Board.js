@@ -10,7 +10,7 @@ import BoardDelete from './BoardDelete';
 import BoardEdit from './BoardEdit'
 
 
-const Board = ({ boardInfo, onCardDrop, draggedItem }) => {
+const Board = ({ boardInfo, onCardDrop, draggedItem, projectStuff }) => {
 
   const handleCardDrop = () => {
     draggedItem.icon_img ?  console.log("hi") : onCardDrop(boardInfo, draggedItem) 
@@ -21,7 +21,7 @@ const Board = ({ boardInfo, onCardDrop, draggedItem }) => {
         onDrop={handleCardDrop} 
         onDragOver={e => e.preventDefault()}>
 
-        <Card className="board-box">
+        <Card className="board-box" style={{backgroundImage: `url(${projectStuff.background_image})`}}>
           <Card.Title>
             <Dropdown alignRight>
                   <Dropdown.Toggle className="custom-select" id="dropdown-basic" block>

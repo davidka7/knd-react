@@ -10,21 +10,21 @@ const BoardCreate = ({createBoard, projectId}) => {
 
     const [show, setShow] = useState(false);
     const [topic, setTopic] = useState('');
-    const [imageLink, setImageLink] = useState('');
+    // const [imageLink, setImageLink] = useState('');
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const handleTopicChange = e => { setTopic(e.target.value) };
-    const handleImageChange = e => { setImageLink(e.target.value) };
+    // const handleImageChange = e => { setImageLink(e.target.value) };
 
 
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        if (topic){createBoard(topic, imageLink, projectId);}
+        if (topic){createBoard(topic, projectId);}
         setTopic('');
-        setImageLink(''); 
+        // setImageLink(''); 
     }
 
     return (
@@ -42,17 +42,18 @@ const BoardCreate = ({createBoard, projectId}) => {
                                 type="topic" 
                                 placeholder="Add Board topic..." 
                                 onChange={handleTopicChange}
+                                maxLength="14"
                                 value={topic} />
                         </Form.Group>
 
-                        <Form.Group controlId="formLogincPassword">
+                        {/* <Form.Group controlId="formLogincPassword">
                             <Form.Label>Board Url Background</Form.Label>
                             <Form.Control 
                                 type="imageLink" 
                                 placeholder="Add Board image..."
                                 onChange={handleImageChange}
                                 value={imageLink} />
-                        </Form.Group>
+                        </Form.Group> */}
                         <Button type="submit" variant="primary" onClick={handleClose}>Create </Button>
                     </Form>
                 </Modal.Body>
@@ -65,7 +66,7 @@ const BoardCreate = ({createBoard, projectId}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createBoard: (topic, imageLink, projectId) => {createBoard(topic, imageLink, projectId).then(dispatch) }
+        createBoard: (topic, projectId) => {createBoard(topic, projectId).then(dispatch) }
     }
 }
 

@@ -41,6 +41,7 @@ const CardCreate = ({createCard, board_id}) => {
                         <Form.Label>Title</Form.Label>
                         <Form.Control 
                             type="card_title" 
+                            maxLength="14"
                             placeholder="Add project topic..." 
                             onChange={handleTopicChange}
                             value={card_title}
