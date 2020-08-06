@@ -80,7 +80,7 @@ export const deleteProject = (id, dispatch) => {
 
 export const editProject = ( topic, imageLink, project_id ) => {
     const project = { 
-        project: { project_id, topic, imageLink } 
+        project: { project_id, topic, background_image: imageLink} 
     }
     return fetch(`${BACKEND_DOMAIN}/projects/${project_id}`, {
         method: "PUT",
