@@ -10,6 +10,10 @@ const headers = () => {
 };
 
 export const deleteCard = (card, dispatch) => {
+<<<<<<< HEAD
+=======
+    console.log(card)
+>>>>>>> 115504c691da5ad6a413f4bee5b22d4dfa8c0bf8
     fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
         method: "DELETE",
         headers: headers(),

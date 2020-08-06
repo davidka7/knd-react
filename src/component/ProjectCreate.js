@@ -24,7 +24,7 @@ const ProjectCreate = ({projects, createProject}) => {
         setTopic('');
         setImageLink('');
     }
-
+console.log(imageLink)
     return (
         <>
         <Button variant="outline-primary" className="btn-block" onClick={handleShow}>Add +</Button>
@@ -38,6 +38,7 @@ const ProjectCreate = ({projects, createProject}) => {
                         <Form.Label>Project Topic</Form.Label>
                         <Form.Control 
                             type="topic" 
+                            maxLength="14"
                             placeholder="Add project topic..." 
                             onChange={handleTopicChange}
                             value={topic}
@@ -45,7 +46,7 @@ const ProjectCreate = ({projects, createProject}) => {
                     </Form.Group>
 
                     <Form.Group controlId="formLogincPassword">
-                        <Form.Label>Project image</Form.Label>
+                        <Form.Label>Project Image Url</Form.Label>
                         <Form.Control 
                             type="imageLink" 
                             placeholder="Add project image..."
