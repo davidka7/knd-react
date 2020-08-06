@@ -27,6 +27,7 @@ const ProjectEdit = ({project, editProject}) => {
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
+        handleClose();
         editProject(topic, imageLink, project_id);
         console.log(topic, imageLink, project_id)
         setTopic(project.topic);
@@ -47,6 +48,7 @@ const ProjectEdit = ({project, editProject}) => {
                         <Form.Label>Edit Project Topic : <span class="text-info">{project.topic}</span></Form.Label>
                         <Form.Control 
                             type="topic" 
+                            maxLength="14"
                             placeholder="New project topic..." 
                             onChange={handleTopicChange}
                             value={topic}
