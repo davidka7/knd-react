@@ -11,6 +11,7 @@ const ProjectEdit = ({project, editProject}) => {
 
     const [show, setShow] = useState(false);
     const [topic, setTopic] = useState(project.topic);
+    const [project_id, setProjectId] = useState(project.id);
     const [imageLink, setImageLink] = useState(project.background_image);
 
     const handleShow = () => setShow(true);
@@ -26,7 +27,9 @@ const ProjectEdit = ({project, editProject}) => {
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        editProject(topic, imageLink);
+        handleClose();
+        editProject(topic, imageLink, project_id);
+        console.log(topic, imageLink, project_id)
         setTopic(project.topic);
         setImageLink(project.background_image);
     }
@@ -45,6 +48,7 @@ const ProjectEdit = ({project, editProject}) => {
                         <Form.Label>Edit Project Topic : <span class="text-info">{project.topic}</span></Form.Label>
                         <Form.Control 
                             type="topic" 
+                            maxLength="14"
                             placeholder="New project topic..." 
                             onChange={handleTopicChange}
                             value={topic}
@@ -62,7 +66,7 @@ const ProjectEdit = ({project, editProject}) => {
                     </Form.Group>
                     
                     <Button variant="secondary" onClick={handleClose}> Cancel </Button>
-                    <Button type="submit" className="btn-success" onClick={handleClose}>Save Changes</Button>
+                    <Button type="submit" className="btn-success" onClick={handleSubmit}>Save Changes</Button>
            
                 </Form>
             </Modal.Body>
@@ -76,7 +80,7 @@ const ProjectEdit = ({project, editProject}) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        editProject: (topic, imageLink, project_id) => editProject(topic, imageLink, project_id, dispatch),
+        editProject: (topic, imageLink, project_id) => editProject(topic, imageLink, project_id).then(dispatch),
     }
 }
 

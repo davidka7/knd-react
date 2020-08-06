@@ -31,6 +31,7 @@ const CardEdit = ({card}) => {
                         <Form.Label>Title</Form.Label>
                         <Form.Control 
                             type="card_title" 
+                            
                             placeholder={card.card_title}
                             onChange={handleTopicChange}
                             value={card_title}

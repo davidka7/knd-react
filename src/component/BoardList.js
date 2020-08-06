@@ -8,7 +8,7 @@ const BoardList = ({boards, projectInfo}) => {
 
     return (
         <CardDeck>
-            {boards.map( board => <Board key={board.id} boardInfo={board}/>)}
+            {boards.map( board => <Board projectStuff={projectInfo} key={board.id} boardInfo={board}/>)}
             <BoardCreate projectId={projectInfo.id}/>
         </CardDeck>  
     )
