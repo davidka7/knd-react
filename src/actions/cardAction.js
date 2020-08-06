@@ -10,7 +10,7 @@ const headers = () => {
 };
 
 export const deleteCard = (card, dispatch) => {
-    fetch(`${BACKEND_DOMAIN}/cards/${card}`, {
+    fetch(`${BACKEND_DOMAIN}/cards/${card.id}`, {
         method: "DELETE",
         headers: headers(),
     }).then(res => res.json())
@@ -36,7 +36,6 @@ export const deleteCard = (card, dispatch) => {
 }
 
 export const createCard = ( card_title, content, board_id ) => {
-
     let c = { card_title, content, board_id }
     return fetch(`${BACKEND_DOMAIN}/cards`, {
         method: "POST",
