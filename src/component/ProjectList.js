@@ -43,7 +43,7 @@ const ProjectList = ({ ProjectId_save, getMyProjects, projects, projectId, getus
 
             
             <Row className="project-list-box jumbotron">
-                <Col xs={12} md={12}><h3 className="text-muted"> Share projects </h3> </Col>
+                <Col xs={12} md={12}><h3 className="text-muted"> Shared projects </h3> </Col>
                     { projects.user_project.filter(project => (
                         project.topic
                     )).map(project => (
