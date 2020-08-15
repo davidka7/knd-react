@@ -26,13 +26,14 @@ const ProjectShare = ({project, projectId, ProjectId_save, user_projects}) => {
                     <Dropdown.Header>Options</Dropdown.Header>
                     <hr></hr>
 
-                    {(user_projects[0].admin_permission === true) ? 
-                    (<> 
-                    <Dropdown.Item>Admin</Dropdown.Item>
-                    <Dropdown.Item><DeleteUserProject project={user_projects}/></Dropdown.Item> </>)
-                    :
+                    {/* {(user_projects[0].admin_permission === false || user_projects[0].admin_permission === undefined) ? 
                     <Dropdown.Item><DeleteUserProject project={user_projects}/></Dropdown.Item>
-                    }
+                    :
+                    (<> 
+                        <Dropdown.Item>Admin</Dropdown.Item> */}
+                        <Dropdown.Item><DeleteUserProject project={user_projects}/></Dropdown.Item>
+                         {/* </>)
+                    } */}
                 </Dropdown.Menu>
             </Dropdown>
                 
