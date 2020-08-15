@@ -26,7 +26,7 @@ const ProjectShare = ({project, projectId, ProjectId_save, user_projects}) => {
                 <Dropdown.Menu>
                     <Dropdown.Header>Options</Dropdown.Header>
                     <hr></hr>
-                    {console.log(user_projects[0].admin_permission)}
+                  
                     {/* {(user_projects[0].admin_permission === false || user_projects[0].admin_permission === undefined) ? 
                     <Dropdown.Item><DeleteUserProject project={user_projects}/></Dropdown.Item>
                     :

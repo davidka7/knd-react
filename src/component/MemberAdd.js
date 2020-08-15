@@ -30,8 +30,8 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
         user_project(user.id, project.id, isAdmin);
     }
 
-    const handleAdmin = () => setIsAdmin(!isAdmin);
-    const handleAdmin1 = () => setIsAdmin(isAdmin);
+    const handleAdmin = () => setIsAdmin(true);
+    const handleAdmin1 = () => setIsAdmin(false);
     const handlePerso = e => { 
         setPerso(e.target.value);
         if (isMember(e.target.value)) {}
