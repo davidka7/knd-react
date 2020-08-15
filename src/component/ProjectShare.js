@@ -17,7 +17,7 @@ const ProjectShare = ({project, projectId, ProjectId_save, user_projects}) => {
     }
 
     return (
-        <Card>
+        <Card style={{backgroundImage: `url(${project.background_image})`}} id="projectSave">
             <Dropdown>
                 <Dropdown.Toggle className="custom-select" id="dropdown-basic" block>
                     <h3>{project.topic}</h3>
