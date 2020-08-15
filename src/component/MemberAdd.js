@@ -75,7 +75,9 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
                            
                         </Form.Group>
                         <Button type="button" variant="secondary" > Cancel </Button>
+                        {
                         <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button>
+}
                     </>
                     :
                     <p className="text-muted">Enter the username to look for user.</p>
