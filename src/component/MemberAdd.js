@@ -30,8 +30,8 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
         user_project(user.id, project.id, isAdmin);
     }
 
-    const handleAdmin = () => setIsAdmin(!isAdmin);
-    const handleAdmin1 = () => setIsAdmin(isAdmin);
+    const handleAdmin = () => setIsAdmin(true);
+    const handleAdmin1 = () => setIsAdmin(false);
     const handlePerso = e => { 
         setPerso(e.target.value);
         if (isMember(e.target.value)) {}
@@ -75,7 +75,9 @@ const MemberAdd = ({ project, user_project, getuser, user, currentUser, clearUse
                            
                         </Form.Group>
                         <Button type="button" variant="secondary" > Cancel </Button>
+                        {
                         <Button type="submit" variant="primary" onClick={handleSubmit1}>Share </Button>
+}
                     </>
                     :
                     <p className="text-muted">Enter the username to look for user.</p>

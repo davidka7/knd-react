@@ -7,13 +7,11 @@ export const user_projectReducer = (state = PROJECT_INITIAL_STATE, action) => {
             console.log("LOOK HERE",action.payload)
             return action.payload.map(item => item);
             case "DELETE_USER_PROJECT":
-                console.log(state)
-                console.log(action)
-           
-                console.log(state.filter(p=>p.topic).filter(x=>x.id !== state.id))
+              
+        
                 // state.filter(p=>p.topic).filter(x=>x.id !== state.filter(p=>p.project_id).filter(x=>x.id == action.id).project_id)
-                state.filter(p=>p.topic).filter(x=>x.id !== state.id)
-            return state
+              
+            return  state.filter(p=>p.topic).filter(x=>x.id !== action.id);
         
         default:
             return state;
