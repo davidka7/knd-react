@@ -12,7 +12,8 @@ const headers = () => {
 
 export const user_project = (user_id, project_id, admin_permission ) => {
 
- let userproject = { user_project: {project_id, user_id, admin_permission }}
+    let userproject = { user_project: {project_id, user_id, admin_permission }}
+    
     return fetch(`${BACKEND_DOMAIN}/user_projects`, {
         method: "POST",
         headers: headers(),

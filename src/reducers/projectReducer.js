@@ -9,7 +9,6 @@ export const projectReducer = (state = PROJECT_INITIAL_STATE, action) => {
             console.log(action.payload.project)
             return [...state, action.payload.project];
         case "EDIT_PROJECT":
-        console.log(action.payload.project, "Lol")
         return state.map( p => (p.id === action.payload.project.id) ? action.payload.project : p); 
         case 'DELETE_PROJECT':
             return state.filter((p) => p.id !== action.id);
