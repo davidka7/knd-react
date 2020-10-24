@@ -3,8 +3,10 @@
 A management application for teammates to prioritize between tasks, share and keep track of their roles working on the same project.
 
 ![Image login](./readmephotos/login.png)
-![Image login](./readmephotos/boards.png)
-![Image login](./readmephotos/project1.png)
+![Image boards](./readmephotos/boards.png)
+![Image icons](./public/iconshow.png)
+![Image projects](./readmephotos/project1.png)
+
 
 
 ## Features

@@ -20,7 +20,7 @@ console.log(project)
         <Card style={{backgroundImage: `url(${project.background_image})`}} id="projectFromMe" >
             <Dropdown   alignRight>
                 <Dropdown.Toggle  id ="break" className="custom-select navbar-toggler" id="dropdown-basic" block>
-                 <span   > <h3>{project.topic}</h3> </span>
+                 <span> <h3>{project.topic}</h3> </span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                     <Dropdown.Header>Options</Dropdown.Header>
