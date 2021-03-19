@@ -20,7 +20,7 @@ Users can add icon into cards.
 ## Authors
 
 Built by [Ngan Kim Khong](https://github.com/nk2303) and [Fat David](https://github.com/davidka7)
-
+Comment: lol kim you called me fat haha
 
 ## Video Tutorial 
 
